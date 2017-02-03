@@ -1,0 +1,114 @@
+{
+    "current_page" : 5,
+    "total_pages": 8,
+    "posts" : 
+        [   
+            { 
+                "title": "params en C#", 
+                "date": "2016-04-18 14:00:00 -0500",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/params.png",
+                "summary": "La palabra reservada params se usa en la declaración de los parámetros de un método, se antepone al tipo de dato que vamos a declarar y tiene una peculiaridad, solamente se puede anteponer a parámetros que sean arreglos."
+            },
+            { 
+                "title": "Ideone", 
+                "date": "2016-04-18 13:00:00 -0500",
+                "featured_tag": "Tv",
+                "featured_image": "http://thatcsharpguy.com/postimages//tv/ideone/featured.png",
+                "summary": "Ideone es una colección de compiladores en línea, que permite escribir, compilar y ejecutar código fuente escrito en más de 60 lenguajes de programación."
+            },
+            { 
+                "title": "¡Hola mundo!", 
+                "date": "2016-04-18 13:00:00 -0500",
+                "featured_tag": "Tv",
+                "featured_image": "http://thatcsharpguy.com/postimages//tv/hola-mundo/featured.png",
+                "summary": "Video de presentación de este nuevo canal de YouTube en donde, a pesar del nombre, no solamente hablaré de C#, si no de varias muchas otras cosas relacionadas con la programación."
+            },
+            { 
+                "title": "out y ref en C#", 
+                "date": "2016-04-11 14:00:01 -0500",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/ref-out.png",
+                "summary": "Seguramente si en alguna vez de tu carrera has usado código C o C++ te has encontrado con estos operadores&#58; &#42; y &amp; que, en pocas palabras, nos sirven para trabajar con punteros y también sabrás que estos nos permitían pasar como referencia una variable."
+            },
+            { 
+                "title": "Métodos en C#", 
+                "date": "2016-04-11 14:00:00 -0500",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/metodos.png",
+                "summary": "Un método no es más que un procedimiento o acción asociado con una clase y se compone de datos y un comportamiento. Esta es la manera de definir un método en C#."
+            },
+            { 
+                "title": "Xamarin.iOS, C# y Objective-C", 
+                "date": "2016-04-04 14:00:00 -0500",
+                "featured_tag": "Xamarin",
+                "featured_image": "http://thatcsharpguy.com/postimages//xamarin-ios/featured_obj.png",
+                "summary": "Un post en el que se compara la sintaxis de Objective-C con la de C# con Xamarin.iOS."
+            },
+            { 
+                "title": "AutoMapper", 
+                "date": "2016-03-28 13:00:00 -0600",
+                "featured_tag": "NuGetRecomendado",
+                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
+                "summary": "AutoMapper es un mapeador objeto-objeto que &quot;convierte&quot; un objeto de un tipo a otro, sin embargo lo que hace realmente útil a esta herramienta es que facilita la tarea mediante el uso de convenciones de código."
+            },
+            { 
+                "title": "Multi-select ListView y MVVM", 
+                "date": "2016-03-23 02:00:00 -0600",
+                "featured_tag": "XamarinForms",
+                "featured_image": "http://thatcsharpguy.com/postimages//xamarin-forms/multiselect-featured.png",
+                "summary": "Aprende cómo permitir al usuario selecionar más de un item en una lista y a hacerlo todo desde MVVM con Xamarin.Forms."
+            },
+            { 
+                "title": "Multi-select ListView and MVVM", 
+                "date": "2016-03-23 02:00:00 -0600",
+                "featured_tag": "XamarinForms",
+                "featured_image": "http://thatcsharpguy.com/postimages//xamarin-forms/multiselect-featured.png",
+                "summary": "Learn how to allow the user to select more than one item in a ListView, everything from MVVM with Xamarin.Forms."
+            },
+            { 
+                "title": "Inicializadores en C#", 
+                "date": "2016-03-14 13:00:00 -0600",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/inicializadores.png",
+                "summary": "Lo que permite la inicialización de objetos es hacer uso de los constructores y además de asignar &quot;al mismo tiempo&quot; las propiedades o campos públicos que contiene el objeto."
+            },
+            { 
+                "title": "Trabajando con XslX en C#", 
+                "date": "2016-03-07 13:00:00 -0600",
+                "featured_tag": "NuGetRecomendado",
+                "featured_image": "http://thatcsharpguy.com/postimages//xlsx-c-sharp/featured.png",
+                "summary": "¿Quieres trabajar con documentos de Word sin tener que depender de Office? DocX es la librería para ti. Con ella tienes un montón de opciones disponibles para desarrollar. Conócela aquí."
+            },
+            { 
+                "title": "Directivas de preprocesamiento en C#", 
+                "date": "2016-02-29 04:00:00 -0600",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages/directives/featured.png",
+                "summary": "Las directivas nos pueden ayudar a personalizar nuestro código a partir de condiciones dictadas antes de la compilación del mismo, o a forzar que ciertas condiciones se cumplan para que siquiera compile."
+            },
+            { 
+                "title": "Unit testing", 
+                "date": "2016-02-22 15:00:00 -0600",
+                "featured_tag": "Meta",
+                "featured_image": "http://thatcsharpguy.com/postimages/unit-testing/featured.png",
+                "summary": "Is a level of the software testing process where individual components of a software are tested. The purpose is to validate that each unit of the software performs as designed."
+            },
+            { 
+                "title": "Code Snippets en Visual Studio", 
+                "date": "2016-02-22 04:00:00 -0600",
+                "featured_tag": "VisualStudio",
+                "featured_image": "http://thatcsharpguy.com/postimages/code-snippets/featured.png",
+                "summary": "Agiliza el proceso de desarrollo en Visual Studio mediante el uso de fragmentos de código, que no solo te ahorraran unas cuantas tecleadas, sino te librarán de tareas repetitivas."
+            },
+            { 
+                "title": "Trabajando con DocX en C#", 
+                "date": "2016-02-15 13:00:00 -0600",
+                "featured_tag": "NuGetRecomendado",
+                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
+                "summary": "¿Quieres trabajar con documentos de Word sin tener que depender de Office? DocX es la librería para ti. Con ella tienes un montón de opciones disponibles para desarrollar. Conócela aquí."
+            }	
+        ]
+}
+
+
