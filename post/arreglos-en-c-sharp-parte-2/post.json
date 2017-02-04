@@ -1,0 +1,68 @@
+{	
+	"id" : "/post/arreglos-en-c-sharp-parte-2/",
+	"tv" : false,
+	"date": "2015-10-22 16:00:00 -0500",
+	"title" : "Arreglos en C# (multidimensionales escalonados)",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
+	"tags" :
+	[ 
+		"AprendeCSharp"
+	],
+	"content" : "<p>En el post anterior les contaba sobre los arreglos <a href=\"/post/arreglos-en-c-sharp-parte-1\">arreglos unidimensionales en C#</a>, y hacia el final los invitaba a leer este, sobre los arreglos multidimensionales, así que sin más:</p>
+
+<p>Los arreglos escalonados (o <em>jagged arrays</em>) son los tipos de arreglos multidimensionales más conocidos, y es que también son compunes en otros lenguajes de programación. Un arreglo escalonado no es más que un arreglo de arreglos.</p>
+
+<h4 id=\"instanciacin\">Instanciación</h4>
+<p>Para crear estos arreglos de arreglos, tenemos una sintaxis similar a la creación de arreglos unidimensionales, con <code>[ ]</code> para cada dimensión: 
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp">			
+<span class="kt">char</span><span class="p">[][]</span> <span class="n">gato</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="m">3</span><span class="p">][];&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="kt">string</span> <span class="p">[][][]</span> <span class="n">rubik</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[</span><span class="m">3</span><span class="p">][][];&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="kt">int</span><span class="p">[][]</span> <span class="n">escalera</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="m">3</span><span class="p">][];</span></code></pre></figure><br />
+Acá es importante notar que al instanciar un arraglo multidimensional de esta manera <strong>únicamente estamos indicando el tamaño de la primera dimensión</strong>, 3 en el caso de <code>gato</code>, 3 también para <code>rubik</code> y 2 para <code>escalera</code>. Es tarea nuestra inicializar los arreglos interiores: 
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp">			
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="m">3</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+<span class="p">{</span>
+	<span class="n">gato</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="m">3</span><span class="p">];</span> <span class="c1">// gato[i] hace referencia a un arreglo</span>
+<span class="p">}</span></code></pre></figure> <br />
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp">			
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="m">3</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+<span class="p">{</span>
+	<span class="n">rubik</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[</span><span class="m">3</span><span class="p">][];</span>
+	<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">j</span> <span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="m">3</span><span class="p">;</span> <span class="n">j</span><span class="p">++)</span>
+	<span class="p">{</span>
+		<span class="n">rubik</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[</span><span class="m">3</span><span class="p">];</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></figure><br />
+Con los arreglos escalonados no hay nada que nos prohíba crear arreglos internos de dimensiones iguales a la de arreglo que las contiene, es más, <strong>podemos crear arreglos internos de distintos tamaños en la misma dimensión</strong>, hagamos algo con nuestro arreglo <code>escalera</code>: <br />
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp">			
+<span class="n">escalera</span> <span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="p">{</span> <span class="m">1</span> <span class="p">};</span>
+<span class="n">escalera</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="p">{</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span> <span class="p">};</span>
+<span class="n">escalera</span> <span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="p">{</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span> <span class="p">};</span></code></pre></figure><br />
+Con estos arreglos de arreglos también podemos usar la instanciación de colecciones: <br />
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp">	
+<span class="kt">char</span><span class="p">[][]</span> <span class="n">gato</span> <span class="p">=</span> 
+<span class="p">{</span>
+	<span class="k">new</span> <span class="kt">char</span><span class="p">[]{</span> <span class="err">‘</span><span class="n">o</span><span class="err">’</span><span class="p">,</span> <span class="err">‘</span><span class="n">x</span><span class="err">’</span><span class="p">,</span> <span class="err">‘</span><span class="n">o</span><span class="err">’</span> <span class="p">},</span>
+	<span class="k">new</span> <span class="kt">char</span><span class="p">[]{</span> <span class="err">‘</span><span class="n">o</span><span class="err">’</span><span class="p">,</span> <span class="err">‘</span><span class="n">x</span><span class="err">’</span><span class="p">,</span> <span class="err">‘</span><span class="n">o</span><span class="err">’</span> <span class="p">},</span>
+	<span class="k">new</span> <span class="kt">char</span><span class="p">[]{</span> <span class="err">‘</span><span class="n">o</span><span class="err">’</span><span class="p">,</span> <span class="err">‘</span><span class="n">x</span><span class="err">’</span><span class="p">,</span> <span class="err">‘</span><span class="n">o</span><span class="err">’</span> <span class="p">}</span>
+<span class="p">};</span></code></pre></figure></p>
+
+<h4 id=\"acceso-a-los-elementos\">Acceso a los elementos</h4>
+<p>De nueva cuenta, y por tratarse de arreglos, usaremos los <code>[ ]</code> para acceder a los elementos de nuestros arreglos, de tal manera que es posible escribir algo como esto: <br />
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"> 
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">escalera</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+<span class="p">{</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">j</span> <span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">escalera</span> <span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Length</span><span class="p">;</span> <span class="n">j</span><span class="p">++)</span> 
+	<span class="p">{</span>
+		<span class="n">Console</span><span class="p">.</span><span class="n">Write</span> <span class="p">(</span><span class="n">escalera</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="p">+</span>  <span class="err">“</span> <span class="err">“</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<span class="p">}</span>  <span class="p">&lt;</span><span class="n">br</span> <span class="p">/&gt;</span></code></pre></figure></p>
+
+<h4 id=\"lo-que-sigue\">Lo que sigue</h4>
+<p>En el post siguiente les platicaré sobre los arreglos rectangulares, que son lo más parecido a matrices que podemos encontrar en C#. Estos son similares a los arreglos rectangulares con la pequeña diferencia de que no pueden contener arreglos de distintos tamaños dentro de la misma dimensión.</p>
+"
+}

@@ -1,0 +1,97 @@
+{	
+	"id" : "/post/debugging-1/",
+	"tv" : false,
+	"date": "2016-10-31 13:00:01 -0600",
+	"title" : "Debugging parte 1",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/debugging/f.png",
+	"tags" :
+	[ 
+		"AprendeCSharp"
+	],
+	"content" : "<p>Estoy seguro que nadie ha escrito un programa que a la primera salga bien, y también estoy seguro de que para corregir los errores en los tuyos has tenido que <em>debuguear</em> el código. En este post te voy a dar algunos tips para que depures tu código en C# y tu IDE de confianza.</p>
+
+<h2 id=\"directivas-de-preprocesamiento\">Directivas de preprocesamiento</h2>
+<p>Primero comencemos por la <a href=\"../directivas-preprocesador-c-sharp\">directiva de preprocesamiento</a> <code>#if</code> y el símbolo <code>DEBUG</code>. Si envuelves cualquier parte de código entre un <code>if DEBUG</code> y <code>#endif</code> únicamente será compilado cuando el símbolo en cuestión esté definido. Si estás usando un IDE es muy común que <code>DEBUG</code> esté definido cuando estás usando la configuración  <em>Debug</em> de tu proyecto.</p>
+
+<div class=\"pure-g\">
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<figure><img src='/postimages/post/debugging-1/post.jsonconfig-vs.png' alt='\"Distintas salidas\" images_set' /></figure>
+</div>
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<figure><img src='/postimages/post/debugging-1/post.jsonconfig-xs.jpg' alt='\"Distintas salidas\" images_set' /></figure>
+</div>  
+</div>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="cp">#if DEBUG</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="err">“</span><span class="n">Solo</span> <span class="n">visible</span> <span class="n">en</span> <span class="n">modo</span> <span class="n">debug</span><span class="p">,</span> <span class="n">directiva</span><span class="p">:</span> <span class="n">DEBUG</span><span class="err">”</span><span class="p">);</span>
+<span class="cp">#endif</span></code></pre></figure></p>
+
+<h2 id=\"sobreescribir-el-mtodo-tostring\">Sobreescribir el método ToString</h2>
+<p>Otra de las cosas que puedes hacer es sobreescribir el método <code>ToString</code> en tus clases, ya que por default, C# regresará el nombre calificado del tipo que estamos llamando. Si, por ejemplo, hubiéramos sobreescrito el método en nuestra clase <code>TestClass</code> de la siguiente manera:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">TestClass</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Propiedad1</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="k">override</span> <span class="kt">string</span> <span class="nf">ToString</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="err">“</span><span class="p">{</span><span class="m">0</span><span class="p">}:{</span><span class="m">1</span><span class="p">}</span><span class="err">”</span><span class="p">,</span> <span class="n">nameof</span><span class="p">(</span><span class="n">Propiedad1</span><span class="p">),</span> <span class="n">Propiedad1</span><span class="p">);</span>
+    <span class="p">}</span></code></pre></figure></p>
+
+<p>Al llamar al método <code>Console.WriteLine</code> de la siguiente manera:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">tc</span><span class="p">);</span></code></pre></figure></p>
+
+<p>Hubiéramos obtenido lo siguiente:</p>
+
+<div class=\"pure-g\">
+<div class=\"pure-u-1 pure-u-md-1-2\">
+Sin sobreescribir <code>ToString</code>
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">DebuggingTips</span><span class="p">.</span><span class="n">TestClass</span></code></pre></figure>  
+</div>
+<div class=\"pure-u-1 pure-u-md-1-2\">
+Sobreescribiendo <code>ToString</code>
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">Propiedad1</span><span class="p">:</span> <span class="n">Uno</span></code></pre></figure>  
+</div>  
+</div>
+
+<h2 id=\"atributo-debuggerdisplay\">Atributo DebuggerDisplay</h2>
+<p>Existe una falla con usar <code>ToString</code>… y es que esta es una modificación que afectará a toda nuestra aplicación, aún cuando no estemos depurando el código. Para solucionarlo, podemos comentar ese código cuando ya no estemos depurando o envolver la sobreescritura en un <code>#if DEBUG</code>.</p>
+
+<p>Pero bueno, las dos opciones suenan un poco mal. Si tu aplicación no tiene alguna forma de escribir en pantalla y únicamente vas a depurar en el IDE, puedes hacer uso del <a href=\"../atributos-c-sharp\">atributo</a> <code>DebuggerDisplay</code></p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="na">[DebuggerDisplay(“Propiedad1: {Propiedad1}”)]</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">TestClass</span></code></pre></figure></p>
+
+<p>Que en pocas palabras, le dirá a nuestro entorno de desarrollo cómo debe mostrar los tipos de dato cuando estemos <em>debugueando</em>:</p>
+
+<p><figure><img src='/postimages/post/debugging-1/post.jsondebugger-display.jpg' alt='“Distintas salidas” images_set' /></figure></p>
+
+<h2 id=\"mtodos-de-la-clase-diagnosticsdebug\">Métodos de la clase Diagnostics.Debug</h2>
+<p>Otra de las opciones que tenemos (y que yo descubrí recientemente) es la clase <code>Debug</code> en el <em>namespace</em> <code>System.Diagnostics</code>.</p>
+
+<p>Primero, no siempre vas a estar programando aplicaciones que tengan una consola disponible, entonces no siempre vas a poder usar la clase <code>Console</code>, es aquí cuando podemos usar:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">System</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">.</span><span class="n">Debug</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">tc</span> <span class="p">+</span> <span class="err">“</span><span class="c1">// Debug.WriteLine “);</span></code></pre></figure></p>
+
+<p>Que como puedes ver, es muy parecido al método que ya conoces. Con la diferencia de que este escribe a otro flujo de datos. En tu entorno de desarrollo generalmente lo podrás ver en la ventana de <em>Salida de la aplicación</em> o <em>Application output</em>:</p>
+
+<div class=\"pure-g\">
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<figure><img src='/postimages/post/debugging-1/post.jsonwritelines-vs.png' alt='\"Distintas salidas\" images_set' /></figure>
+</div>
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<figure><img src='/postimages/post/debugging-1/post.jsonwritelines-xs.jpg' alt='\"Distintas salidas\" images_set' /></figure>
+</div>  
+</div>
+
+<p>Hay ocasiones en las que solamente deseamos saber si una o varias condiciones se cumpliero, y pareciera que ese es trabajo para la sentencia de control <code>if</code>. O, podrías usar el método <code>WriteLineIf</code> si el valor enviado como primer parámetro es verdadero. Está de más decir que podemos llamar a ejecutar una función ahí dentro:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">System</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">.</span><span class="n">Debug</span><span class="p">.</span><span class="n">WriteLineIf</span><span class="p">(</span><span class="n">tc</span><span class="p">.</span><span class="n">Propiedad1</span><span class="p">.</span><span class="n">Equals</span><span class="p">(</span><span class="err">“</span><span class="n">Dos</span><span class="err">”</span><span class="p">),</span> <span class="n">tc</span><span class="p">);</span></code></pre></figure></p>
+
+<p>En este post únicamente hablé del método <code>WriteLine</code> y <code>WriteLineIf</code>, pero tienes que saber que esta clase tiene muchas más características.</p>
+
+<p>En futuros posts estaré hablando de más tips para depurar usando Visual Studio y Xamarin Studio, así que <a href=\"http://localhost:4000/unete/\">no olvides suscribirte</a> para estar enterado.</p>
+
+"
+}

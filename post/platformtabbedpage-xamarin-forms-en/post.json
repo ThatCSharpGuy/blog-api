@@ -1,0 +1,241 @@
+{	
+	"id" : "/post/platformtabbedpage-xamarin-forms-en/",
+	"tv" : false,
+	"date": "2017-02-02 13:00:01 -0600",
+	"title" : "More familiar tabs for your users in Xamarin.Forms",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimages//xamarin-forms/tabbed-page/featured.jpg",
+	"tags" :
+	[ 
+		"Xamarin",
+		"XamarinForms",
+		"NuGetRecomendado"
+	],
+	"content" : "<p>Amongst the great variety of out-of-the-box pages that Xamarin.Forms has to offer, we can choose a <code>TabbedPage</code> wich is nothing else than a container to other pages, making them accesible trough tabs. You probable have used them and, as me, you think they are awesome, what it is not so awesome is the fact that they are somewhat limited as they do not allow so much customization.</p>
+
+<p>That is why I decided to create a <a href=\"https://developer.xamarin.com/guides/xamarin-forms/custom-renderer/\" target=\"_blank\">custom renderer</a> that allows to further stylize the tabs, making them more <em>native</em> for your users.</p>
+
+<h2 id=\"uso\">Uso</h2>
+<p>To start using this tabs you have two options: install the <a href=\"https://www.nuget.org/packages/PlatformTabbedPage/\" target=\"_blank\">NuGet package</a> in your three projects, or download the <a href=\"https://github.com/messier16/PlatformTabbedPage\" target=\"_blank\">source code</a> and paste in your code directly.</p>
+
+<p><figure class="console"><pre><code>PM&gt; Install-Package PlatformTabbedPage</code></pre></figure></p>
+
+<p>After that, you need to create a page that inherits from <code>PlatformTabbedPage</code>:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">HomeTabbedPage</span> <span class="p">:</span> <span class="n">PlatformTabbedPage</span></code></pre></figure></p>
+
+<p>And as you usually do with a normal <code>TabbedPage</code>, add the child pages in the constructor. It is <strong>very important</strong> that you note that the names do not end with “.png”, because otherwise your tabs will not work properly on iOS.</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp">    <span class="k">public</span> <span class="nf">HomeTabbedPage</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">BarBackgroundColor</span> <span class="p">=</span> <span class="n">App</span><span class="p">.</span><span class="n">BarBackgroundColors</span><span class="p">[</span><span class="m">3</span><span class="p">];</span>
+        <span class="n">SelectedColor</span> <span class="p">=</span> <span class="n">App</span><span class="p">.</span><span class="n">SelectedColors</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+        <span class="n">BarBackgroundApplyTo</span> <span class="p">=</span> <span class="n">BarBackgroundApplyTo</span><span class="p">.</span><span class="n">None</span><span class="p">;&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="n">Children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span> <span class="n">ConfigurationPage</span> <span class="p">{</span> <span class="n">Icon</span> <span class="p">=</span> <span class="err">\</span><span class="s">&quot;feed\&quot; });</span>
+    <span class="n">Children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span> <span class="n">BasicContentPage</span><span class="p">(</span><span class="err">\</span><span class="s">&quot;YouTube\&quot;) { Icon = \&quot;youtube\&quot; });</span>
+    <span class="n">Children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span> <span class="n">BasicContentPage</span><span class="p">(</span><span class="err">\</span><span class="s">&quot;Twitter\&quot;) { Icon = \&quot;twitter\&quot; });</span>
+    <span class="n">Children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span> <span class="n">BasicContentPage</span><span class="p">(</span><span class="err">\</span><span class="s">&quot;Info\&quot;) { Icon = \&quot;info\&quot; });</span>
+<span class="p">}</span> <span class="p">}</span> </code></pre></figure>  
+</code></pre>
+
+<p>The we would get something like this (on the left is the same page but created with a common <code>TabbedPage</code>:</p>
+
+<div class=\"pure-g\">
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<figure><img src='/postimages/post/platformtabbedpage-xamarin-forms-en/post.jsonandroid-no-small.gif' alt='\"iOS no normal\" images_set' /></figure>
+</div>
+<div class=\"pure-u-1 pure-u-md-1-2\">  
+<figure><img src='/postimages/post/platformtabbedpage-xamarin-forms-en/post.jsonandroid-small.gif' alt='\"iOS no normal\" images_set' /></figure>
+</div>  
+</div>
+
+<div class=\"pure-g\">
+<div class=\"pure-u-1 pure-u-md-1-2\">  
+<figure><img src='/postimages/post/platformtabbedpage-xamarin-forms-en/post.jsonios-no-small.gif' alt='\"iOS no normal\" images_set' /></figure>
+</div>
+<div class=\"pure-u-1 pure-u-md-1-2\">  
+<figure><img src='/postimages/post/platformtabbedpage-xamarin-forms-en/post.jsonios-small.gif' alt='\"iOS no normal\" images_set' /></figure>
+</div>  
+</div>
+
+<p>Dowload the <a href=\" https://github.com/messier16/PlatformTabbedPage\" target=\"_blank\">source code</a> so you can see the run and play with the sample app for this post.</p>
+
+<p>And that’s all… now, if you want to know how I managed to deliver this customization, keep on reading.</p>
+
+<h2 id=\"platformtabbedpage\">PlatformTabbedPage</h2>
+<p>Among the things that I wanted to customize are the color of the selected item, the color of the unselected item, and when in iOS the icon of the selected element becuase as you may have seen in the previous gifs when using Android it is hard to tell at first sight in which page are we on, while in iOS it is a bit weird that the icon of the selected stays the same as the others.</p>
+
+<h3 id=\"render-creation\">Render creation</h3>
+<p>Start by defining a class that inherits from the type of page that we are going to customize.</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">PlatformTabbedPage</span> <span class="p">:</span> <span class="n">TabbedPage</span></code></pre></figure></p>
+
+<p>Then we define the properties, along with its correspondent <code>BindableProperty</code> that will allow these properties to be bindable.</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">BindableProperty</span> <span class="n">SelectedColorProperty</span> <span class="p">=</span>
+    <span class="n">BindableProperty</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="n">nameof</span><span class="p">(</span><span class="n">SelectedColor</span><span class="p">),</span> <span class="k">typeof</span><span class="p">(</span><span class="n">Color</span><span class="p">),</span> <span class="k">typeof</span><span class="p">(</span><span class="n">PlatformTabbedPage</span><span class="p">),</span> <span class="k">default</span><span class="p">(</span><span class="n">Color</span><span class="p">));&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">public</span> <span class="n">Color</span> <span class="n">SelectedColor</span>
+<span class="p">{</span>
+    <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="n">Color</span><span class="p">)</span><span class="n">GetValue</span><span class="p">(</span><span class="n">SelectedColorProperty</span><span class="p">);</span> <span class="p">}</span>
+    <span class="k">set</span> <span class="p">{</span> <span class="n">SetValue</span><span class="p">(</span><span class="n">SelectedColorProperty</span><span class="p">,</span> <span class="k">value</span><span class="p">);</span> <span class="p">}</span>
+<span class="p">}&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="k">new</span> <span class="n">BindableProperty</span> <span class="n">BarBackgroundColorProperty</span> <span class="p">=</span>
+    <span class="n">BindableProperty</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="n">nameof</span><span class="p">(</span><span class="n">BarBackgroundColor</span><span class="p">),</span> <span class="k">typeof</span><span class="p">(</span><span class="n">Color</span><span class="p">),</span> <span class="k">typeof</span><span class="p">(</span><span class="n">PlatformTabbedPage</span><span class="p">),</span> <span class="k">default</span><span class="p">(</span><span class="n">Color</span><span class="p">));&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">public</span> <span class="k">new</span> <span class="n">Color</span> <span class="n">BarBackgroundColor</span>
+<span class="p">{</span>
+    <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="n">Color</span><span class="p">)</span><span class="n">GetValue</span><span class="p">(</span><span class="n">BarBackgroundColorProperty</span><span class="p">);</span> <span class="p">}</span>
+    <span class="k">set</span> <span class="p">{</span> <span class="n">SetValue</span><span class="p">(</span><span class="n">BarBackgroundColorProperty</span><span class="p">,</span> <span class="k">value</span><span class="p">);</span> <span class="p">}</span>
+<span class="p">}&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">BindableProperty</span> <span class="n">BarBackgroundApplyToProperty</span> <span class="p">=</span>
+    <span class="n">BindableProperty</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="n">nameof</span><span class="p">(</span><span class="n">BarBackgroundApplyTo</span><span class="p">),</span> <span class="k">typeof</span><span class="p">(</span><span class="n">BarBackgroundApplyTo</span><span class="p">),</span> <span class="k">typeof</span><span class="p">(</span><span class="n">PlatformTabbedPage</span><span class="p">),</span> <span class="n">BarBackgroundApplyTo</span><span class="p">.</span><span class="n">Android</span><span class="p">);&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">public</span> <span class="n">BarBackgroundApplyTo</span> <span class="n">BarBackgroundApplyTo</span>
+<span class="p">{</span>
+    <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="n">BarBackgroundApplyTo</span><span class="p">)</span><span class="n">GetValue</span><span class="p">(</span><span class="n">BarBackgroundApplyToProperty</span><span class="p">);</span> <span class="p">}</span>
+    <span class="k">set</span> <span class="p">{</span> <span class="n">SetValue</span><span class="p">(</span><span class="n">BarBackgroundApplyToProperty</span><span class="p">,</span> <span class="k">value</span><span class="p">);</span> <span class="p">}</span>
+<span class="p">}</span></code></pre></figure></p>
+
+<p>The property descriptions are the following:</p>
+
+<ul>
+  <li><code>SelectedColor</code>: The color of the selected item</li>
+  <li><code>BarBackgroundColor</code>: The background color of the ber, I decided to hide with <code>new</code> the default implementation, as I’m going to control the behavior of it inside the custom renderer.</li>
+  <li><code>BarBackgroundApplyTo</code>: An enum that indicates in which platforms the backround color of the bar needs to be modified, the default is Android, as I consider that in iOS it seems a bit weird setting the background color of the bar.</li>
+</ul>
+
+<p>Apart from that, I created some extension methods that are useful to work with colors, making them darker or lighter, or help deciding whether one color is light or dark.</p>
+
+<p>Now, we are ready to see each platform implementation:</p>
+
+<h2 id=\"ios\">iOS</h2>
+<p>(this renderer is completely based on the <a href=\"https://github.com/xamarinhq/app-evolve/blob/master/src/XamarinEvolve.iOS/Renderers/SelectedTabPageRenderer.cs\" target=\"_blank\">implementation</a> of James Montemagno in the Xamarin’s Evolve App)</p>
+
+<p>In iOS we need to create a renderer that inherits from <code>TabbedRenderer</code>:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">PlatformTabbedPageRenderer</span> <span class="p">:</span> <span class="n">TabbedRenderer</span></code></pre></figure></p>
+
+<p>After that I defined a property to access to the forms instance of <code>PlatformTabbedPage</code> and another couple to store the default colors of the <code>UITabBar</code>:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">PlatformTabbedPage</span> <span class="n">FormsTabbedPage</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Element</span> <span class="k">as</span> <span class="n">PlatformTabbedPage</span><span class="p">;</span>
+<span class="n">UIColor</span> <span class="n">DefaultTintColor</span><span class="p">;</span>
+<span class="n">UIColor</span> <span class="n">DefaultBarBackgroundColor</span><span class="p">;</span></code></pre></figure></p>
+
+<p>If you have previously written a custom renderer you should know of the importance of the <code>OnElementChanged</code> method, because it is called every time your control is going to be rendered on screen. That is why we assign and unassign an event that will allow us to know whent the properties of the bar in the forms project change.</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">OldElement</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">e</span><span class="p">.</span><span class="n">OldElement</span><span class="p">.</span><span class="n">PropertyChanged</span> <span class="p">-=</span> <span class="n">OnElementPropertyChanged</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">NewElement</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">e</span><span class="p">.</span><span class="n">NewElement</span><span class="p">.</span><span class="n">PropertyChanged</span> <span class="p">+=</span> <span class="n">OnElementPropertyChanged</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure></p>
+
+<p>Then we get and store the default colors of the <code>UITabBar</code> just in case we need them in the future.</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">DefaultTintColor</span> <span class="p">=</span> <span class="n">TabBar</span><span class="p">.</span><span class="n">TintColor</span><span class="p">;</span>
+<span class="n">DefaultBarBackgroundColor</span> <span class="p">=</span> <span class="n">TabBar</span><span class="p">.</span><span class="n">BackgroundColor</span><span class="p">;</span></code></pre></figure></p>
+
+<p>Once the original colors are stored, we call a couple of methods that will assign the desired colors.</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">SetTintedColor</span><span class="p">();</span>
+<span class="n">SetBarBackgroundColor</span><span class="p">();</span></code></pre></figure></p>
+
+<p>Now it is time to “fill” the icons, and I say “fill” because in reality you need to provide a “filled” version of your icons, one is going to be shown by default while the oter is going to be displayed when the tab is active.</p>
+
+<p>The trick here relies in the fact that the iOS API exposes a property to set an image for each state of a given tab, and that is precisely what this renderer does: takes the original icon, appends the suffix “_active” and sets it aas the image that should be used when the tab is selected:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">if</span> <span class="p">(</span><span class="n">FormsTabbedPage</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">TabBar</span><span class="p">.</span><span class="n">Items</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+    <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">item</span> <span class="p">=</span> <span class="n">TabBar</span><span class="p">.</span><span class="n">Items</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="kt">var</span> <span class="n">icon</span> <span class="p">=</span> <span class="n">FormsTabbedPage</span><span class="p">.</span><span class="n">Children</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Icon</span><span class="p">;&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="k">if</span> <span class="p">(</span><span class="n">item</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="k">try</span>
+    <span class="p">{</span>
+        <span class="n">icon</span> <span class="p">=</span> <span class="n">icon</span> <span class="p">+</span> <span class="err">\</span><span class="s">&quot;_active\&quot;;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">item</span><span class="p">?.</span><span class="n">SelectedImage</span><span class="p">?.</span><span class="n">AccessibilityIdentifier</span> <span class="p">==</span> <span class="n">icon</span><span class="p">)</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="n">item</span><span class="p">.</span><span class="n">SelectedImage</span> <span class="p">=</span> <span class="n">UIImage</span><span class="p">.</span><span class="n">FromBundle</span><span class="p">(</span><span class="n">icon</span><span class="p">);</span>
+        <span class="n">item</span><span class="p">.</span><span class="n">SelectedImage</span><span class="p">.</span><span class="n">AccessibilityIdentifier</span> <span class="p">=</span> <span class="n">icon</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="err">\</span><span class="s">&quot;Unable to set selected icon: \&quot; + ex);</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="p">}</span> </code></pre></figure>  
+</code></pre>
+
+<p>And basically that’s all, we do not require of anything else thanks to the iOS API.</p>
+
+<h2 id=\"android\">Android</h2>
+<p>For the Android renderer we must derive from the <code>TabbedPageRenderer</code> class, yes, we need a different renderer for Android.</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">PlatformTabbedPageRenderer</span> <span class="p">:</span> <span class="n">TabbedPageRenderer</span></code></pre></figure></p>
+
+<p>Again, we need some properties to store the default colors:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">PlatformTabbedPage</span> <span class="n">FormsTabbedPage</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Element</span> <span class="k">as</span> <span class="n">PlatformTabbedPage</span><span class="p">;</span>
+<span class="n">AndroidColor</span> <span class="n">_selectedColor</span> <span class="p">=</span> <span class="n">AndroidColor</span><span class="p">.</span><span class="n">Black</span><span class="p">;</span>
+<span class="n">AndroidColor</span> <span class="n">DefaultUnselectedColor</span> <span class="p">=</span> <span class="n">FormsColor</span><span class="p">.</span><span class="n">Gray</span><span class="p">.</span><span class="n">Darken</span><span class="p">().</span><span class="n">ToAndroid</span><span class="p">();</span>
+<span class="k">static</span> <span class="n">AndroidColor</span> <span class="n">BarBackgroundDefault</span><span class="p">;</span>
+<span class="n">AndroidColor</span> <span class="n">_unselectedColor</span> <span class="p">=</span> <span class="n">DefaultUnselectedColor</span><span class="p">;</span></code></pre></figure></p>
+
+<p>In Android, a tabbed page is comprised by two elements: A <code>ViewPager</code> and a <code>TabLayout</code> that work together to act as a single control, given the importance for this renderer, we also need to store a class level reference to both elements:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">ViewPager</span> <span class="n">_viewPager</span><span class="p">;</span>
+<span class="n">TabLayout</span> <span class="n">_tabLayout</span><span class="p">;</span></code></pre></figure></p>
+
+<p>Now, inside the <code>OnElementChanged</code> method we are going to get the references to the Views declared before. The renderer contains both, but they’re “hidden” as <code>View</code> types, that is why the <code>is</code> operator is used to know which cast to use:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">ChildCount</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">v</span> <span class="p">=</span> <span class="n">GetChildAt</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">v</span> <span class="k">is</span> <span class="n">ViewPager</span><span class="p">)</span>
+        <span class="n">_viewPager</span> <span class="p">=</span> <span class="p">(</span><span class="n">ViewPager</span><span class="p">)</span><span class="n">v</span><span class="p">;</span>
+    <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">v</span> <span class="k">is</span> <span class="n">TabLayout</span><span class="p">)</span>
+        <span class="n">_tabLayout</span> <span class="p">=</span> <span class="p">(</span><span class="n">TabLayout</span><span class="p">)</span><span class="n">v</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure></p>
+
+<p>We get the default colors for the bar background and then we set our own colors:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">BarBackgroundDefault</span> <span class="p">=</span> <span class="p">(</span><span class="n">_tabLayout</span><span class="p">.</span><span class="n">Background</span> <span class="k">as</span> <span class="n">ColorDrawable</span><span class="p">)?.</span><span class="n">Color</span> <span class="p">??</span> <span class="n">Android</span><span class="p">.</span><span class="n">Graphics</span><span class="p">.</span><span class="n">Color</span><span class="p">.</span><span class="n">Green</span><span class="p">;</span>
+<span class="n">SetSelectedColor</span><span class="p">();</span>
+<span class="n">SetBarBackgroundColor</span><span class="p">();</span></code></pre></figure></p>
+
+<p>Unlike iOS, Android makes use of a couple of methods that are called everytime a tab is selected/unselected, that is why we need to assign them inside our aforementioned method:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">_tabLayout</span><span class="p">.</span><span class="n">TabSelected</span> <span class="p">+=</span> <span class="n">TabLayout_TabSelected</span><span class="p">;</span>
+<span class="n">_tabLayout</span><span class="p">.</span><span class="n">TabUnselected</span> <span class="p">+=</span> <span class="n">TabLayout_TabUnselected</span><span class="p">;</span></code></pre></figure></p>
+
+<p>To finish overriding of this method, we need to set the color of all icons as unselected, and then mark the firs one as selected:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">SetupTabColors</span><span class="p">();</span>
+<span class="n">SelectTab</span><span class="p">(</span><span class="m">0</span><span class="p">);</span></code></pre></figure></p>
+
+<p>And to finish this masterpiece, here is the “magic”. In the methods that handle each selection/unselection of tabs we need to apply a color filter to each image, as you can see the color varies depending on the tab being selected or not:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">private</span> <span class="k">void</span> <span class="nf">TabLayout_TabUnselected</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">TabLayout</span><span class="p">.</span><span class="n">TabUnselectedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">tab</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">Tab</span><span class="p">;</span>
+    <span class="n">tab</span><span class="p">.</span><span class="n">Icon</span><span class="p">?.</span><span class="n">SetColorFilter</span><span class="p">(</span><span class="n">_unselectedColor</span><span class="p">,</span> <span class="n">PorterDuff</span><span class="p">.</span><span class="n">Mode</span><span class="p">.</span><span class="n">SrcIn</span><span class="p">);</span>
+<span class="p">}&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">private</span> <span class="k">void</span> <span class="n">TabLayout_TabSelected</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">TabLayout</span><span class="p">.</span><span class="n">TabSelectedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">tab</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">Tab</span><span class="p">;</span>
+    <span class="n">tab</span><span class="p">.</span><span class="n">Icon</span><span class="p">?.</span><span class="n">SetColorFilter</span><span class="p">(</span><span class="n">_selectedColor</span><span class="p">,</span> <span class="n">PorterDuff</span><span class="p">.</span><span class="n">Mode</span><span class="p">.</span><span class="n">SrcIn</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure></p>
+
+<p>And that’s it, the renderer for Android is slightly more complicated than the iOS one, but it isn’t hard to understand.</p>
+
+"
+}

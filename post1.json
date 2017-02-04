@@ -1,9 +1,11 @@
 {
     "current_page" : 1,
     "total_pages": 8,
-    "posts" : 
+    "items" : 
         [   
             { 
+                "id" : "/post/platformtabbedpage-xamarin-forms-en/"
+                "tv" : false,
                 "title": "More familiar tabs for your users in Xamarin.Forms", 
                 "date": "2017-02-02 13:00:01 -0600",
                 "featured_tag": "XamarinForms",
@@ -11,6 +13,8 @@
                 "summary": "Stilize yout Xamarin.Forms tabbed pages, make them more familliar to your users without losing the look and feel of your brand. As a bonus, practice creating custom renderers."
             },
             { 
+                "id" : "/post/platformtabbedpage-xamarin-forms/"
+                "tv" : false,
                 "title": "Tabs más familiares a tus usuarios en Xamarin.Forms", 
                 "date": "2017-01-31 13:00:01 -0600",
                 "featured_tag": "XamarinForms",
@@ -18,6 +22,8 @@
                 "summary": "Dale más estilo a tus páginas de tabs en Xamarin.Forms, haz que se vean más familiares a tus usuarios sin que pierdan el estilo y los colores de tu marca y como bonus practica haciendo un custom renderer."
             },
             { 
+                "id" : "/post/espacios-nombres-c-sharp/"
+                "tv" : false,
                 "title": "Espacios de nombres en C#", 
                 "date": "2017-01-24 13:00:01 -0600",
                 "featured_tag": "AprendeCSharp",
@@ -25,6 +31,8 @@
                 "summary": "Los nombres de espacio son de esas cosas en el dasrrollo a los que casi no les prestamos mucha atención, pero que bien usados nos resuelven muchos problemas y nos ayudan a organizar nuestro código."
             },
             { 
+                "id" : "/post/xamarin-userdialogs/"
+                "tv" : false,
                 "title": "UserDialogs en Xamarin Forms", 
                 "date": "2017-01-17 13:00:01 -0600",
                 "featured_tag": "XamarinForms",
@@ -32,6 +40,8 @@
                 "summary": "Usa esta librería de NuGet para interactuar con el usuario de tu aplicación de una forma más intuitiva, con mensajes de alerta, de error y de éxito. Consigue información a través de controles nativos como calendarios y selectores de tiempo."
             },
             { 
+                "id" : "/post/correcto-colecciones.1/"
+                "tv" : false,
                 "title": "Colecciones en C#, ¿cuál elegir?", 
                 "date": "2017-01-10 13:00:02 -0600",
                 "featured_tag": "AprendeCSharp",
@@ -39,13 +49,17 @@
                 "summary": "La colección List&lt;T&gt; puede no siempre ser la adecuada para el trabajo que estás intentando hacer con tu aplicación, en este post te cuento sobre las otras colecciones que .NET nos ofrece."
             },
             { 
+                "id" : "/tv/o-grande/"
+                "tv" : true,
                 "title": "Notación O grande", 
                 "date": "2017-01-10 12:00:00 -0600",
                 "featured_tag": "Tv",
                 "featured_image": "http://thatcsharpguy.com/postimages//tv/bigo/featured.jpg",
-                "summary": "La O mayúscula es una notación matemática también conocida Bachmann–Landau notation, asymptotic notation, notación o grande. Y esta nos ayuda a describir el comportamiento de una función al límite."
+                "summary": "La O mayúscula es una notación matemática también conocida Bachmann–Landau notation, asymptotic notation, notación o grande. Y esta nos ayuda a describir el comportamiento de una función \"al límite\"."
             },
             { 
+                "id" : "/post/metas-blog-2017/"
+                "tv" : false,
                 "title": "Metas de That C# guy en 2017", 
                 "date": "2017-01-02 12:31:38 -0600",
                 "featured_tag": "Meta",
@@ -53,6 +67,8 @@
                 "summary": "Nuevo año, nuevas metas para That C&#35; guy, conócleas."
             },
             { 
+                "id" : "/post/indizadores-c-sharp/"
+                "tv" : false,
                 "title": "Sobrecarga de indizadores en C#", 
                 "date": "2016-12-27 13:00:02 -0600",
                 "featured_tag": "AprendeCSharp",
@@ -60,6 +76,8 @@
                 "summary": "Los indizadores en C# permiten dotar a tus tipos de dato de una forma más simple y expresiva para acceder a sus propiedades, además de ser una sintaxis con la que muchos desarrolladores ya están acostumbrados."
             },
             { 
+                "id" : "/post/learning-xamarin-ios-stanford-cs193p/"
+                "tv" : false,
                 "title": "Learning Xamarin.iOS at Stanford", 
                 "date": "2016-12-27 02:00:00 -0600",
                 "featured_tag": "Xamarin",
@@ -67,6 +85,8 @@
                 "summary": "Here is my experience learning Xamarin.iOS by taking the Stanford's CS193P course online which is given for Swift language."
             },
             { 
+                "id" : "/post/sobrecarga-operadores/"
+                "tv" : false,
                 "title": "Sobrecarga de operadores", 
                 "date": "2016-12-20 13:00:02 -0600",
                 "featured_tag": "AprendeCSharp",
@@ -74,6 +94,8 @@
                 "summary": "Suma, resta, divide, multiplica, compara... todos los tipos de dato que crees para tus aplicaciones, todo gracias a la sobrecarga de operadores que ofrece C&#35;"
             },
             { 
+                "id" : "/post/linq-en-c-sharp-4/"
+                "tv" : false,
                 "title": "Más Linq en C#", 
                 "date": "2016-12-13 13:00:02 -0600",
                 "featured_tag": "AprendeCSharp",
@@ -81,6 +103,8 @@
                 "summary": "Conoce más de linq, métodos para unir, intersectar y filtrar conjuntos."
             },
             { 
+                "id" : "/post/dynamic-expandoobject/"
+                "tv" : false,
                 "title": "Dynamic y ExpandoObject", 
                 "date": "2016-12-06 13:00:02 -0600",
                 "featured_tag": "AprendeCSharp",
@@ -88,6 +112,8 @@
                 "summary": "Con dynamic convierte a C# en un lenguaje dinámico y fuertemente tipado (consulte restricciones)."
             },
             { 
+                "id" : "/tv/subiendo-github/"
+                "tv" : true,
                 "title": "Subiéndo código a GitHub", 
                 "date": "2016-12-06 12:00:00 -0600",
                 "featured_tag": "Tv",
@@ -95,6 +121,8 @@
                 "summary": "Un tutorial de cómo empezar con GitHub desde cero."
             },
             { 
+                "id" : "/post/xamarin-workbooks/"
+                "tv" : false,
                 "title": "Bienvenido a los Xamarin Workbooks", 
                 "date": "2016-11-29 13:00:01 -0600",
                 "featured_tag": "AprendeCSharp",
@@ -102,6 +130,8 @@
                 "summary": "Los Workbooks son una especie de documentos &quot;vivos&quot; con los que puedes compilar y ejecutar código en C#."
             },
             { 
+                "id" : "/post/yield-c-sharp/"
+                "tv" : false,
                 "title": "La palabra yield en C#", 
                 "date": "2016-11-22 13:00:01 -0600",
                 "featured_tag": "AprendeCSharp",

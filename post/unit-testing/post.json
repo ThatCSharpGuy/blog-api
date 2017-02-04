@@ -1,0 +1,61 @@
+{	
+	"id" : "/post/unit-testing/",
+	"tv" : false,
+	"date": "2016-02-22 15:00:00 -0600",
+	"title" : "Unit testing",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimages/unit-testing/featured.png",
+	"tags" :
+	[ 
+		"Meta",
+		"XamarinForms"
+	],
+	"content" : "<p>More often than we think, we, as developers tend to believe that our code is bugless. It’s all right, we wrote it, we tested two or three cases and it never failed, no exceptions, so it is ready be pushed to production. But what happens when someone asks us “did you test the code?”, we can’t say yes without getting nervous.</p>
+
+<p>It happens, I’ve done it and I’m not proud of it. Trying to amend my mistakes I’ll try to explain what is and present a way to perform testing using Visual Studio.</p>
+
+<p>There <a href=\"http://softwaretestingfundamentals.com/software-testing-levels/\" target=\"_blank\" rel=\"nofollow\">are 4</a> kinds of testing:</p>
+
+<h3 id=\"acceptance-testing\">Acceptance testing</h3>
+<p>The purpose of this test is to evaluate the system’s compliance with the business requirements and assess whether it is acceptable for delivery.</p>
+
+<h3 id=\"system-testing\">System testing</h3>
+<p>The purpose of this test is to evaluate the system’s compliance with the specified requirements.</p>
+
+<h3 id=\"integration-testing\">Integration testing</h3>
+<p>The purpose of this level of testing is to expose faults in the interaction between integrated units.
+I’ve left this at the end on purpose:</p>
+
+<h3 id=\"unit-testing\">Unit testing</h3>
+<p>Is a level of the software testing process where individual components of a software are tested. The purpose is to validate that each unit of the software performs as designed. It can be done by the same developer that created that unit of software, another team or even an external entity.</p>
+
+<p>To perform testing on a unit of software we must have two things: A <strong>set of input values</strong> and <strong>the expected outputs for that set</strong> of values. The structure for a test is the following:</p>
+
+<p><figure><img src='/postimages/post/unit-testing/post.jsontest-explanation-2.png' alt='“Test explanation” images_set' /></figure></p>
+
+<p><strong>Arrange</strong>: <em>Here is where we declare the input values for the component we are testing and the expected output</em><br />
+<strong>Act</strong>: <em>In this section we execute the unit we are testing, and store the ouputs to compare them later</em><br />
+<strong>Assert</strong>: <em>By this point we must compare our exepected output against the actual output of the unit we tested, <strong>note that we are not returning a value, we’re just asserting something</strong>.</em></p>
+
+<p>It is easy to perform unit testing using Visual Sudio. Start by adding a new Project to your solution. When the window shows up, search for Unit Test Project in the installed templates:</p>
+
+<p><figure><img src='/postimages/post/unit-testing/post.jsonadd-new-test-project.png' alt=' images_set' /></figure></p>
+
+<p>After the project is created it’ll contain a default class.
+Open it and observe that both the class and it’s method are decorated with <code>TestClass</code> and <code>TestMethod</code> respectively. These decorators allow our tests to be discovered by Visual Studio’s Text Explorer (to open the Text Explorer go to <em>Test &gt; Windows &gt; Test Explorer</em>).</p>
+
+<p><strong>Remember, the Unit Test Project is still a Project, so we need to add any references to other projects within our solution to test them</strong>.</p>
+
+<p>After that, rename the default class and write your own tests following the structure shown above: Arrange, Act and Assert. To allow Test Explorer to show our tests we need to build the solution we are working with, after that you’ll have somewhat like this:</p>
+
+<p><figure><img src='/postimages/post/unit-testing/post.jsontest-explorer-not-ran.png' alt=' images_set' /></figure></p>
+
+<p>From this window we can select several actions, like run all tests, just one or all those which have failed. I’ve selected <em>Run All</em>, and this is what I’ve got:</p>
+
+<p><figure><img src='/postimages/post/unit-testing/post.jsontest-explorer-ran.png' alt=' images_set' /></figure></p>
+
+<p>Pretty cool, isn’t it? Now you should go ahead and unit test your projects whenever possible. If you want to see the code I used for this post check it out on <a href=\"https://github.com/fferegrino/Xevenshtein\">GitHub</a> or download it <a href=\"https://github.com/fferegrino/Xevenshtein/releases/download/b-p-1/Xevenshtein-test-post.zip\">here</a>.</p>
+
+<p>In the future we’ll see how to create and run tests in a mobile device using NUnit Lite, or how to use Xamarin.UITesting.</p>
+"
+}

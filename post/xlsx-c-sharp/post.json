@@ -1,0 +1,213 @@
+{	
+	"id" : "/post/xlsx-c-sharp/",
+	"tv" : false,
+	"date": "2016-03-07 13:00:00 -0600",
+	"title" : "Trabajando con XslX en C#",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimages//xlsx-c-sharp/featured.png",
+	"tags" :
+	[ 
+		"NuGetRecomendado"
+	],
+	"content" : "<p>Justamente hace unos cuantos posts, les hablaba de cómo <a href=\"http://thatcsharpguy.com/post/docx-c-sharp/\">trabajar con documentos de Word en C#</a>, y esta vez hablo sobre algo similar… solo que con hojas de cálculo de Excel, seguramente es una tarea más requerida dada la naturaleza, ligada a los datos, de este tipo de archivos. Esto es posible a través de una librería que también se distribuye a través de NuGet, la librería en cuestión se llama EPPlus y en este post presento algunos casos de uso.</p>
+
+<p>En esta ocasión mostraré cómo crear un pequeño reporte de las clases y maestros que se imparten en una escuela, usando la misma información del <a href=\"http://thatcsharpguy.com/post/linq-en-c-sharp-3/\">post sobre LINQ en C#</a>, para finalizar con un ejemplo de lectura de un libro de Excel en nuestra aplicación:</p>
+
+<h2 id=\"creando-un-libro\">Creando un libro</h2>
+<p>Para crear un libro de excel usaremos la clase <code>ExcelPackage</code> junto con un objeto de la clase <code>FileInfo</code>, la documentación no indica que debemos emplear nuestro código dentro de un bloque <code>using</code>, pero para evitar sorpresas, creamos el documento dentro de uno:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">FileInfo</span> <span class="n">prueba</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FileInfo</span><span class="p">(</span><span class="err">“</span><span class="n">prueba</span><span class="p">.</span><span class="n">xlsx</span><span class="err">”</span><span class="p">);</span>
+<span class="k">using</span> <span class="p">(</span><span class="n">ExcelPackage</span> <span class="n">excel</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ExcelPackage</span><span class="p">(</span><span class="n">prueba</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">workbook</span> <span class="p">=</span> <span class="n">excel</span><span class="p">.</span><span class="n">Workbook</span><span class="p">;</span>
+    <span class="c1">// … </span></code></pre></figure></p>
+
+<p>Podemos ver a la clase <code>ExcelPackage</code> como un contenedor de nuestro libro, al que podemos acceder a través de la propiedad <code>Workbook</code>.</p>
+
+<h2 id=\"guardando-un-documento\">Guardando un documento</h2>
+<p>Al igual que con DocX, una vez creado el documento y después de que hemos terminado de trabajar con él debemos guardar nuestros cambios, esto se hace mediante una llamada a su método <code>Save</code>, con lo cual todos los cambios hechos en el documento serán aplicados sobre el archivo.</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp">    <span class="c1">// …</span>
+    <span class="n">excel</span><span class="p">.</span><span class="n">Save</span><span class="p">();</span>
+<span class="p">}</span></code></pre></figure></p>
+
+<p>Cabe señalar que también tenemos a nuestra disposición el método <code>SaveAs</code> que permite guardar una copia del documento con el que estamos trabajando, hay otra sobrecarga que inclusive nos eprmite establecer una contraseña para el archivo.</p>
+
+<p>Si ejecutamos el código hasta este momento veremos un archivo <code>.xlsx</code> llamado “prueba.xlsx” en la carpeta donde está nuestra aplicación, en mi caso es dentro de <code>bin\Debug</code>, y es porque al crear nuestro documento únicamente empleamos el nombre de un archivo, pero bien pudimos usar una ruta absoluta para guardarlo en otro lugar.</p>
+
+<p><figure><img src='/postimages/post/xlsx-c-sharp/post.jsonnew-xlsx.png' alt='“Documento vacío” images_set' /></figure></p>
+
+<h2 id=\"agregando-informacin\">Agregando información</h2>
+<p>Queremos generar un reporte con todos los maestros en una hoja de Excel y así es una de las maneras en que se puede hacer usando EPPlus</p>
+
+<h3 id=\"hojas-de-trabajo\">Hojas de trabajo</h3>
+<p>Para insertar datos en nuestro libro de Excel necesitamos primero agregar una hoja de trabajo o <em>worksheet</em>, lo cual se hace mediante el método <code>Add</code>, que recibe el nombre de la hoja que vamos a crear. Ten cuidado con intentar agregar dos hojas con el mismo nombre, puesto que esto no está permitido.</p>
+
+<p>El método <code>Add</code> regresa una referencia a la hoja recién añadida y es precisamente usando esa referencia como vamos a añadir la información.</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">teacherWorksheet</span> <span class="p">=</span> <span class="n">wb</span><span class="p">.</span><span class="n">Worksheets</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="err">“</span><span class="n">Maestros</span><span class="err">”</span><span class="p">);</span></code></pre></figure></p>
+
+<h3 id=\"celdas\">Celdas</h3>
+<p>Partiendo de la referencia a <code>teacherWorksheet</code> podemos ahora si trabajar con las celdas (<code>Cells</code>) de esa hoja, la forma de hacerlo es como lo haríamos manualmente en el documento, es decir, mediante el sistema de coordenadas compuesto por letras y números. Por ejemplo, si queremos añadir los nombres de las columnas para nuestros datos:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">teacherWorksheet</span><span class="p">.</span><span class="n">Cells</span><span class="p">[</span><span class="err">“</span><span class="n">A1</span><span class="err">”</span><span class="p">].</span><span class="n">Value</span> <span class="p">=</span> <span class="err">“</span><span class="n">ID</span><span class="err">”</span><span class="p">;</span>
+<span class="n">teacherWorksheet</span><span class="p">.</span><span class="n">Cells</span><span class="p">[</span><span class="err">“</span><span class="n">B1</span><span class="err">”</span><span class="p">].</span><span class="n">Value</span> <span class="p">=</span> <span class="err">“</span><span class="n">Nombre</span><span class="err">”</span><span class="p">;</span>
+<span class="n">teacherWorksheet</span><span class="p">.</span><span class="n">Cells</span><span class="p">[</span><span class="err">“</span><span class="n">C1</span><span class="err">”</span><span class="p">].</span><span class="n">Value</span> <span class="p">=</span> <span class="err">“</span><span class="n">Apellidos</span><span class="err">”</span><span class="p">;</span>
+<span class="n">teacherWorksheet</span><span class="p">.</span><span class="n">Cells</span><span class="p">[</span><span class="err">“</span><span class="n">D1</span><span class="err">”</span><span class="p">].</span><span class="n">Value</span> <span class="p">=</span> <span class="err">“</span><span class="n">Email</span><span class="err">”</span><span class="p">;</span>
+<span class="n">teacherWorksheet</span><span class="p">.</span><span class="n">Cells</span><span class="p">[</span><span class="err">“</span><span class="n">E1</span><span class="err">”</span><span class="p">].</span><span class="n">Value</span> <span class="p">=</span> <span class="err">“</span><span class="n">Edad</span><span class="err">”</span><span class="p">;</span></code></pre></figure></p>
+
+<p>Usamos la propiedad <code>Value</code> de nuestras celdas es como podemos asignarles un valor, la propiedad es de tipo <code>object</code> por lo que podemos poner ahí lo que sea.</p>
+
+<p>Pero, como queremos distinguir los encabezados del resto de los datos, ¿por qué no los ponemos en <strong>negritas</strong>?</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">teacherWorksheet</span><span class="p">.</span><span class="n">Cells</span><span class="p">[</span><span class="err">“</span><span class="n">A1</span><span class="p">:</span><span class="n">E1</span><span class="err">”</span><span class="p">].</span><span class="n">Style</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Bold</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span> </code></pre></figure></p>
+
+<p>Como puedes ver, <code>Cells</code> también nos ayuda a recuperar todo un rango de celdas, para así poder trabajar con todas ellas de una sola vez.</p>
+
+<p>Ya por último en un ciclo <code>foreach</code> insertamos cada uno de los valores en su correspondiente celda</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">int</span> <span class="n">cell</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">teacher</span> <span class="k">in</span> <span class="n">Database</span><span class="p">.</span><span class="n">Teachers</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">teacherWorksheet</span><span class="p">.</span><span class="n">Cells</span><span class="p">[</span><span class="err">“</span><span class="n">A</span><span class="err">”</span> <span class="p">+</span> <span class="n">cell</span><span class="p">].</span><span class="n">Value</span> <span class="p">=</span> <span class="n">teacher</span><span class="p">.</span><span class="n">Id</span><span class="p">;</span>
+    <span class="n">teacherWorksheet</span><span class="p">.</span><span class="n">Cells</span><span class="p">[</span><span class="err">“</span><span class="n">B</span><span class="err">”</span> <span class="p">+</span> <span class="n">cell</span><span class="p">].</span><span class="n">Value</span> <span class="p">=</span> <span class="n">teacher</span><span class="p">.</span><span class="n">GivenName</span><span class="p">;</span>
+    <span class="c1">// … más asignaciones</span>
+    <span class="n">cell</span><span class="p">++;</span>
+<span class="p">}</span> </code></pre></figure></p>
+
+<p>Tras lo cual obtendremos algo como esto:</p>
+
+<p><figure><img src='/postimages/post/xlsx-c-sharp/post.jsonsample-1.png' alt='“Documento vacío” images_set' /></figure></p>
+
+<p>Podemos agregar más hojas a nuestro libro, también añadiremos una hoja para guardar las Clases impartidas por los maestros.</p>
+
+<h2 id=\"hoja-de-resumen\">Hoja de resumen</h2>
+<p>Ahora veremos cómo agregar una página de resumen, en la cual mostraremos algunos datos basados en la información contenida dentro del libro.</p>
+
+<h3 id=\"combinando-y-centrando-celdas\">Combinando y centrando celdas</h3>
+<p>Primero añadimos una nueva hoja al libro, después vamos a unir las celdas <code>A1</code> y <code>B1</code>, ponerlas en negritas y centrar el texto para el “título” de la hoja de resumen. Todo eso es posible con el siguiente código:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">summaryWorksheet</span> <span class="p">=</span> <span class="n">wb</span><span class="p">.</span><span class="n">Worksheets</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="err">“</span><span class="n">Resumen</span><span class="err">”</span><span class="p">);&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="kt">var</span> <span class="n">titleCell</span> <span class="p">=</span> <span class="n">summaryWorksheet</span><span class="p">.</span><span class="n">Cells</span><span class="p">[</span><span class="err">“</span><span class="n">A1</span><span class="p">:</span><span class="n">B1</span><span class="err">”</span><span class="p">];</span> <span class="c1">// Tomamos un rango de celdas</span>
+<span class="n">titleCell</span><span class="p">.</span><span class="n">Merge</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="n">titleCell</span><span class="p">.</span><span class="n">Style</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Bold</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="n">titleCell</span><span class="p">.</span><span class="n">Style</span><span class="p">.</span><span class="n">HorizontalAlignment</span> <span class="p">=</span> <span class="n">ExcelHorizontalAlignment</span><span class="p">.</span><span class="n">Center</span><span class="p">;</span>
+<span class="n">titleCell</span><span class="p">.</span><span class="n">Value</span> <span class="p">=</span> <span class="err">“</span><span class="n">Resumen</span><span class="err">”</span><span class="p">;</span></code></pre></figure></p>
+
+<p>Que nos dejará con el siguiente resultado:</p>
+
+<p><figure><img src='/postimages/post/xlsx-c-sharp/post.jsonsample-2.png' alt='“Documento vacío” images_set' /></figure></p>
+
+<h3 id=\"formulas\">Formulas</h3>
+<p>Para añadir fórmulas debemos usar la propiedad <code>Formula</code> de las celdas, lo que si es importante es hacer referencia a ellas a través de su nombre original en inglés.</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">summaryWorksheet</span><span class="p">.</span><span class="n">Cells</span><span class="p">[</span><span class="err">“</span><span class="n">B2</span><span class="err">”</span><span class="p">].</span><span class="n">Formula</span> <span class="p">=</span> <span class="err">“</span><span class="n">AVERAGE</span><span class="p">(</span><span class="n">Maestros</span><span class="p">!</span><span class="n">E2</span><span class="p">:</span><span class="n">E31</span><span class="p">)</span><span class="err">”</span><span class="p">;&lt;</span><span class="n">br</span> <span class="p">/&gt;</span>
+<span class="c1">// …</span>
+<span class="n">summaryWorksheet</span><span class="p">.</span><span class="n">Cells</span><span class="p">[</span><span class="err">“</span><span class="n">B3</span><span class="err">”</span><span class="p">].</span><span class="n">Formula</span> <span class="p">=</span> <span class="err">“</span><span class="n">COUNTIF</span><span class="p">(</span><span class="n">Maestros</span><span class="p">!</span><span class="n">D2</span><span class="p">:</span><span class="n">D31</span><span class="p">,</span><span class="err">\</span><span class="s">&quot;\&quot;)”;</span></code></pre></figure></p>
+
+<p>En este caso estamos usando AVERAGE para sacar el promedio de edad y COUNTIF para contar la cantidad de maestros sin correo electrónico.</p>
+
+<p><figure><img src='/postimages/post/xlsx-c-sharp/post.jsonsample-3.png' alt='“Documento vacío” images_set' /></figure></p>
+
+<h2 id=\"usando-linq\">Usando LINQ</h2>
+<p>Una cosa que relamente es genial de EPPlus es que nos permite usar LINQ para trabajar con las hojas y celdas de nuestros libros, por ejemplo, para obtener una referencia a una hoja de trabajo existente podemos buscarla por su nombre usando el método <code>Single</code>:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">teacherWorksheet</span> <span class="p">=</span> <span class="n">wb</span><span class="p">.</span><span class="n">Worksheets</span><span class="p">.</span><span class="n">Single</span><span class="p">(</span><span class="n">ws</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">ws</span><span class="p">.</span><span class="n">Name</span> <span class="p">==</span> <span class="err">“</span><span class="n">Maestros</span><span class="err">”</span><span class="p">);</span> </code></pre></figure></p>
+
+<p>Y ahora, con la referencia <code>teacherWorksheet</code> consultamos sus celdas, nuevamente usando LINQ:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">cellsWithYoungTeachers</span> <span class="p">=</span> <span class="k">from</span> <span class="n">cell</span> <span class="k">in</span> <span class="n">teacherWorksheet</span><span class="p">.</span><span class="n">Cells</span><span class="p">[</span><span class="err">“</span><span class="n">E</span><span class="p">:</span><span class="n">E</span><span class="err">”</span><span class="p">].</span><span class="n">Skip</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
+                             <span class="k">where</span> <span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">cell</span><span class="p">.</span><span class="n">Value</span><span class="p">)</span> <span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="m">20</span>
+                             <span class="k">select</span> <span class="n">cell</span><span class="p">;</span></code></pre></figure></p>
+
+<p>En el código anterior estamos:</p>
+
+<ul>
+  <li>Seleccionando todas las celdas de la columna E con <code>.Cells[\"E:E\"]</code></li>
+  <li>Brincándonos la primera de esas celdas (porque es el título) con <code>.Skip(1)</code></li>
+  <li>Filtrándo las celdas que contienen un valor menor a 20 <code>where ((int)cell.Value) &lt; 20</code></li>
+</ul>
+
+<h2 id=\"modificando-el-formato-de-las-celdas\">Modificando el formato de las celdas</h2>
+<p>Después podemos iterar sobre la colección recién creada y darle un estilo diferente a las celdas que coincidieron con las condiciones que especificamos:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">cell</span> <span class="k">in</span> <span class="n">cellsWithYoungTeachers</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">cell</span><span class="p">.</span><span class="n">Style</span><span class="p">.</span><span class="n">Fill</span><span class="p">.</span><span class="n">PatternType</span> <span class="p">=</span> <span class="n">ExcelFillStyle</span><span class="p">.</span><span class="n">Solid</span><span class="p">;</span>
+    <span class="n">cell</span><span class="p">.</span><span class="n">Style</span><span class="p">.</span><span class="n">Fill</span><span class="p">.</span><span class="n">BackgroundColor</span><span class="p">.</span><span class="n">SetColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">BlueViolet</span><span class="p">);</span>
+    <span class="n">cell</span><span class="p">.</span><span class="n">Style</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Color</span><span class="p">.</span><span class="n">SetColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">Snow</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure></p>
+
+<p>Que nos dejará el resultado siguiente:</p>
+
+<p><figure><img src='/postimages/post/xlsx-c-sharp/post.jsonsample-4.png' alt='“Celdas coloreadas” images_set' /></figure></p>
+
+<p>Además de poder modificar el relleno de una celda también tenemos acceso a personalizar el borde, fuente y alineación.</p>
+
+<h2 id=\"formato-condicional\">Formato condicional</h2>
+<p>Adicionalmente a añadir nuestro propio formato, esta librería también permite trabajar con formato condicional para las celdas, y la manera de hacerlo es la siguiente:</p>
+
+<p>Primero que nada, y como siempre, obtenemos una referencia a la hoja sobre la que vamos a trabajar y después determinamos sobre qué rango de columnas vamos a trabajar y creamos un objeto <code>ExcelAddress</code>. Para nuestro caso es sobre la columna de edad de los maestros que es la E:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">teacherWorksheet</span> <span class="p">=</span> <span class="n">wb</span><span class="p">.</span><span class="n">Worksheets</span><span class="p">.</span><span class="n">Single</span><span class="p">(</span><span class="n">ws</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">ws</span><span class="p">.</span><span class="n">Name</span> <span class="p">==</span> <span class="err">“</span><span class="n">Maestros</span><span class="err">”</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">ageCellsStringAddress</span> <span class="p">=</span> <span class="err">“$</span><span class="n">E</span><span class="err">$</span><span class="m">2</span><span class="p">:</span><span class="err">$</span><span class="n">E</span><span class="err">$</span><span class="m">31</span><span class="err">”</span><span class="p">;</span>
+<span class="kt">var</span> <span class="n">ageCellsAddress</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ExcelAddress</span><span class="p">(</span><span class="n">ageCellsStringAddress</span><span class="p">);</span></code></pre></figure></p>
+
+<p>Una vez que tenemos determinado el rango, accedemos a la propiedad <code>ConditionalFormatting</code> para agregar un nuevo formato condicional, en este caso usaremos una escala de dos colores:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">formatting</span> <span class="p">=</span> <span class="n">teacherWorksheet</span><span class="p">.</span><span class="n">ConditionalFormatting</span><span class="p">.</span><span class="n">AddTwoColorScale</span><span class="p">(</span><span class="n">ageCellsAddress</span><span class="p">);</span></code></pre></figure></p>
+
+<p>Lo siguiente es configurar el formato condicional, usaremos fórmulas para obtener el valor mínimo y máximo de las edades de los profesores:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">formatting</span><span class="p">.</span><span class="n">LowValue</span><span class="p">.</span><span class="n">Type</span> <span class="p">=</span> <span class="n">eExcelConditionalFormattingValueObjectType</span><span class="p">.</span><span class="n">Formula</span><span class="p">;</span>
+<span class="n">formatting</span><span class="p">.</span><span class="n">LowValue</span><span class="p">.</span><span class="n">Formula</span> <span class="p">=</span> <span class="err">“</span><span class="n">MIN</span><span class="p">(</span><span class="err">“</span> <span class="p">+</span> <span class="n">ageCellsAddress</span> <span class="p">+</span> <span class="err">“</span><span class="p">)</span><span class="err">”</span><span class="p">;</span>
+<span class="n">formatting</span><span class="p">.</span><span class="n">LowValue</span><span class="p">.</span><span class="n">Color</span> <span class="p">=</span> <span class="n">Color</span><span class="p">.</span><span class="n">LightGreen</span><span class="p">;&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="n">formatting</span><span class="p">.</span><span class="n">HighValue</span><span class="p">.</span><span class="n">Type</span> <span class="p">=</span> <span class="n">eExcelConditionalFormattingValueObjectType</span><span class="p">.</span><span class="n">Formula</span><span class="p">;</span>
+<span class="n">formatting</span><span class="p">.</span><span class="n">HighValue</span><span class="p">.</span><span class="n">Formula</span> <span class="p">=</span> <span class="err">“</span><span class="n">MAX</span><span class="p">(</span><span class="err">“</span> <span class="p">+</span> <span class="n">ageCellsAddress</span> <span class="p">+</span> <span class="err">“</span><span class="p">)</span><span class="err">”</span><span class="p">;</span>
+<span class="n">formatting</span><span class="p">.</span><span class="n">HighValue</span><span class="p">.</span><span class="n">Color</span> <span class="p">=</span> <span class="n">Color</span><span class="p">.</span><span class="n">Green</span><span class="p">;</span></code></pre></figure></p>
+
+<p>Tras lo cual el libro se verá así:</p>
+
+<p><figure><img src='/postimages/post/xlsx-c-sharp/post.jsonsample-5.png' alt='“Formato condicional” images_set' /></figure></p>
+
+<h2 id=\"leyendo-celdas\">Leyendo celdas</h2>
+<p>Así como podemos crear hojas desde cero, también podemos leer las ya existentes. Esto es particularmente útil cuando vas a solicitar información a los usuarios a través de un libro de Excel.</p>
+
+<p>Así que supongamos que cargaremos maestros a la base con un archivo llamado <code>teachers.xlsx</code>, bastaría con abrirlo:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">FileInfo</span> <span class="n">uploaded</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FileInfo</span><span class="p">(</span><span class="err">“</span><span class="n">teachers</span><span class="p">.</span><span class="n">xlsx</span><span class="err">”</span><span class="p">);</span>
+<span class="k">using</span> <span class="p">(</span><span class="n">ExcelPackage</span> <span class="n">excel</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ExcelPackage</span><span class="p">(</span><span class="n">uploaded</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="c1">// …</span></code></pre></figure></p>
+
+<p>Buscar la la hoja que necesitamos y contar las filas que contiene:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp">    <span class="kt">var</span> <span class="n">teacherWorksheet</span> <span class="p">=</span> <span class="n">excel</span><span class="p">.</span><span class="n">Workbook</span><span class="p">.</span><span class="n">Worksheets</span><span class="p">.</span><span class="n">Single</span><span class="p">(</span><span class="n">ws</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">ws</span><span class="p">.</span><span class="n">Name</span> <span class="p">==</span> <span class="err">“</span><span class="n">Maestros</span><span class="err">”</span><span class="p">);</span>
+    <span class="kt">var</span> <span class="n">cells</span> <span class="p">=</span> <span class="n">teacherWorksheet</span><span class="p">.</span><span class="n">Cells</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">rowCount</span> <span class="p">=</span> <span class="n">cells</span><span class="p">[</span><span class="err">“</span><span class="n">A</span><span class="p">:</span><span class="n">A</span><span class="err">”</span><span class="p">].</span><span class="n">Count</span><span class="p">();</span></code></pre></figure></p>
+
+<p>Y leer los datos accediendo a las celdas y su propiedad <code>Value</code>:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span> <span class="n">i</span> <span class="p">&amp;</span><span class="n">lt</span><span class="p">;=</span> <span class="n">rowCount</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span>
+            <span class="n">cells</span><span class="p">[</span><span class="err">“</span><span class="n">A</span><span class="err">”</span> <span class="p">+</span> <span class="n">i</span><span class="p">].</span><span class="n">Value</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span> <span class="p">+</span> <span class="err">“\</span><span class="n">t</span><span class="err">”</span> <span class="p">+</span>
+            <span class="n">cells</span><span class="p">[</span><span class="err">“</span><span class="n">B</span><span class="err">”</span> <span class="p">+</span> <span class="n">i</span><span class="p">].</span><span class="n">Value</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span> <span class="p">+</span> <span class="err">“\</span><span class="n">t</span><span class="err">”</span> <span class="p">+</span>
+            <span class="n">cells</span><span class="p">[</span><span class="err">“</span><span class="n">C</span><span class="err">”</span> <span class="p">+</span> <span class="n">i</span><span class="p">].</span><span class="n">Value</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span> <span class="p">+</span> <span class="err">“\</span><span class="n">t</span><span class="err">”</span> <span class="p">+</span>
+            <span class="n">cells</span><span class="p">[</span><span class="err">“</span><span class="n">D</span><span class="err">”</span> <span class="p">+</span> <span class="n">i</span><span class="p">].</span><span class="n">Value</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span> <span class="p">+</span> <span class="err">“\</span><span class="n">t</span><span class="err">”</span> 
+            <span class="p">);</span>
+    <span class="p">}</span></code></pre></figure></p>
+
+<p>En este caso los datos leídos se imprimen a consola, pero sería sencillo insertarlos en una base de datos o hacer algun tipo de procesamiento con ellos.</p>
+
+<h2 id=\"conclusin\">Conclusión</h2>
+<p>Sin lugar a dudas, la API de EPPlus es bastante buena y fácil de usar y si bien tiene poca documentación, es posible encontrar recursos en línea que explícan un poco más acerca de su uso. Como ya vimos, nos puede resultar útil para generar documentos desde cero o interactuar con documentos ya existentes. Es importante remarcar que para su funcionamiento <strong>no requiere que el lugar en donde se ejecute cuente con Office instalado</strong>, al igual que DocX.</p>
+
+<h1 id=\"instalacin\">Instalación</h1>
+<p>No olvides visitar <a href=\"http://epplus.codeplex.com\" target=\"_blank\">la página de EPPlus en Codeplex</a> o instala el paquete de NuGet en tu proyecto:</p>
+
+<p><figure class="console"><pre><code>PM&gt; Install-Package EPPlus</code></pre></figure></p>
+"
+}

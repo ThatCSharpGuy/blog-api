@@ -1,0 +1,78 @@
+{	
+	"id" : "/post/lambdas-en-c-sharp/",
+	"tv" : false,
+	"date": "2015-08-03 13:00:00 -0500",
+	"title" : "Lambdas en C#",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
+	"tags" :
+	[ 
+		"AprendeCSharp"
+	],
+	"content" : "<p>Una vez que conocemos lo que es un delegado, y lo que son Func y Action, es momento de llegar a un tema que se convierte en algo muy sencillo, además es de mis cosas favoritas en C#: Las <strong>expresiones lambda</strong>. Comenzaré por dar un ejemplo de su uso:</p>
+
+<p>Es decir, suponiendo que tenemos el método del ejemplo pasado.
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">void</span> <span class="nf">RealizaOperacionSecreta</span><span class="p">(</span><span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">palabras</span><span class="p">,</span> <span class="n">Func</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">bool</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">filtro</span><span class="p">)</span></code></pre></figure>
+Para el que escribimos un método para usarlo como filtro:
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">static</span> <span class="kt">bool</span> <span class="nf">SoloConU</span><span class="p">(</span><span class="kt">string</span> <span class="n">s</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="k">return</span> <span class="n">s</span><span class="p">.</span><span class="n">StartsWith</span><span class="p">(</span><span class="err">\</span><span class="s">&quot;u\&quot;);</span>
+<span class="p">}&lt;/</span><span class="kt">string</span><span class="p">&gt;&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="c1">// …</span>
+<span class="c1">// Ejemplo de uso:</span>
+<span class="n">RealizaOperacionSecrete</span><span class="p">(</span><span class="n">palabras</span><span class="p">,</span> <span class="n">SoloConU</span><span class="p">);</span></code></pre></figure>
+En realidad, no es necesario escribir tanto, el método <code>SoloConU</code>, puede ser reemplazado en el código por:<br />
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">RealizaOperacionSecrete</span><span class="p">(</span><span class="n">palabras</span><span class="p">,</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="p">{</span> <span class="k">return</span> <span class="n">s</span><span class="p">.</span><span class="n">StartsWith</span><span class="p">(</span><span class="err">“</span><span class="n">u</span><span class="err">”</span><span class="p">);</span> <span class="p">});&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="c1">// O simplemente por:</span>
+<span class="n">RealizaOperacionSecrete</span><span class="p">(</span><span class="n">palabras</span><span class="p">,</span> <span class="n">s</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">s</span><span class="p">.</span><span class="n">StartsWith</span><span class="p">(</span><span class="err">“</span><span class="n">u</span><span class="err">”</span><span class="p">));</span></code></pre></figure>
+Por definición, las expresiones lambda son “métodos anónimos para crear tipos delegados y árboles de expresión”, nos enfocaremos en lo primero. El método <code>SoloConU</code> es usado solamente una vez en nuestro programa y es por eso que es un buen candidato a ser reemplazado por un método anónimo (entre otras cosas, sin nombre). Y es que podría muchas veces resultarnos bastante engorroso tener que escribir le método completo para hacer referencia a él solamente una vez dentro de todo nuestro código.</p>
+
+<h4 id=\"crear-una-expresin-lambda\">Crear una expresión lambda</h4>
+<p>Me gusta imaginar la creación de expresiones lambda como una especie de recorte de los métodos tradicionales, y es que lo podemos ver como una serie de pasos que funcionan tanto para métodos con tipo de dato de retorno o para los que no lo tienen:</p>
+
+<ol>
+	<li>Quitamos todo lo que esté antes del primer paréntesis de apertura</li>
+	<li>Agregamos el operador <code>=&gt;</code></li>
+	<li>... listo</li>
+</ol>
+
+<h4 id=\"consideraciones-extras\">Consideraciones extras</h4>
+<p>Existen otras consideraciones que podemos tomar en cuenta si queremos reducir aún más la cantidad de código escrito. Por ejemplo si a la expresión lambda recibe <strong>un solo parámetro</strong> se pueden omitir los paréntesis:</p>
+
+<div class=\"pure-g\">
+    <div class=\"pure-u-1-2\">
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="c1">// Versión normal</span>
+<span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span> <span class="p">}</span></code></pre></figure>
+	</div>
+    <div class=\"pure-u-1-2\">
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="c1">// Versión \&quot;simplificada\&quot;</span>
+<span class="n">a</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span> <span class="p">}</span></code></pre></figure>
+	</div>
+</div>
+<p>Si la expresión lambda consta de una <strong>única sentencia</strong>, y esta es una <strong>operación de retorno</strong>, podemos omitir los corchetes, la palabra clave <code>return</code> y el <code>;</code> de fin de sentencia:</p>
+
+<div class=\"pure-g\">
+    <div class=\"pure-u-1-2\">
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">a</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span> <span class="p">}</span></code></pre></figure>
+	</div>
+    <div class=\"pure-u-1-2\">
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">a</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">a</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span></code></pre></figure>
+	</div>
+</div>
+
+<h4 id=\"usos-ms-frecuentes\">Usos más frecuentes</h4>
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="c1">// Eventos</span>
+<span class="n">accessButton</span><span class="p">.</span><span class="n">Clicked</span> <span class="p">+=</span> <span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="p">{</span> <span class="n">DoAccess</span><span class="p">();</span> <span class="p">};&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="c1">// Linq</span>
+<span class="kt">var</span> <span class="n">solteros</span> <span class="p">=</span> 	<span class="n">personas</span>
+				<span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">persona</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">persona</span><span class="p">.</span><span class="n">EsSoltero</span><span class="p">)</span>
+				<span class="p">.</span><span class="n">OrderBy</span><span class="p">(</span><span class="n">persona</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">persona</span><span class="p">.</span><span class="n">Nombre</span><span class="p">)</span>
+				<span class="p">.</span><span class="n">Select</span> <span class="p">(</span><span class="n">persona</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="k">new</span> <span class="n">Soltero</span> <span class="p">{</span> <span class="n">Nombre</span> <span class="p">=</span> <span class="n">persona</span><span class="p">.</span><span class="n">Nombre</span> <span class="p">});</span></code></pre></figure>
+De los usos más frecuentes de las expresiones lambda, podemos encontrar la asignación de manejadores de evento y en conjunto con Linq. Herramientas de las que les hablaré más adelante.</p>
+
+<p><strong>Este es el fin de la serie de posts</strong> que comenzó con <a href=\"/delegados-en-c-sharp\" target=\"_blank\">delegados en C#</a> continuando con <a href=\"/func-y-action-en-c-sharp\" target=\"_blank\">func y action en C#</a>. Hay otro tema en el tintero, que son los árboles de expresiones, pero aún está en preparación.</p>
+"
+}

@@ -1,0 +1,131 @@
+{	
+	"id" : "/post/genericos-c-sharp-metodos/",
+	"tv" : false,
+	"date": "2016-06-19 14:00:01 -0500",
+	"title" : "Métodos genéricos en C#",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/generics-es.png",
+	"tags" :
+	[ 
+		"AprendeCSharp"
+	],
+	"content" : "<p>En un <a href=\"../genericos-c-sharp-clases\">post anterior</a> hablé sobre las clases genéricas en C#, ahí mencioné que había otra posibilidad de usar el mismo concepto (de plantillas y marcadores) pero en la creación de métodos, y este post habla sobre ellos.</p>
+
+<h3 id=\"sintaxis\">Sintaxis</h3>
+
+<p>La sintaxis es casi la misma que al declarar un método tradicional, salvo que de nuevo aparecen los <em>placeholders</em> de tipos entre <code>&lt;</code> <code>&gt;</code>, por ejemplo, en el siguiente método se declara únicamente <code>T</code>:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="k">void</span> <span class="n">WriteType</span><span class="p">&lt;</span><span class="n">t</span><span class="p">&gt;()</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">a</span> <span class="p">=</span> <span class="k">typeof</span><span class="p">(</span><span class="n">T</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">Name</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure></t></p>
+
+<h3 id=\"uso\">Uso</h3>
+
+<p>Entonces, para llamarlo, tendremos que hacerlo de la siguiente manera:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">WriteType</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span> <span class="c1">// Int32</span>
+<span class="n">WriteType</span><span class="p">&lt;</span><span class="n">program</span><span class="p">&gt;();</span> <span class="c1">// Program</span></code></pre></figure></program></int></p>
+
+<p>Al igual que con los tipos, una vez indicado el <em>placeholder</em> podemos utilizarlo tanto en la firma del método como en el cuerpo del mismo:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">T</span> <span class="n">GetDefault</span><span class="p">&lt;</span><span class="n">t</span><span class="p">&gt;(</span><span class="n">T</span> <span class="n">useless</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="nf">default</span><span class="p">(</span><span class="n">T</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure></t></p>
+
+<p>Para usarlos tenemos dos opciones:</p>
+
+<ol>
+  <li>Indicar explícitamente los tipos a la hora de realizar la llamada</li>
+  <li>Permitir que el compilador infiera a qué tipos nos referimos a partir de los argumentos pasados</li>
+</ol>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">dflt</span> <span class="p">=</span> <span class="n">GetDefault</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="m">10</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">dflt2</span> <span class="p">=</span> <span class="n">GetDefault</span><span class="p">(</span><span class="m">4.0</span><span class="p">);</span> <span class="c1">// Se infiere que es double a partir del argumento pasado al método</span>
+<span class="c1">// int dflt3 = GetDefault(DateTime.Now); // Error, DateTime no se puede convertir a int implícitamente</span></code></pre></figure></int></p>
+
+<h3 id=\"ejemplos\">Ejemplos</h3>
+
+<p>Uno de los ejemplos más usados para explicar los métodos genéricos es un método que intercambia dos valores dados:</p>
+
+<div class=\"pure-g\">
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="k">void</span> <span class="nf">Swap</span><span class="p">(</span><span class="k">ref</span> <span class="kt">decimal</span> <span class="n">a</span><span class="p">,</span> <span class="k">ref</span> <span class="kt">decimal</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">decimal</span> <span class="n">t</span> <span class="p">=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">a</span> <span class="p">=</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">b</span> <span class="p">=</span> <span class="n">t</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>  
+</div>
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="k">void</span> <span class="nf">Swap</span><span class="p">(</span><span class="k">ref</span> <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="k">ref</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">t</span> <span class="p">=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">a</span> <span class="p">=</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">b</span> <span class="p">=</span> <span class="n">t</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>  
+</div>  
+</div>
+
+<p>Hasta aquí todo bien, ya podemos intercambiar de lugar decimales y enteros, pero ¿qué va a pasar cuando tengamos que intercambiar <code>DateTime</code> o <code>doubles</code>? podríamos copiar y pegar el código del método cambiando únicamente los tipos de dato… o podríamos en su lugar usar un método genérico:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="k">void</span> <span class="n">Swap</span><span class="p">&lt;</span><span class="n">t</span><span class="p">&gt;(</span><span class="k">ref</span> <span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="k">ref</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">T</span> <span class="n">t</span> <span class="p">=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">a</span> <span class="p">=</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">b</span> <span class="p">=</span> <span class="n">t</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure></t></p>
+
+<p>Entonces ya podríamos usar el método con cualquier tipo que deseemos:</p>
+
+<div class=\"pure-g\">
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">int</span> <span class="n">uno</span> <span class="p">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">dos</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">uno</span> <span class="p">+</span> <span class="err">\</span><span class="s">&quot; \&quot; + dos);</span>
+
+<span class="n">Swap</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="k">ref</span> <span class="n">uno</span><span class="p">,</span> <span class="k">ref</span> <span class="n">dos</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">uno</span> <span class="p">+</span> <span class="err">\</span><span class="s">&quot; \&quot; + dos);</span>
+
+<span class="n">Swap</span><span class="p">(</span><span class="k">ref</span> <span class="n">uno</span><span class="p">,</span> <span class="k">ref</span> <span class="n">dos</span><span class="p">);</span> <span class="c1">// Se infiere int</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">uno</span> <span class="p">+</span> <span class="err">\</span><span class="s">&quot; \&quot; + dos);</span></code></pre></figure>  
+
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">float</span> <span class="n">d1</span> <span class="p">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">d2</span> <span class="p">=</span> <span class="m">20</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">d1</span> <span class="p">+</span> <span class="err">\</span><span class="s">&quot; \&quot; + d2);</span>
+
+<span class="n">Swap</span><span class="p">(</span><span class="k">ref</span> <span class="n">d1</span><span class="p">,</span> <span class="k">ref</span> <span class="n">d2</span><span class="p">);</span> <span class="c1">// Se infiere float</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">d1</span> <span class="p">+</span> <span class="err">\</span><span class="s">&quot; \&quot; + d2);  </span>
+
+  
+  </code></pre></figure>  
+</div>  
+  
+
+#### Errores
+
+Cuando usamos métodos genéricos es posible incurrir en errores, los más comunes son que el compilador no pueda inferir los tipos a los que nos referimos, como en este caso que estamos usando `Swap` con un `int` y un `float`:   
+
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">Swap</span><span class="p">(</span><span class="n">uno</span><span class="p">,</span> <span class="n">d2</span><span class="p">);</span> <span class="c1">// Error, los tipos no pueden ser inferidos</span></code></pre></figure>  
+
+O que intentemos usar un tipo de dato que no corresponde si especificamos explícitamente los tipos:
+
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">Swap</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="k">ref</span> <span class="n">uno</span><span class="p">,</span> <span class="k">ref</span> <span class="n">d2</span><span class="p">);</span> <span class="c1">// Error, d2 no es entero</span></code></pre></figure>  
+
+### Restricciones  
+
+Al igual que los tipos genéricos, los métodos también aceptan restricciones usando la palabra reservada `where`, por ejemplo, en el método siguiente se restringe que tanto el tipo `T` como `W` sean `Athlete` o derivados de este. Además de que `T` tenga un constructor público sin parámetros:
+
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">T</span> <span class="n">ChangeSport</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">T</span><span class="p">,</span> <span class="n">W</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;(</span><span class="n">W</span> <span class="n">toCast</span><span class="p">)</span>
+    <span class="k">where</span> <span class="n">T</span> <span class="p">:</span> <span class="n">Athlete</span><span class="p">,</span> <span class="k">new</span><span class="p">()</span>
+    <span class="k">where</span> <span class="n">W</span> <span class="p">:</span> <span class="n">Athlete</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span></code></pre></figure>  
+
+## Para cerrar  
+
+Es importante señalar que un método de un tipo genérico no es genérico simplemente por eso, para que un método genérico sea considerado así debe tener al menos un *placeholder* de tipo. También debes considerar que a veces no todo es suceptible de *genericalizar*, es cuestión de analizar bien el problema.
+</int></int></div></div>
+"
+}

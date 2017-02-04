@@ -1,0 +1,47 @@
+{	
+	"id" : "/post/creando-propios-alias/",
+	"tv" : false,
+	"date": "2015-09-16 08:00:00 -0500",
+	"title" : "Creando nuestros propios alias",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimagesfeatured.jpg",
+	"tags" :
+	[ 
+		"AprendeCSharp"
+	],
+	"content" : "<p>Hace poco vimos que existen <a href=\"/string-vs-system-string-es\" target=\"_blank\">alias en C# para los tipos predefinidos</a> de datos, y hasta ahí todo claro. Pero nosotros como programadores también podemos beneficiarnos de crear nuestros propios alias. Hay dos maneras de hacer uso de los alias:</p>
+
+<h3 id=\"para-tipos-de-dato\">Para tipos de dato</h3>
+<p>¿No sería fabuloso poder “cambiarle” (entre comillas porque en realidad solamente le estamos dando otro nombre) el nombre a <code>int</code>? tal vez sea mejor ponerle algo como <code>Entero</code>. Lo podemos hacer con una sentencia <code>using</code> de la siguiente manera:
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">Entero</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">Int32</span><span class="p">;</span></code></pre></figure><br />
+Y después usarlo de la siguiente manera:
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">Entero</span> <span class="n">uno</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+<span class="n">Entero</span> <span class="n">dos</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">uno</span> <span class="p">+</span> <span class="n">dos</span><span class="p">);</span> <span class="c1">// Imprimirá 3</span></code></pre></figure><br />
+Pero bueno, no creo que cambiarle el nombre a un entero les haga mucho sentido, así que trasladémoslo a una aplicación real. Supongamos que tenemos una aplicación que separa el modelo del acceso a datos, dentro de ella también tenemos dos clases llamadas <code>Person</code>, una dentro del namespace <code>MyApp.DataAccess.Entities</code> y otra dentro de <code>MyApp.ViewModels.Editable</code>. Para que la aplicación funcione hay un punto en el que ambas clases deben coincidir para que <em>mapear</em> de una a otra. Sin alias tendríamos que usar el nombre completo de las clases: 
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">static</span> <span class="n">MyApp</span><span class="p">.</span><span class="n">DataAccess</span><span class="p">.</span><span class="n">Entities</span><span class="p">.</span><span class="n">Person</span> <span class="n">MapPerson</span><span class="p">(</span><span class="n">MyApp</span><span class="p">.</span><span class="n">ViewModels</span><span class="p">.</span><span class="n">Editable</span><span class="p">.</span><span class="n">Person</span> <span class="n">person</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="c1">// …</span></code></pre></figure><br />
+Ahora, usando alias reemplazaremos los nombres por algo más corto (y probablemente amigable):<br />
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">EntityPerson</span> <span class="p">=</span> <span class="n">MyApp</span><span class="p">.</span><span class="n">DataAccess</span><span class="p">.</span><span class="n">Entities</span><span class="p">.</span><span class="n">Person</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">EditablePerson</span> <span class="p">=</span> <span class="n">MyApp</span><span class="p">.</span><span class="n">ViewModels</span><span class="p">.</span><span class="n">Editable</span><span class="p">.</span><span class="n">Person</span><span class="p">;</span>
+<span class="c1">// … … …</span>
+<span class="k">public</span> <span class="k">static</span> <span class="n">EntityPerson</span> <span class="nf">MapPerson</span><span class="p">(</span><span class="n">EditablePerson</span> <span class="n">person</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="c1">// …</span></code></pre></figure><br />
+### Para nombres de espacio<br />
+Hay que aceptarlo, cambiar el nombre de los tipos puede resultar un poco confuso, pero C# también nos ofrece la posibilidad de ponerle un alias a los <em>namespaces</em> y se hace de la misma manera que para los tipos de dato:<br />
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">Ents</span> <span class="p">=</span> <span class="n">MyApp</span><span class="p">.</span><span class="n">DataAccess</span><span class="p">.</span><span class="n">Entities</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Edt</span> <span class="p">=</span> <span class="n">MyApp</span><span class="p">.</span><span class="n">ViewModels</span><span class="p">.</span><span class="n">Editable</span><span class="p">;</span>
+<span class="c1">// … … …</span>
+<span class="k">public</span> <span class="k">static</span> <span class="n">Ents</span><span class="p">.</span><span class="n">Person</span> <span class="n">MapPerson</span><span class="p">(</span><span class="n">Edt</span><span class="p">.</span><span class="n">Person</span> <span class="n">person</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="c1">// …</span></code></pre></figure><br />
+### Gran, gran desventaja<br />
+Dejé lo peor para el final: Los alias creados por nosotros solamente son válidos dentro del bloque de código en el que los definamos, ya sea dentro de un <code>namespace</code> o dentro de un archivo completo, lo cual significa que tenemos que repetirlo para cada archivo en el que lo usemos. Sería muy útil poderlos definir una sola vez a nivel global y después poder usarlas en toda nuestra aplicación.</p>
+
+<h4 id=\"mi-consejo\">Mi consejo</h4>
+<p>Estos alias existen, pero yo procuro no usarlas salvo en casos extremos y es que si no se usan con moderación pueden complicar mucho la lectura del código.</p>
+
+"
+}

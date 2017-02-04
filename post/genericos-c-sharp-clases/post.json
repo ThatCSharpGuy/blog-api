@@ -1,0 +1,206 @@
+{	
+	"id" : "/post/genericos-c-sharp-clases/",
+	"tv" : false,
+	"date": "2016-06-12 14:00:01 -0500",
+	"title" : "Clases genéricas en C#",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/generics-es.png",
+	"tags" :
+	[ 
+		"AprendeCSharp"
+	],
+	"content" : "<p>Más de C#. En este post toca hablar sobre los genéricos</p>
+
+<p>Los genéricos, y más concretamente en este post los tipos genéricos, son un mecanismo de C# que nos ayuda a maximizar la reutilización de código. La reutilización de código se logra a través de el uso de plantillas (<em>templates</em>) de código en las cuales se insertan marcadores (<em>placeholders</em>) que representarán los tipos de dato que usaremos en nuestra plantilla.</p>
+
+<h2 id=\"sintaxis\">Sintaxis</h2>
+
+<p>La declaración de tipos genéricos se realiza casi como cualquier otro tipo, con la diferencia de que tenemos que declarar los <em>placeholders</em> entre signos <code>&lt;</code> y <code>&gt;</code>, por ejemplo,</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Box</span><span class="p">&lt;</span><span class="n">t</span><span class="p">&gt;</span></code></pre></figure></t></p>
+
+<p>En la cual le estamos indicando que usaremos un marcador llamado <code>T</code>. Que se lee como “Box de T”. Luego entonces dentro de la declaración de la clase podemos reutilizar el marcador <code>T</code> tantas veces como queramos:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp">    <span class="k">public</span> <span class="n">T</span> <span class="n">Content</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">private</span> <span class="k">set</span><span class="p">;</span> <span class="p">}&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="k">public</span>  <span class="n">Box</span><span class="p">(</span><span class="n">T</span> <span class="n">content</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Content</span> <span class="p">=</span> <span class="n">content</span><span class="p">;</span>
+<span class="p">}</span> </code></pre></figure>  
+</code></pre>
+
+<p>Para hacer uso de un tipo genérico la sintaxis es más o menos igual a cualquier tipo por referencia: debemos usar el operador <code>new</code>, el constructor de la clase e indicarle dentro de <code>&lt;</code> y <code>&gt;</code> los tipos con los que queremos que se reemplaze el marcador.</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">cajaDeEntero</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Box</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="m">5</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">cajaDeString</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Box</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="err">\</span><span class="s">&quot;Hola mundo\&quot;);&lt;/string&gt;&lt;/int&gt;&lt;/p&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">cajaDeEntero</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span> <span class="c1">// 5</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">cajaDeString</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span> <span class="c1">// Hola mundo</span></code></pre></figure></p>
+
+<p>También podemos anidar declaraciones en los tipos genéricos:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">cajaDeCajas</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Box</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Box</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;&amp;</span><span class="n">gt</span><span class="p">;(</span><span class="n">cajaDeString</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">cajaDeCajas</span><span class="p">);</span> <span class="c1">// [Box: Content=[Box: Content=Hola mundo]]</span></code></pre></figure></string></p>
+
+<p>No hay “límite” en cuanto al nombre o cantidad de tipos que podemos usar, por ejemplo:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">ComplexBox</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">T</span><span class="p">,</span> <span class="n">Content1</span><span class="p">,</span> <span class="n">Content2</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">Content1</span> <span class="n">C1</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="n">Content2</span> <span class="n">C2</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="n">T</span> <span class="n">Item</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="k">public</span> <span class="n">ComplexBox</span><span class="p">(</span><span class="n">Content1</span> <span class="n">c1</span><span class="p">,</span> <span class="n">Content2</span> <span class="n">c2</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">C1</span> <span class="p">=</span> <span class="n">c1</span><span class="p">;</span>
+    <span class="n">C2</span> <span class="p">=</span> <span class="n">c2</span><span class="p">;</span>
+<span class="p">}</span> <span class="p">}</span>
+<span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="c1">// …&lt;/p&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="kt">var</span> <span class="n">cajota</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ComplexBox</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="kt">double</span><span class="p">,</span> <span class="kt">decimal</span><span class="p">,</span> <span class="kt">float</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Item</span> <span class="p">=</span> <span class="m">3</span>
+<span class="p">};</span></code></pre></figure></p>
+
+<h3 id=\"restriccin-where\">Restricción where</h3>
+
+<p>De entrada, si solo especificamos de esta manera <code>Box&lt;T&gt;</code> los genéricos, podríamos crear objetos a partir de <code>Box</code> sin limitacio</p>
+
+<p>Es por eso que usando la cláusula <em>where X : [Condición]</em> podemos limitar qué tipo de datos aceptará nuestro tipo genérico como <em>marcadores</em>, por ejemplo, supongamos que tenemos las clases:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">LimitedBox</span><span class="p">&lt;</span><span class="n">t</span><span class="p">&gt;</span> <span class="k">where</span> <span class="n">T</span> <span class="p">:</span> <span class="k">struct</span>
+    <span class="err">// ...&lt;/</span><span class="nc">t</span><span class="p">&gt;&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">public</span> <span class="k">class</span> <span class="nc">LimitedBox</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">X0</span><span class="p">,</span><span class="n">X1</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;</span> 
+    <span class="k">where</span> <span class="n">X0</span> <span class="p">:</span> <span class="k">struct</span>
+    <span class="nc">where</span> <span class="n">X1</span> <span class="p">:</span> <span class="n">IEquatable</span><span class="p">&lt;</span><span class="n">x1</span><span class="p">&gt;</span>
+    <span class="c1">// ...&lt;/x1&gt;&lt;/p&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">public</span> <span class="k">class</span> <span class="nc">LimitedBox</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;</span>
+    <span class="k">where</span> <span class="n">T</span> <span class="p">:</span> <span class="k">struct</span>
+    <span class="nc">where</span> <span class="n">U</span> <span class="p">:</span> <span class="n">IEquatable</span><span class="p">&lt;</span><span class="n">u</span><span class="p">&gt;</span>
+    <span class="k">where</span> <span class="n">V</span> <span class="p">:</span> <span class="k">new</span><span class="p">()</span>
+    <span class="c1">// ...</span></code></pre></figure></u></p>
+
+<p>Estamos limitando a que:</p>
+
+<ul>
+  <li><code>LimitedBox&lt;T&gt;</code> únicamente acepte en <code>T</code>, tipos que sean <code>struct</code> como <code>decimal</code> y <code>DateTime</code></li>
+  <li><code>LimitedBox&lt;X0, X1&gt;</code> únicamente acepte en <code>X0</code>, tipos que sean <code>struct</code> como <code>decimal</code> y <code>DateTime</code> y en <code>X1</code> objetos que implementen la interfaz <code>IEquatable</code></li>
+  <li><code>LimitedBox&lt;T, U, V&gt;</code> similar al anterior, solo que en el tercer parámetro, <code>V</code>, únicamente aceptará objetos que tengan un constructor vacío que se a público</li>
+</ul>
+
+<p>La lista completa de restricciones se encuentra en <a href=\"https://msdn.microsoft.com/en-us/library/d5x73970.aspx\" target=\"_blank\" rel=\"nofollow\">este enlace</a>.</p>
+
+<h3 id=\"ejemplos\">Ejemplos</h3>
+
+<p>Pero bueno, veamos un ejemplo.</p>
+
+<p>Imaginate un programa para gestionar un deportivo, en el que existen equipos de futbol y de béisbol, compuestos por atletas, <code>Athlete</code>, (que a su vez se divide en futbolistas, <code>FootballPlayer</code>, y por beisbolistas, <code>BaseballPlayer</code>):</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Athlete</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Height</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Weight</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span></code></pre></figure></p>
+
+<div class=\"pure-g\">
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">FootballPlayer</span> <span class="p">:</span> <span class="n">Athlete</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Position</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">Goals</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span> 
+<span class="p">}</span></code></pre></figure>  
+</div>
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">BaseballPlayer</span> <span class="p">:</span> <span class="n">Athlete</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Position</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">GamesStarted</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>  
+<span class="p">}</span></code></pre></figure>  
+</div>  
+</div>
+
+<p>Ahora, para crear los equipos podríamos tener clases separadas para representar cada equipo:</p>
+
+<div class=\"pure-g\">
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">BaseballTeam</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">CoachName</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="n">BaseballPlayer</span><span class="p">[]</span> <span class="n">Members</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="k">public</span> <span class="nf">BaseballTeam</span><span class="p">(</span><span class="kt">int</span> <span class="n">maxMembers</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Members</span> <span class="p">=</span> <span class="k">new</span> <span class="n">BaseballPlayer</span><span class="p">[</span><span class="n">maxMembers</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>  
+</div>
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">FootballTeam</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">CoachName</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="n">FootballPlayer</span><span class="p">[]</span> <span class="n">Members</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="k">public</span> <span class="nf">FootballTeam</span><span class="p">(</span><span class="kt">int</span> <span class="n">maxMembers</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Members</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FootballPlayer</span><span class="p">[</span><span class="n">maxMembers</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>  
+</div>  
+</div>
+
+<p>Y para crear equipos tendríamos que hacer algo así:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">vitesse</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FootballTeam</span><span class="p">(</span><span class="m">18</span><span class="p">);</span> 
+<span class="n">vitesse</span><span class="p">.</span><span class="n">Members</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FootballPlayer</span> <span class="p">{</span> <span class="n">Name</span> <span class="p">=</span> <span class="err">“</span><span class="n">Alex</span> <span class="n">Renato</span> <span class="n">Ibarra</span> <span class="n">Mina</span><span class="err">”</span> <span class="p">};&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="kt">var</span> <span class="n">losAngeles</span> <span class="p">=</span> <span class="k">new</span> <span class="n">BaseballTeam</span><span class="p">(</span><span class="m">25</span><span class="p">);</span>
+<span class="n">losAngeles</span><span class="p">.</span><span class="n">Members</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="n">BaseballPlayer</span> <span class="p">{</span> <span class="n">Name</span> <span class="p">=</span> <span class="err">“</span><span class="n">Julio</span> <span class="n">César</span> <span class="n">Urías</span><span class="err">”</span> <span class="p">};</span></code></pre></figure></p>
+
+<h3 id=\"genricos\">Genéricos</h3>
+
+<p>O, para maximizar la reutilización de código, podríamos crear una clase genérica, digamos <code>Team&lt;T&gt;</code> (“Team de T”), para poder reutilizarla (y no solo con equipos de futbol o beisbol):</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Team</span><span class="p">&lt;</span><span class="n">t</span><span class="p">&gt;</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">CoachName</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="n">T</span><span class="p">[]</span> <span class="n">Members</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}&lt;/</span><span class="n">t</span><span class="p">&gt;&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="k">public</span> <span class="n">Team</span><span class="p">(</span><span class="kt">int</span> <span class="n">maxMembers</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Members</span> <span class="p">=</span> <span class="k">new</span> <span class="n">T</span><span class="p">[</span><span class="n">maxMembers</span><span class="p">];</span>
+<span class="p">}</span> <span class="p">}</span> </code></pre></figure>  
+</code></pre>
+
+<p>Y usarlo de esta manera:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">vitesse</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Team</span><span class="p">&lt;</span><span class="n">footballplayer</span><span class="p">&gt;(</span><span class="m">18</span><span class="p">);</span>
+<span class="n">vitesse</span><span class="p">.</span><span class="n">Members</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FootballPlayer</span> <span class="p">{</span> <span class="n">Name</span> <span class="p">=</span> <span class="err">\</span><span class="s">&quot;Alex Renato Ibarra Mina\&quot; };&lt;/footballplayer&gt;&lt;/p&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="kt">var</span> <span class="n">losAngeles</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Team</span><span class="p">&lt;</span><span class="n">baseballplayer</span><span class="p">&gt;(</span><span class="m">25</span><span class="p">);</span>
+<span class="n">losAngeles</span><span class="p">.</span><span class="n">Members</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="n">BaseballPlayer</span> <span class="p">{</span> <span class="n">Name</span> <span class="p">=</span> <span class="err">\</span><span class="s">&quot;Julio César Urías\&quot; };</span></code></pre></figure></baseballplayer></p>
+
+<p>Si dejamos la clase <code>Team&lt;T&gt;</code> como está, podríamos hacer cosas como esta:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">equipoDeEnteros</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Team</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="m">10</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">otroEquipo</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Team</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="m">1233</span><span class="p">);</span></code></pre></figure></object></int></p>
+
+<p>Que tal vez no tienen mucho sentido en nuestra aplicación. Es por eso que usando la restricción <code>where</code> podemos limitar al tipo <code>Team&lt;T&gt;</code> para que únicamente acepte <code>Athlete</code>s:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Team</span><span class="p">&lt;</span><span class="n">t</span><span class="p">&gt;</span> <span class="k">where</span> <span class="n">T</span> <span class="p">:</span> <span class="n">Athlete</span></code></pre></figure></t></p>
+
+<h2 id=\"ejemplos-del-framework\">Ejemplos del Framework</h2>
+
+<p>En el Framework .NET existen numerosos ejemplos de tipos genéricos, siendo el más usado y conocido, las <a href=\"https://msdn.microsoft.com/es-es/library/bb762916(v=vs.110).aspx\" target=\"_blank\" rel=\"nofollow\">colecciones genéricas</a> y las <a href=\"../tuples-c-sharp\">tuplas en C#</a>.</p>
+
+<h2 id=\"para-cerrar\">Para cerrar</h2>
+
+<p>Usar los genéricos permiten dos cosas: Incrementar la reutilización de código manteniendo el tipado fuerte y reducir el impacto al desempeño en nuestras apps al evitar el <a href=\"https://msdn.microsoft.com/en-us/library/yz2be5wk.aspx\" target=\"_blank\" rel=\"nofollow\">boxing y unboxing</a>, de ahí la importancia de su existencia.</p>
+
+<p>Además, los genéricos existen también para métodos, post sobre el que estaré escribiendo en el futuro.</p>
+"
+}

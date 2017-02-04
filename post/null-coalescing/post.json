@@ -1,0 +1,94 @@
+{	
+	"id" : "/post/null-coalescing/",
+	"tv" : false,
+	"date": "2016-09-19 14:00:01 -0500",
+	"title" : "Operador null coalescing en C#",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/null-c.png",
+	"tags" :
+	[ 
+		"AprendeCSharp"
+	],
+	"content" : "<p>Pese a estar desarrollando en C# desde hace tiempo, tengo que aceptar que hay algunas cosas que me tardé en conocer… entre ellas, el operador <code>??</code> . Seguramente ya lo conoces, pero si no, te invito a seguir leyendo para que lo hagas. En realidad, aunque lo conozcas te invito a seguir leyendo, espero apreandas algo nuevo.</p>
+
+<p>Este operador es básicamente una especie de <a href=\"../../tv/azucar-sintactica\" target=\"_blank\">azúcar sintáctica</a> para escribir una <strong>asignación condicional</strong> de tipos por referencia. En otras palabras (en código), observa las siguientes líneas:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">string</span> <span class="n">personName</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">inputName</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+    <span class="n">personName</span> <span class="p">=</span> <span class="err">“</span><span class="n">no</span> <span class="n">name</span><span class="err">”</span><span class="p">;</span>
+<span class="k">else</span>
+    <span class="n">personName</span> <span class="p">=</span> <span class="n">inputName</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">personName</span><span class="p">);</span></code></pre></figure></p>
+
+<p>Si <code>inputName</code> es <code>null</code>, el valor de <code>personName</code> será <em>“no name”</em> para cuando el método <code>WriteLine</code>, todo eso en 4 líneas. Pero esta no es la única forma de realizar la asignación dependiendo del valor, también podríamos haber hecho uso del <a href=\"https://msdn.microsoft.com/en-us/library/be21c7hw(VS.94).aspx\" target=\"_blank\">operador ternario</a>:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">personName</span> <span class="p">=</span> <span class="n">inputName</span> <span class="p">==</span> <span class="k">null</span> <span class="p">?</span> <span class="err">“</span><span class="n">no</span> <span class="n">name</span><span class="err">”</span> <span class="p">:</span> <span class="n">inputName</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">personName</span><span class="p">);</span></code></pre></figure></p>
+
+<h3 id=\"null-coalescing\">Null coalescing</h3>
+
+<p>Que producirá el mismo resultado si <code>inputName == null</code>, todo en 1 sola línea… sin embargo esta sigue sin ser la manera más corta de realizar una asignación de este tipo, la más corta se consigue a través del operador <code>??</code>, llamado <strong>null coalescing</strong> (o de uso combinado de NULL, en español):</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">personName</span> <span class="p">=</span> <span class="n">inputName</span> <span class="p">??</span> <span class="err">“</span><span class="n">no</span> <span class="n">name</span><span class="err">”</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">personName</span><span class="p">);</span></code></pre></figure></p>
+
+<p>Y listo, realiza la misma acción que los dos bloques de código anteriores, pero en menor cantidad de caracteres.</p>
+
+<p>Si aún no has inferido su funcionamiento, es el siguiente: la asignación comienza del lado derecho del signo <code>=</code>, y va de izquierda a derecha evaluando los las expresiones en busca del primer valor no nulo, en cuanto alguno sea distinto de <code>null</code>, lo asignará a la variable ubicada a la izquierda de <code>=</code>.</p>
+
+<h3 id=\"encadenamiento\">Encadenamiento</h3>
+
+<p>Otra de sus particularidades es que permite ser <em>encadenado</em>: si colocamos un operador tras otro, se aplicará el mismo principio de buscar desde la izquierda el primer valor no nulo para ser asignado:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">personName</span> <span class="p">=</span> <span class="n">inputName</span> <span class="p">??</span> <span class="n">GetRandomName</span><span class="p">()</span> <span class="p">??</span> <span class="n">TryGetName</span><span class="p">()</span> <span class="p">??</span> <span class="err">“</span><span class="n">no</span> <span class="n">name</span><span class="err">”</span><span class="p">;</span></code></pre></figure></p>
+
+<p>Si esta misma asignación se intentara haecer con sentencias <code>if</code> o con operadores ternarios, la cantidad de código a escribir aumentaría considerablemente.</p>
+
+<h3 id=\"tipos-nullables\">Tipos nullables</h3>
+
+<p>Uno de sus usos es junto a los <a href=\"../tipos-nullables-en-c-sharp\">tipos nullables</a>:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">int?</span> <span class="n">teamAPoints</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="kt">int?</span> <span class="n">teamBPoints</span> <span class="p">=</span> <span class="m">5</span><span class="p">;&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="kt">var</span> <span class="n">difference</span> <span class="p">=</span> <span class="p">(</span><span class="n">teamAPoints</span> <span class="p">??</span> <span class="m">0</span><span class="p">)</span> <span class="p">-</span> <span class="p">(</span><span class="n">teamBPoints</span> <span class="p">??</span> <span class="m">0</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="err">“</span><span class="n">Difference</span> <span class="err">“</span> <span class="p">+</span> <span class="n">difference</span><span class="p">);</span></code></pre></figure></p>
+
+<h3 id=\"carga-diferida\">Carga diferida</h3>
+<p>También suele ser muy frecuente que este operador sea usado para implementar la <em>carga diferida</em> o <a href=\"https://es.wikipedia.org/wiki/Lazy_loading\" target=\"_blank\">lazy loading</a> o el patrón <em>singleton</em>:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">private</span> <span class="k">static</span> <span class="n">Random</span> <span class="n">_random</span><span class="p">;</span>
+<span class="k">public</span> <span class="k">static</span> <span class="n">Random</span> <span class="n">Random</span>
+<span class="p">{</span>
+    <span class="k">get</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_random</span> <span class="p">??</span> <span class="p">(</span><span class="n">_random</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Random</span><span class="p">(</span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">.</span><span class="n">Second</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure></p>
+
+<p>Para la primera vez que llamemos a <code>Random</code>, se ejecutará la parte derecha de la instrucción y para llamadas subsecuentes, únicamente nos devolverá eñ valor de <code>_random</code>.</p>
+
+<h3 id=\"observaciones\">Observaciones</h3>
+
+<p>Es importante señalar que para que el operador funcione, los tipos a evaluar deben ser del mismo tipo (o al menos tener conversión implícita) ya que de otro modo, el compilador nos mostrará un error e impedirá la ejecución del programa. El siguiente segmento de código es inválido, ya que <code>personName</code> es una cadena y <code>teamAPoints</code> es <em>nullable de int</em></p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">invalid</span> <span class="p">=</span> <span class="n">personName</span> <span class="p">??</span> <span class="n">teamAPoints</span><span class="p">;</span></code></pre></figure></p>
+
+<h3 id=\"en-c-6\">En C# 6</h3>
+<p>Las cosas buenas no acaban ahí, este operador cobra mayor relevancia cuando lo combinamos con una de las nuevas funciones de C#, <a href=\"../c-sharp-seis/#null-conditional-operator\" target=\"_blank\"><em>null-conditional operator</em></a> (<code>?.</code>) podemos la funcionalidad que deseamos y sin usar tantas líneas de código:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">randomOrNot</span> <span class="p">=</span> <span class="n">MainClass</span><span class="p">.</span><span class="n">Random</span><span class="p">?.</span><span class="n">Next</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">10</span><span class="p">)</span> <span class="p">??</span> <span class="m">0</span><span class="p">;</span></code></pre></figure></p>
+
+<h3 id=\"ventajas\">Ventajas</h3>
+<p>Para ser honesto, aunque todo depende de quién lo mira, al operador <code>??</code> le encuentro únicamente ventajas:</p>
+
+<ul>
+  <li>Es más corto y fácil de escribir</li>
+  <li>Es más fácil de leer</li>
+  <li>Podemos implementar <em>singletons</em> o <em>carga diferida</em></li>
+  <li>Puede ser encadenado uno tras de otro</li>
+</ul>
+
+<p>¿Tu le encuentras otra ventaja o una desventaja? mándame un tuit, un correo o deja un comentario en la parte de abajo.</p>
+"
+}

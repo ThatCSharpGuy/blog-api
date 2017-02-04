@@ -1,9 +1,11 @@
 {
     "current_page" : 2,
     "total_pages": 8,
-    "posts" : 
+    "items" : 
         [   
             { 
+                "id" : "/post/extension-methods-es/"
+                "tv" : false,
                 "title": "Métodos de extensión en C#", 
                 "date": "2016-11-15 13:00:01 -0600",
                 "featured_tag": "AprendeCSharp",
@@ -11,6 +13,8 @@
                 "summary": "Los métodos de extensión nos permiten ampliar la funcionalidad de cualquier tipo de dato sin necesidad de tener el código fuente de este. A pesar de ser azúcar sintáctica, son muy útiles."
             },
             { 
+                "id" : "/tv/ci/"
+                "tv" : true,
                 "title": "Integración continua", 
                 "date": "2016-11-15 12:00:00 -0600",
                 "featured_tag": "Tv",
@@ -18,6 +22,8 @@
                 "summary": "La integración continua es una práctica muy comun en el desarrollo de software que consiste en que los desarrolladores compilen su código continuamente para detectar errores tempranamente."
             },
             { 
+                "id" : "/post/full-camera-page-es/"
+                "tv" : false,
                 "title": "Cámara a página completa en Xamarin.Forms", 
                 "date": "2016-11-08 02:00:00 -0600",
                 "featured_tag": "XamarinForms",
@@ -25,6 +31,8 @@
                 "summary": "Aprende cómo tomar fotos desde tu aplicación de Xamarin.Forms usando un custom renderer para acceder a la cámar aisn dejar tu aplicación. Con este control puedes personalizar la interfaz de usuario para que coincida con tu app."
             },
             { 
+                "id" : "/post/full-camera-page.1/"
+                "tv" : false,
                 "title": "Full page camera in Xamarin.Forms", 
                 "date": "2016-11-08 02:00:00 -0600",
                 "featured_tag": "XamarinForms",
@@ -32,6 +40,8 @@
                 "summary": "Learn how to take photos from your Xamarin.Forms app using a custom page renderer to use the camera without leaving your application, with this control, you can create your own camera user interface to match the design of your app."
             },
             { 
+                "id" : "/post/debugging-1/"
+                "tv" : false,
                 "title": "Debugging parte 1", 
                 "date": "2016-10-31 13:00:01 -0600",
                 "featured_tag": "AprendeCSharp",
@@ -39,6 +49,8 @@
                 "summary": "En este post te voy a dar algunos tips para que depures tu código en C# y tu IDE de confianza."
             },
             { 
+                "id" : "/post/string-format/"
+                "tv" : false,
                 "title": "String.Format", 
                 "date": "2016-10-24 14:00:01 -0500",
                 "featured_tag": "AprendeCSharp",
@@ -46,6 +58,8 @@
                 "summary": "Olvídate de concatenar una interminable cantidad de cadenas para presentar la información en tus aplicaciones. Con este método de la clase String tienes (casi) todo resuelto, únicamente necesitas una cadena con marcadores y listo."
             },
             { 
+                "id" : "/post/xamarin-auth-es/"
+                "tv" : false,
                 "title": "OAuth en Forms con Xamarin.Auth", 
                 "date": "2016-10-17 14:00:01 -0500",
                 "featured_tag": "XamarinForms",
@@ -53,6 +67,8 @@
                 "summary": "Con Xamarin.Auth, el incorporar servicios de terceros como Twitter y Facebook nunca había sido tan fácil, en este post, aprende a hacerlo desde Xamarin.Forms."
             },
             { 
+                "id" : "/post/reflexion-c-sharp-es/"
+                "tv" : false,
                 "title": "Reflexión en C#", 
                 "date": "2016-10-10 14:00:01 -0500",
                 "featured_tag": "AprendeCSharp",
@@ -60,6 +76,8 @@
                 "summary": "La reflexión nos permite acceder a la información de un tipo en tiempo de ejecución. Cuando estamos escribiendo el código, somos nosotros quienes tenemos una idea general del sistema&#58; sabemos los tipos de dato de las variables, los métodos que contienen las clases, los atributos de los miembros de estas y un sin fin de cosas más."
             },
             { 
+                "id" : "/post/localisation-resx/"
+                "tv" : false,
                 "title": "Archivos de recursos y apps multilenguaje en C#", 
                 "date": "2016-10-03 14:00:01 -0500",
                 "featured_tag": "AprendeCSharp",
@@ -67,13 +85,17 @@
                 "summary": "Como desarrolladores, tendemos a pensar en nuestras aplicaciones como funcionales para una región o lenguaje específicos, sin preocuparnos sobre traducir e internacionalizarlas, preparándolas así para ser accesibles aun número mayor de usuarios."
             },
             { 
+                "id" : "/tv/martillo-dorado/"
+                "tv" : true,
                 "title": "El martillo dorado", 
                 "date": "2016-09-26 13:00:00 -0500",
                 "featured_tag": "Tv",
                 "featured_image": "http://thatcsharpguy.com/postimages//tv/golden-hammer/featured.jpg",
-                "summary": "La falacia del martillo de oro es una de las falacias en las cuales los desarrolladores caemos con mayor facilidad, esta implica el propner una única solución para distintos tipos de problemas. Estas soluciones pueden ser un IDE, un patrón de diseño o hasta un lenguaje de programación."
+                "summary": "La falacia del martillo de oro es una de las falacias en las cuales los desarrolladores caemos con mayor facilidad, esta implica el propner una única solución para distintos tipos de problemas. Estas \"soluciones\" pueden ser un IDE, un patrón de diseño o hasta un lenguaje de programación."
             },
             { 
+                "id" : "/post/null-coalescing/"
+                "tv" : false,
                 "title": "Operador null coalescing en C#", 
                 "date": "2016-09-19 14:00:01 -0500",
                 "featured_tag": "AprendeCSharp",
@@ -81,6 +103,8 @@
                 "summary": "Este operador te ayudará a escribir con mayor claridad el código, al tiempo que te ahorras escribir algunos cuantos ifs en tu código."
             },
             { 
+                "id" : "/post/atributos-c-sharp/"
+                "tv" : false,
                 "title": "Xamarin.Auth", 
                 "date": "2016-09-12 14:00:01 -0500",
                 "featured_tag": "AprendeCSharp",
@@ -88,6 +112,8 @@
                 "summary": "Los atributos nos ofrecen otra manera de interactuar con el código que escribimos, ya sea dándole información al compilador o extendiendo las definiciones de nuestros métodos, propiedades o clases en tiempo de ejecución."
             },
             { 
+                "id" : "/post/commonmark/"
+                "tv" : false,
                 "title": "CommonMark.NET", 
                 "date": "2016-09-05 14:00:01 -0500",
                 "featured_tag": "NuGetRecomendado",
@@ -95,6 +121,8 @@
                 "summary": "Convertir de un documento escrito con el lenguaje Markdown a uno escrito en HTML con este paquete de NuGet es muy intuitivo, además de que su API permite una personalización de la salida bastante intuitiva."
             },
             { 
+                "id" : "/tv/inyeccion-dependencias/"
+                "tv" : true,
                 "title": "La inyección de dependencias", 
                 "date": "2016-09-05 13:00:00 -0500",
                 "featured_tag": "Tv",
@@ -102,6 +130,8 @@
                 "summary": "La inyección de dependencias es un patrón de diseño que nos permite implementar en nuestras aplicaciones el principio de inversión de control. Consiste en evitar la instanciación de unos objetos dentro de otros, evitando así el acoplamiento fuerte."
             },
             { 
+                "id" : "/post/revisando-github/"
+                "tv" : false,
                 "title": "Revisando mis repos en GitHub", 
                 "date": "2016-08-29 14:00:01 -0500",
                 "featured_tag": "AprendeCSharp",

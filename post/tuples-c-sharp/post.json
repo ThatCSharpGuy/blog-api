@@ -1,0 +1,122 @@
+{	
+	"id" : "/post/tuples-c-sharp/",
+	"tv" : false,
+	"date": "2016-05-16 14:00:01 -0500",
+	"title" : "Tuples en C#",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/tuples.png",
+	"tags" :
+	[ 
+		"AprendeCSharp"
+	],
+	"content" : "<p>Seguramente te ha pasado, alguna vez has pensado “Ojalá pudiera devolver dos cosas desde este método” y si bien recuerdas que los <a href=\"../metodos-c-sharp\">métodos en C#</a> únicamente pueden tener un solo tipo de retorno, es posible devolver más de dos valores haciendo uso de la clase genérica <code>Tuple</code>.</p>
+
+<p>Podemos ver a <code>Tuple</code> (o tupla) como un auxiliar para el programador, que <strong>permite “agrupar” otros tipos dato dentro de uno solo</strong>, para así tratarlos como uno solo, esto, a través de varias clases genéricas definidas de la siguiente manera:</p>
+
+<ul>
+  <li><code>Tuple&lt;T1&gt;</code></li>
+  <li><code>Tuple&lt;T1, T2&gt;</code></li>
+  <li><code>Tuple&lt;T1, T2, T3&gt;</code></li>
+  <li><code>Tuple&lt;T1, T2, T3, T4&gt;</code></li>
+  <li><code>Tuple&lt;T1, T2, T3, T4, T5&gt;</code></li>
+  <li><code>Tuple&lt;T1, T2, T3, T4, T5, T6&gt;</code></li>
+  <li><code>Tuple&lt;T1, T2, T3, T4, T5, T6, T7&gt;</code></li>
+  <li><code>Tuple&lt;T1, T2, T3, T4, T5, T6, T7, TRest&gt;</code></li>
+</ul>
+
+<p>## Creando tuplas</p>
+
+<p>A través de los tipos <code>T#</code> se define el contenido de la clase, siendo así que para crear una tupla que contiene un entero y dos cadenas debemos usar:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">t</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Tuple</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;(</span><span class="m">1</span><span class="p">,</span> <span class="err">“</span><span class="n">A</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="n">B</span><span class="err">”</span><span class="p">);</span></code></pre></figure></p>
+
+<p>O, por ejemplo, si quisiéramos crear algo más complejo como una clase que contiene un entero, un decimal, un objeto, otro entero, un booleano y un flotante, tendríamos que hacer algo como esto:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">t1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Tuple</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">decimal</span><span class="p">,</span> <span class="kt">object</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">bool</span><span class="p">,</span> <span class="kt">float</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;(</span><span class="m">3</span><span class="p">,</span> <span class="m">1.5</span><span class="n">m</span><span class="p">,</span> <span class="k">new</span> <span class="p">{</span> <span class="n">emoji</span> <span class="p">=</span> <span class="err">“</span><span class="p">:</span><span class="n">grin</span><span class="p">:</span><span class="err">”</span> <span class="p">},</span> <span class="m">5</span><span class="p">,</span> <span class="k">true</span><span class="p">,</span> <span class="m">7.5f</span><span class="p">);</span></code></pre></figure></p>
+
+<p>Uhhmm, la sintaxis se pone un poco complicada, ¿no? para eliminar esta sintaxis complicada, podemos usar el método estático <code>Create</code> de la clase <code>Tuple</code> para crear tuplas:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">t1</span> <span class="p">=</span> <span class="n">Tuple</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="m">1.5</span><span class="n">m</span><span class="p">,</span> <span class="k">new</span> <span class="p">{</span> <span class="n">emoji</span> <span class="p">=</span> <span class="err">“</span><span class="p">:</span><span class="n">grin</span><span class="p">:</span><span class="err">”</span> <span class="p">},</span> <span class="m">5</span><span class="p">,</span> <span class="k">true</span><span class="p">,</span> <span class="m">7.5f</span><span class="p">);</span></code></pre></figure></p>
+
+<p>Este método, inferirá de los tipos de dato a partir de los parámetros pasados como argumentos.</p>
+
+<h2 id=\"accediendo-a-los-miembros\">Accediendo a los miembros</h2>
+<p>Una vez creada la clase (ya sea con el constructor o el método estático), podemos acceder a cada uno de los datos a través de las propiedades llamadas  <code>Item#</code>, donde # es el número de la propiedad a la que nos referimos:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">Item1</span><span class="p">);</span> <span class="c1">// 1 -&amp;gt; int</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">Item2</span> <span class="p">+</span> <span class="err">“</span> <span class="p">-</span> <span class="err">“</span> <span class="p">+</span> <span class="n">t</span><span class="p">.</span><span class="n">Item3</span> <span class="p">);</span> <span class="c1">// “A - B” -&amp;gt; string</span></code></pre></figure></p>
+
+<p>Es importante señalar que las propiedades de la clase <code>Tuple</code> son de solo lectura, y que una vez asignadas en el constructor, no pueden ser modificadas:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="c1">// t1.Item4 = 7; // Error, solo lectura</span></code></pre></figure></p>
+
+<h2 id=\"ejemplos-de-uso\">Ejemplos de uso</h2>
+
+<h3 id=\"como-parmetros-de-mtodo\">Como parámetros de método</h3>
+<p>Podríamos pensar en un método como este:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">string</span> <span class="nf">MegaMetodoArgumentos</span><span class="p">(</span><span class="kt">int</span> <span class="n">studentId</span><span class="p">,</span> <span class="kt">int</span> <span class="n">classroomId</span><span class="p">,</span> <span class="kt">string</span> <span class="n">type</span><span class="p">,</span> <span class="kt">decimal</span> <span class="n">sum</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">active</span><span class="p">)</span></code></pre></figure></p>
+
+<p>Para llamarlo necesitaríamos escribir algo como esto:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">MegaMetodoArgumentos</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="err">“</span><span class="n">MX</span><span class="err">”</span><span class="p">,</span> <span class="m">3.1</span><span class="n">m</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span></code></pre></figure></p>
+
+<p>O, también podríamos haber escrito el método de la siguiente manera:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">string</span> <span class="nf">MegaMetodoTuple</span><span class="p">(</span><span class="n">Tuple</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">,</span> <span class="kt">decimal</span><span class="p">,</span> <span class="kt">bool</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">args</span><span class="p">)</span></code></pre></figure></p>
+
+<p>E invocarlo así:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">tuple</span> <span class="p">=</span> <span class="n">Tuple</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="err">“</span><span class="n">MX</span><span class="err">”</span><span class="p">,</span> <span class="m">3.1</span><span class="n">m</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+<span class="n">MegaMetodoTuple</span><span class="p">(</span><span class="n">tuple</span><span class="p">);&lt;</span><span class="n">br</span> <span class="p">/&gt;</span></code></pre></figure></p>
+
+<h3 id=\"como-valores-de-retorno\">Como valores de retorno</h3>
+
+<p>El beneficio se nota más cuando se usa una tupa como valor de retorno, imaginemos un método en el que convertimos tomamos un color definido en hexadecimal y lo convertimos a su representación RGB en decimal.</p>
+
+<p>Podríamos usar <a href=\"http://thatcsharpguy.com/post/out-ref-c-sharp/\">parámetros de salida</a>:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">private</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">SplitColors</span><span class="p">(</span><span class="kt">string</span> <span class="n">hex</span><span class="p">,</span> <span class="k">out</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="k">out</span> <span class="kt">int</span> <span class="n">g</span><span class="p">,</span> <span class="k">out</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">r</span> <span class="p">=</span> <span class="n">Int32</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">hex</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">2</span><span class="p">),</span> <span class="n">NumberStyles</span><span class="p">.</span><span class="n">HexNumber</span><span class="p">);</span>
+    <span class="n">g</span> <span class="p">=</span> <span class="n">Int32</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">hex</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">),</span> <span class="n">NumberStyles</span><span class="p">.</span><span class="n">HexNumber</span><span class="p">);</span>
+    <span class="n">b</span> <span class="p">=</span> <span class="n">Int32</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">hex</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">2</span><span class="p">),</span> <span class="n">NumberStyles</span><span class="p">.</span><span class="n">HexNumber</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure></p>
+
+<p>Pero también podríamos usar una tupla como valor de retorno:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">private</span> <span class="k">static</span> <span class="n">Tuple</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">SplitColors</span><span class="p">(</span><span class="kt">string</span> <span class="n">hex</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">r</span> <span class="p">=</span> <span class="n">Int32</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">hex</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">2</span><span class="p">),</span> <span class="n">NumberStyles</span><span class="p">.</span><span class="n">HexNumber</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">g</span> <span class="p">=</span> <span class="n">Int32</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">hex</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">),</span> <span class="n">NumberStyles</span><span class="p">.</span><span class="n">HexNumber</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">b</span> <span class="p">=</span> <span class="n">Int32</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">hex</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">2</span><span class="p">),</span> <span class="n">NumberStyles</span><span class="p">.</span><span class="n">HexNumber</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">Tuple</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure></p>
+
+<p>Entonces para llamarlo, simplemente necesitaríamos escribir lo siguiente:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">string</span> <span class="n">color</span> <span class="p">=</span> <span class="err">“</span><span class="m">3</span><span class="n">C8A3F</span><span class="err">”</span><span class="p">;</span>
+<span class="kt">var</span> <span class="n">colors</span> <span class="p">=</span> <span class="n">SplitColors</span><span class="p">(</span><span class="n">color</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="err">“</span><span class="p">{</span><span class="m">0</span><span class="p">}</span> <span class="n">es</span> <span class="n">R</span><span class="p">:{</span><span class="m">1</span><span class="p">}</span> <span class="n">G</span><span class="p">:{</span><span class="m">2</span><span class="p">}</span> <span class="n">B</span><span class="p">:{</span><span class="m">3</span><span class="p">}</span><span class="err">”</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">colors</span><span class="p">.</span><span class="n">Item1</span><span class="p">,</span> <span class="n">colors</span><span class="p">.</span><span class="n">Item2</span><span class="p">,</span> <span class="n">colors</span><span class="p">.</span><span class="n">Item3</span><span class="p">);</span></code></pre></figure></p>
+
+<h2 id=\"tuplas-de-8-elementos\">Tuplas de 8 elementos</h2>
+<p>Si volvemos a las definiciones de las clases <code>Tuple</code> puedes ver que existen hasta 8 versiones genéricas disponibles. Sin embargo, la octava una peculiaridad: el octavo valor no se almacena dentro de “Item8”, sino dentro de otra tupla (a la que accedemos desde la propiedad <code>Rest</code>):</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">megaTuple</span> <span class="p">=</span> <span class="n">Tuple</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">);</span>
+<span class="c1">//Console.WriteLine(miniTuple.Item8); // Item8 no existe, entonces tenemos que usar Rest:</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">megaTuple</span><span class="p">.</span><span class="n">Rest</span><span class="p">.</span><span class="n">Item1</span><span class="p">);</span> </code></pre></figure></p>
+
+<h2 id=\"ejemplo-de-la-vida-real\">Ejemplo de la vida real</h2>
+<p>Mmm… en realidad no existe alguna api dentro del framework de .NET que haga uso de tuplas, pero en específico se recomienda para:</p>
+
+<ul>
+  <li>Representar un set de datos, por ejemplo, un registro en una base de datos</li>
+  <li>Proveer acceso fácil, y manipulación de, un set de datos</li>
+  <li>Regresar múltiples valores de un método sin usar parámetros por referencia</li>
+  <li>Enviar múltiples valores a un método</li>
+</ul>
+
+<h2 id=\"lo-que-sigue\">Lo que sigue</h2>
+<p>Revisa el <a href=\"https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Tuples\" target=\"_blank\" rel=\"nofollow\">código que acompaña al post</a> y juegues un poco con él, sé que tal vez el asunto de los genéricos en C# puede causar un poco de confusión y es un tema que estoy planeando cubrir en un post futuro.</p>
+"
+}

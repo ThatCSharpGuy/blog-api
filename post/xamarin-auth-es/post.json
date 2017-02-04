@@ -1,0 +1,357 @@
+{	
+	"id" : "/post/xamarin-auth-es/",
+	"tv" : false,
+	"date": "2016-10-17 14:00:01 -0500",
+	"title" : "OAuth en Forms con Xamarin.Auth",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimages//xamarin/auth/featured.jpg",
+	"tags" :
+	[ 
+		"Xamarin",
+		"XamarinForms",
+		"NuGetRecomendado"
+	],
+	"content" : "<div class=\"warning\">
+Este post debe ser usado como guía, como sabrás, en ningún momento es buena idea dejar poner en tu código cualquier tipo de llave que no quieres que sea pública (como los AppSecrets o los Tokens). Te recomiendo visitar estos elnaces: <a href=\"http://www.androidauthority.com/how-to-hide-your-api-key-in-android-600583/\" target=\"blank\">How to hide your key</a> y <a href=\"https://stormpath.com/blog/the-ultimate-guide-to-mobile-api-security\" target=\"blank\">The Ultimate Guide to Mobile API Security</a> para mayor información.
+</div>
+<p>Es un hecho que las redes sociales están dominando el mundo, y que tu app tenga conexión con alguna (o varias) de ellas es una característica que tal vez tus usuarios apreciarían en ella. Sin embargo, para acceder a ellas es necesario contar con el permiso de los usuarios, ¿cierto?</p>
+
+<p>Para nuestra suerte, muchos servicios proporcionan una forma rápida y estandarizada de solicitar dicho permiso de ellos y es través de <a href=\"https://oauth.net\" target=\"_blank\">OAuth</a>. Sin embargo, el proceso que ocurre despues de que los usuarios nos han dado permiso no es <a href=\"https://oauth.net/core/diagram.png\" target=\"_blank\">tan sencillo como parece</a>, para nuestra suerte, <strong>Xamarin.Auth</strong> nos ofrece una forma de ejecutar este proceso de manera sencilla y en unas cuantas líneas de código.</p>
+
+<p>En este post, trataré de explicar cómo usar Xamarin.Auth para conectarse con GitHub, Facebook y Twitter.</p>
+
+<h2 id=\"registrando-aplicaciones-en-servicios\">Registrando aplicaciones en servicios</h2>
+<p>Primero que nada, tenemos que registrar nuestras aplicaciones en los servicios de terceros:</p>
+
+<h3 id=\"github\">GitHub</h3>
+<p>Lo primero que tienes que hacer es darte de alta en el programa de desarrolladores de GitHub en <a href=\"https://developer.github.com/program/\" target=\"_blank\">este enlace</a> y una vez que lo hayas hecho, debes dirigirte a <a href=\"https://github.com/settings/developers\" target=\"_blank\">este otro enlace</a> en donde podrás registrar tu nueva app, en la pantalla de registro debes poner los datos de tu app, pero debes colocar <code>https://github.com</code> en el campo <em>“Authorization callback URL”</em>:</p>
+
+<p><figure><img src='/postimages/post/xamarin-auth-es/post.jsongithub-developer-2.jpg' alt='“Registro de nueva aplicación” images_set' /></figure></p>
+
+<p>Una vez que has completado estos pasos, tu aplicación estará registrada y lista para usarse, una vez creada te aparecerán dos valores que son muy importantes y que debes guardar con mucho cuidado:</p>
+
+<p><figure><img src='/postimages/post/xamarin-auth-es/post.jsongithub-keys.jpg' alt='“GitHub keys” images_set' /></figure></p>
+
+<h3 id=\"facebook\">Facebook</h3>
+<p>Para Facebook la cosa no es tan diferente, debes acceder a <a href=\"https://developers.facebook.com\" target=\"_blank\">https://developers.facebook.com</a> y registrarte como desarrollador para después registrar tu aplicación en el mismo sitio. Ahora, después de elegir un nombre para nuestra aplicación, de proporcionar un correo electrónico para contacto y resolver un captcha, nos aparecerá una pantalla con un menú como el siguiente y en el cual debemos dar click en <em>“Add product”</em> y seleccionar <em>“Facebook Login”</em>:</p>
+
+<p><figure><img src='/postimages/post/xamarin-auth-es/post.jsonfb-app-addlogin.jpg' alt='“Add product” images_set' /></figure></p>
+
+<p>Una vez que hayamos hecho esto, del lado izquierdo, aparecerá un nuevo ítem en el menú llamado, justamente, <em>“Facebook Login”</em> con dos opciones debajo, damos click en <em>“Settings”</em>, después de esto aparecerá un formulario, en donde lo que tenemos que modificar es el campo <em>“Valid OAuth redirect URIs”</em>, en donde debes colocar lo siguiente: <code>https://www.facebook.com/connect/login_success.html</code>:</p>
+
+<p><figure><img src='/postimages/post/xamarin-auth-es/post.jsonoauthredirectaddr.png' alt='“Modificar url de redirección” images_set' /></figure></p>
+
+<p>Guardamos los cambios y ahora, en el menú de la izquierda damos click en <em>“Dashboard”</em>, que nos llevará a la pantalla inicial de nuestra app, de donde debemos copiar el valor de <em>“App ID”</em> y listo, hemos terminado de registrar nuestra app en Facebook.</p>
+
+<h3 id=\"twitter\">Twitter</h3>
+<p>Básicamente, ahora que has registrado tu app en GitHub y Facebook, sabrás más o menos qué esperar con Twitter. Primero, tienes que iniciar el registro de tu app en <a href=\"https://apps.twitter.com\" target=\"_blank\">https://apps.twitter.com</a>, de nuevo, debemos ingresar detalles sobre la app y, <strong>muy importante</strong>, en el campo <em>“Callback URL”</em> debemos colocar <code>https://mobile.twitter.com/home</code>. Una vez dada de alta, tendremos acceso a una <em>“Consumer Key”</em> y a un <em>“Consumer Secret”</em>, este último debe permanecer <strong>siempre secreto</strong>:</p>
+
+<p><figure><img src='/postimages/post/xamarin-auth-es/post.jsontwttr-keys.jpg' alt='“Llaves Twitter” images_set' /></figure></p>
+
+<p>Bien, hemos terminado el papeleo, ahora, a escribir código:</p>
+
+<h2 id=\"en-el-proyecto-de-forms\">En el proyecto de Forms</h2>
+
+<p>Comenzaremos por crear una interfaz que especifique algunas de las propiedades comunes a la hora de realizar la autenticación:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">interface</span> <span class="n">IKeys</span>
+<span class="p">{</span>
+    <span class="kt">string</span> <span class="n">ClientId</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kt">string</span> <span class="n">ClientSecret</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kt">string</span> <span class="n">Scope</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kt">string</span> <span class="n">AuthorizeUrl</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kt">string</span> <span class="n">RedirectUrl</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kt">string</span> <span class="n">RequestTokenUrl</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kt">string</span> <span class="n">AccessTokenUrl</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kt">string</span> <span class="n">ConsumerSecret</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kt">string</span> <span class="n">ConsumerKey</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kt">string</span> <span class="n">CallbackUrl</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span></code></pre></figure></p>
+
+<p>Ahora es cuando tenemos que usar los valores obtenidos en la fase de “El Papeleo”, creamos una clase por cada servicio conectado, fijate cómo es que las clases implementan la interfaz IKey:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp">	
+<span class="k">public</span> <span class="k">class</span> <span class="nc">FacebookKeys</span> <span class="p">:</span> <span class="n">IKeys</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">ClientId</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span> <span class="p">=</span> <span class="err">“</span><span class="n">XXXXXXXXX</span><span class="err">”</span><span class="p">;</span> <span class="c1">// El valor de App ID en el Dashobard</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">AuthorizeUrl</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span> <span class="p">=</span> <span class="err">“</span><span class="n">https</span><span class="p">:</span><span class="c1">//m.facebook.com/dialog/oauth/”;</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">RedirectUrl</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span> <span class="p">=</span> <span class="err">“</span><span class="n">https</span><span class="p">:</span><span class="c1">//www.facebook.com/connect/login_success.html”;</span>
+    <span class="c1">// …&lt;/p&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">public</span> <span class="k">class</span> <span class="nc">GitHubKeys</span> <span class="p">:</span> <span class="n">IKeys</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">ClientId</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="err">“</span><span class="n">XXXXXXXXXX</span><span class="err">”</span><span class="p">;</span> <span class="c1">// El valor de Client Id de GitHub</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">ClientSecret</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="err">“</span><span class="n">XXXXXXXXXXXXXXXX</span><span class="err">”</span><span class="p">;</span> <span class="c1">// El valor de Client Secret de GitHub</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">AccessTokenUrl</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span> <span class="p">=</span> <span class="err">“</span><span class="n">https</span><span class="p">:</span><span class="c1">//github.com/login/oauth/access_token”;</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">AuthorizeUrl</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span> <span class="p">=</span> <span class="err">“</span><span class="n">https</span><span class="p">:</span><span class="c1">//github.com/login/oauth/authorize”;</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">RedirectUrl</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span> <span class="p">=</span> <span class="err">“</span><span class="n">https</span><span class="p">:</span><span class="c1">//github.com”;</span>
+    <span class="c1">// …&lt;/p&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">public</span> <span class="k">class</span> <span class="nc">TwitterKeys</span> <span class="p">:</span> <span class="n">IKeys</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">ConsumerKey</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span> <span class="p">=</span> <span class="err">“</span><span class="n">EnPK4XXXXXXXtrwXXXXXXXEm</span><span class="err">”</span><span class="p">;</span> <span class="c1">// Consumer Key de Twitter</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">ConsumerSecret</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="err">“</span><span class="n">FhSHfXXXXXXXXyu0ZqXXXXXXXXXXXXhbFcr8ETG2p</span><span class="err">”</span><span class="p">;</span> <span class="c1">// Consumer Secret de Twitter</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">AccessTokenUrl</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span> <span class="p">=</span> <span class="err">“</span><span class="n">https</span><span class="p">:</span><span class="c1">//api.twitter.com/oauth/access_token”;</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">AuthorizeUrl</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span> <span class="p">=</span> <span class="err">“</span><span class="n">https</span><span class="p">:</span><span class="c1">//api.twitter.com/oauth/authorize”;</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">RedirectUrl</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span> <span class="p">=</span> <span class="err">“</span><span class="n">https</span><span class="p">:</span><span class="c1">//mobile.twitter.com/home”;</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">RequestTokenUrl</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="err">“</span><span class="n">https</span><span class="p">:</span><span class="c1">//api.twitter.com/oauth/request_token”;</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">CallbackUrl</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="err">“</span><span class="n">https</span><span class="p">:</span><span class="c1">//mobile.twitter.com/home”;</span>
+    <span class="c1">//</span></code></pre></figure></p>
+
+<p>Además de un <a href=\"../c-sharp-enums\" target=\"_blank\">tipo <code>enum</code></a> que represente a los servicios que podemos usar, usamos un <code>enum</code> para evitar usar cadenas mágicas en el código:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">enum</span> <span class="n">Services</span>
+<span class="p">{</span>
+    <span class="n">GitHub</span><span class="p">,</span>
+    <span class="n">Facebook</span><span class="p">,</span>
+    <span class="n">Twitter</span>
+<span class="p">}</span></code></pre></figure></p>
+
+<p>Dado que Xamarin.Auth hace uso de APIs nativas de cada platforma, sus métodos son únicamente accesibles en los proyectos “cliente” y no desde el núcleo de nuestra aplicación, es por eso que para interactuar con ella indepentiéntemente de la plataforma, necesitamos hacer uso de una interfaz:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">interface</span> <span class="n">IAccountManagerService</span>
+<span class="p">{</span>
+    <span class="n">List</span><span class="p">&lt;</span><span class="n">services</span><span class="p">&gt;</span> <span class="n">Accounts</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}&lt;/</span><span class="n">services</span><span class="p">&gt;&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="kt">string</span> <span class="n">GetPropertyFromAccount</span><span class="p">(</span><span class="n">Services</span> <span class="n">service</span><span class="p">,</span> <span class="kt">string</span> <span class="n">property</span><span class="p">);</span>
+
+<span class="k">void</span> <span class="nf">EraseAll</span><span class="p">();</span> <span class="p">}</span> </code></pre></figure>  
+</code></pre>
+
+<p>La pantalla de autorización es una nueva <code>Activity</code> o un nuevo <code>UIViewController</code>, dependiendo de la plataforma, y como desde Forms no tenemos acceso a estas clases, de nuevo creamos una solución independiente de la plataforma. En este caso lo haremos a través de un <a href=\"https://developer.xamarin.com/guides/xamarin-forms/custom-renderer/contentpage/\" target=\"_blank\"><i>Custom renderer</i></a> de una <code>ContentPage</code>:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">AuthorizePage</span> <span class="p">:</span> <span class="n">ContentPage</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">Services</span> <span class="n">Service</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">private</span> <span class="k">set</span><span class="p">;</span> <span class="p">}&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="k">public</span> <span class="n">AuthorizePage</span><span class="p">(</span><span class="n">Services</span> <span class="n">service</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Service</span> <span class="p">=</span> <span class="n">service</span><span class="p">;</span>
+<span class="p">}</span> <span class="p">}</span> </code></pre></figure>  
+</code></pre>
+
+<p>Como puedes ver, tiene una propiedad llamada <code>Service</code> del tipo <code>Service</code>, a través de la cual especificaremos a cuál de los servicios nos vamos a conectar. Más adelante demostraré el uso de este tipo de páginas.</p>
+
+<h2 id=\"en-xamarinios-y-xamarinandroid\">En Xamarin.iOS y Xamarin.Android</h2>
+<p>Una vez terminado el código multiplataforma, vamos a trabajar con los proyectos de iOS y Android; como las diferencias entre un código y otro son mínimas, podemos utilizar un proyecto compartido y usar <a href=\"../directivas-preprocesador-c-sharp\" target=\"_blank\">directivas de preprocesador</a> para compilar determinadas porciones de código de acuerdo al proyecto que estamos ejecutando.</p>
+
+<p>Comenzaremos por implementar la interfaz <code>IAccountManagerService</code> a través de la que interactuaremos con el servicio de gestión de cuentas de Xamarin.Auth:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Linq</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Authy.AccountManagement</span><span class="p">;&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">h1</span> <span class="n">id</span><span class="p">=</span><span class="err">\</span><span class="s">&quot;if-ios\&quot;&gt;if &lt;strong&gt;IOS&lt;/strong&gt;&lt;/h1&gt;</span>
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">namespace</span> <span class="nn">Authy.iOS.AccountManagement</span>
+<span class="cp">#elif &lt;strong&gt;ANDROID&lt;/strong&gt;</span>
+<span class="k">namespace</span> <span class="nn">Authy.Droid.AccountManagement</span>
+<span class="cp">#endif</span>
+<span class="p">{</span>
+	<span class="k">public</span> <span class="k">class</span> <span class="nc">AccountManagementImplementation</span> <span class="p">:</span> <span class="n">IAccountManagerService</span>
+	<span class="p">{</span>
+		<span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">services</span><span class="p">&gt;</span> <span class="n">Accounts</span>
+		<span class="p">{</span>
+			<span class="k">get</span>
+			<span class="p">{</span>
+				<span class="kt">var</span> <span class="n">accounts</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">services</span><span class="p">&gt;();</span>
+				<span class="kt">var</span> <span class="n">accountStore</span> <span class="p">=</span> <span class="n">Xamarin</span><span class="p">.</span><span class="n">Auth</span><span class="p">.</span><span class="n">AccountStore</span><span class="p">.</span><span class="n">Create</span><span class="p">();</span>
+				<span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">service</span> <span class="k">in</span> <span class="n">Enum</span><span class="p">.</span><span class="n">GetNames</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">Services</span><span class="p">)))</span>
+				<span class="p">{</span>
+					<span class="kt">var</span> <span class="n">acc</span> <span class="p">=</span> <span class="n">accountStore</span><span class="p">.</span><span class="n">FindAccountsForService</span><span class="p">(</span><span class="n">service</span><span class="p">).</span><span class="n">FirstOrDefault</span><span class="p">();</span>
+					<span class="k">if</span> <span class="p">(</span><span class="n">acc</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+					<span class="p">{</span>
+						<span class="n">accounts</span><span class="p">.</span><span class="n">Add</span><span class="p">((</span><span class="n">Services</span><span class="p">)</span><span class="n">Enum</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">Services</span><span class="p">),</span> <span class="n">service</span><span class="p">));</span>
+					<span class="p">}</span>
+				<span class="p">}</span>
+				<span class="k">return</span> <span class="n">accounts</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}&lt;/</span><span class="n">services</span><span class="p">&gt;&lt;/</span><span class="n">services</span><span class="p">&gt;&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>	<span class="k">public</span> <span class="k">void</span> <span class="n">EraseAll</span><span class="p">()</span>
+	<span class="p">{</span>
+		<span class="kt">var</span> <span class="n">accountStore</span> <span class="p">=</span> <span class="n">Xamarin</span><span class="p">.</span><span class="n">Auth</span><span class="p">.</span><span class="n">AccountStore</span><span class="p">.</span><span class="n">Create</span><span class="p">();</span>
+		<span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">service</span> <span class="k">in</span> <span class="n">Enum</span><span class="p">.</span><span class="n">GetNames</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">Services</span><span class="p">)))</span>
+		<span class="p">{</span>
+			<span class="kt">var</span> <span class="n">acc</span> <span class="p">=</span> <span class="n">accountStore</span><span class="p">.</span><span class="n">FindAccountsForService</span><span class="p">(</span><span class="n">service</span><span class="p">).</span><span class="n">FirstOrDefault</span><span class="p">();</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">acc</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+			<span class="p">{</span>
+				<span class="n">accountStore</span><span class="p">.</span><span class="n">Delete</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="n">service</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="k">public</span> <span class="kt">string</span> <span class="nf">GetPropertyFromAccount</span><span class="p">(</span><span class="n">Services</span> <span class="n">service</span><span class="p">,</span> <span class="kt">string</span> <span class="n">property</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="kt">var</span> <span class="n">accountStore</span> <span class="p">=</span> <span class="n">Xamarin</span><span class="p">.</span><span class="n">Auth</span><span class="p">.</span><span class="n">AccountStore</span><span class="p">.</span><span class="n">Create</span><span class="p">();</span>
+		<span class="kt">var</span> <span class="n">account</span> <span class="p">=</span> <span class="n">accountStore</span><span class="p">.</span><span class="n">FindAccountsForService</span><span class="p">(</span><span class="n">service</span><span class="p">.</span><span class="n">ToString</span><span class="p">()).</span><span class="n">FirstOrDefault</span><span class="p">();</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">account</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="k">return</span> <span class="n">account</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">property</span><span class="p">];</span>
+		<span class="p">}</span>
+		<span class="k">return</span> <span class="k">null</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span> <span class="p">}</span> </code></pre></figure>  
+</code></pre>
+
+<p>Para esta ocasión estaremos usando otra de las herramientas de XF, el <a href=\"https://developer.xamarin.com/guides/xamarin-forms/dependency-service/\" target=\"_blank\">DependencyService</a>, así que no te olvides de colocar la siguiente línea en tu archivo:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="na">[assembly: Xamarin.Forms.Dependency(typeof(AccountsImplementation))]</span></code></pre></figure></p>
+
+<p>Después, es momento de implementar el <em>custom renderer</em> de la página con la que vamos a solicitar la autorización:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Authy.AccountManagement</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Xamarin.Forms</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Xamarin.Auth</span><span class="p">;</span>
+<span class="cp">#if &lt;strong&gt;IOS&lt;/strong&gt;</span>
+<span class="k">using</span> <span class="nn">Xamarin.Forms.Platform.iOS</span><span class="p">;</span>
+<span class="cp">#elif &lt;strong&gt;ANDROID&lt;/strong&gt;</span>
+<span class="k">using</span> <span class="nn">Xamarin.Forms.Platform.Android</span><span class="p">;</span>
+<span class="cp">#endif&lt;/p&gt;</span>
+
+<span class="p">&lt;</span><span class="n">h1</span> <span class="n">id</span><span class="p">=</span><span class="err">\</span><span class="s">&quot;if-ios-1\&quot;&gt;if &lt;strong&gt;IOS&lt;/strong&gt;&lt;/h1&gt;</span>
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;[</span><span class="n">assembly</span><span class="p">:</span> <span class="n">ExportRenderer</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">AuthorizePage</span><span class="p">),</span> <span class="k">typeof</span><span class="p">(</span><span class="n">Authy</span><span class="p">.</span><span class="n">iOS</span><span class="p">.</span><span class="n">AccountManagement</span><span class="p">.</span><span class="n">AuthorizePageRenderer</span><span class="p">))]</span>
+<span class="k">namespace</span> <span class="nn">Authy.iOS.AccountManagement</span>
+<span class="cp">#elif &lt;strong&gt;ANDROID&lt;/strong&gt;</span>
+<span class="na">[assembly: ExportRenderer(typeof(AuthorizePage), typeof(Authy.Droid.AccountManagement.AuthorizePageRenderer))]</span>
+<span class="k">namespace</span> <span class="nn">Authy.Droid.AccountManagement</span>
+<span class="cp">#endif</span>
+<span class="p">{</span>
+	<span class="k">public</span> <span class="k">class</span> <span class="nc">AuthorizePageRenderer</span> <span class="p">:</span> <span class="n">PageRenderer</span>
+	<span class="p">{&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">h1</span> <span class="n">id</span><span class="p">=</span><span class="err">\</span><span class="s">&quot;if-ios-2\&quot;&gt;if &lt;strong&gt;IOS&lt;/strong&gt;&lt;/h1&gt;</span>
+<span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>	<span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="n">ViewDidAppear</span><span class="p">(</span><span class="kt">bool</span> <span class="n">animated</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">base</span><span class="p">.</span><span class="n">ViewDidAppear</span><span class="p">(</span><span class="n">animated</span><span class="p">);</span> <span class="cp">#elif __ANDROID__</span>
+	<span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">OnElementChanged</span><span class="p">(</span><span class="n">ElementChangedEventArgs</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Page</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">e</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">base</span><span class="p">.</span><span class="n">OnElementChanged</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+		<span class="kt">var</span> <span class="n">activity</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Context</span> <span class="k">as</span> <span class="n">Android</span><span class="p">.</span><span class="n">App</span><span class="p">.</span><span class="n">Activity</span><span class="p">;</span> <span class="cp">#endif</span>
+
+
+		<span class="n">OAuth2Authenticator</span> <span class="n">auth2</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+		<span class="n">OAuth1Authenticator</span> <span class="n">auth1</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+		<span class="n">IKeys</span> <span class="n">keys</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+		<span class="kt">var</span> <span class="n">authPage</span> <span class="p">=</span> <span class="n">Element</span> <span class="k">as</span> <span class="n">AuthorizePage</span><span class="p">;</span>
+
+		<span class="k">switch</span> <span class="p">(</span><span class="n">authPage</span><span class="p">.</span><span class="n">Service</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="k">case</span> <span class="n">Services</span><span class="p">.</span><span class="n">Facebook</span><span class="p">:</span>
+				<span class="n">keys</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FacebookKeys</span><span class="p">();</span>
+				<span class="n">auth2</span> <span class="p">=</span> <span class="k">new</span> <span class="n">OAuth2Authenticator</span><span class="p">(</span>
+					<span class="n">clientId</span><span class="p">:</span> <span class="n">keys</span><span class="p">.</span><span class="n">ClientId</span><span class="p">,</span>
+					<span class="n">scope</span><span class="p">:</span> <span class="n">keys</span><span class="p">.</span><span class="n">Scope</span><span class="p">,</span>
+					<span class="n">authorizeUrl</span><span class="p">:</span> <span class="k">new</span> <span class="n">Uri</span><span class="p">(</span><span class="n">keys</span><span class="p">.</span><span class="n">AuthorizeUrl</span><span class="p">),</span>
+					<span class="n">redirectUrl</span><span class="p">:</span> <span class="k">new</span> <span class="n">Uri</span><span class="p">(</span><span class="n">keys</span><span class="p">.</span><span class="n">RedirectUrl</span><span class="p">));</span>
+				<span class="k">break</span><span class="p">;</span>
+			<span class="k">case</span> <span class="n">Services</span><span class="p">.</span><span class="n">Twitter</span><span class="p">:</span>
+				<span class="n">keys</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TwitterKeys</span><span class="p">();</span>
+				<span class="n">auth1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">OAuth1Authenticator</span><span class="p">(</span>
+						<span class="n">consumerKey</span><span class="p">:</span> <span class="n">keys</span><span class="p">.</span><span class="n">ConsumerKey</span><span class="p">,</span>
+						<span class="n">consumerSecret</span><span class="p">:</span> <span class="n">keys</span><span class="p">.</span><span class="n">ConsumerSecret</span><span class="p">,</span>
+						<span class="n">requestTokenUrl</span><span class="p">:</span> <span class="k">new</span> <span class="n">Uri</span><span class="p">(</span><span class="n">keys</span><span class="p">.</span><span class="n">RequestTokenUrl</span><span class="p">),</span>
+						<span class="n">authorizeUrl</span><span class="p">:</span> <span class="k">new</span> <span class="n">Uri</span><span class="p">(</span><span class="n">keys</span><span class="p">.</span><span class="n">AuthorizeUrl</span><span class="p">),</span>
+						<span class="n">accessTokenUrl</span><span class="p">:</span> <span class="k">new</span> <span class="n">Uri</span><span class="p">(</span><span class="n">keys</span><span class="p">.</span><span class="n">AccessTokenUrl</span><span class="p">),</span>
+						<span class="n">callbackUrl</span><span class="p">:</span> <span class="k">new</span> <span class="n">Uri</span><span class="p">(</span><span class="n">keys</span><span class="p">.</span><span class="n">CallbackUrl</span><span class="p">));</span>
+				<span class="k">break</span><span class="p">;</span>
+			<span class="k">case</span> <span class="n">Services</span><span class="p">.</span><span class="n">GitHub</span><span class="p">:</span>
+				<span class="n">keys</span> <span class="p">=</span> <span class="k">new</span> <span class="n">GitHubKeys</span><span class="p">();</span>
+				<span class="n">auth2</span> <span class="p">=</span> <span class="k">new</span> <span class="n">OAuth2Authenticator</span><span class="p">(</span>
+					<span class="n">clientId</span><span class="p">:</span> <span class="n">keys</span><span class="p">.</span><span class="n">ClientId</span><span class="p">,</span>
+					<span class="n">clientSecret</span><span class="p">:</span> <span class="n">keys</span><span class="p">.</span><span class="n">ClientSecret</span><span class="p">,</span>
+					<span class="n">scope</span><span class="p">:</span> <span class="n">keys</span><span class="p">.</span><span class="n">Scope</span><span class="p">,</span>
+					<span class="n">authorizeUrl</span><span class="p">:</span> <span class="k">new</span> <span class="n">Uri</span><span class="p">(</span><span class="n">keys</span><span class="p">.</span><span class="n">AuthorizeUrl</span><span class="p">),</span>
+					<span class="n">redirectUrl</span><span class="p">:</span> <span class="k">new</span> <span class="n">Uri</span><span class="p">(</span><span class="n">keys</span><span class="p">.</span><span class="n">RedirectUrl</span><span class="p">),</span>
+					<span class="n">accessTokenUrl</span><span class="p">:</span> <span class="k">new</span> <span class="n">Uri</span><span class="p">(</span><span class="n">keys</span><span class="p">.</span><span class="n">AccessTokenUrl</span><span class="p">));</span>
+				<span class="k">break</span><span class="p">;</span>
+			<span class="k">default</span><span class="p">:</span>
+				<span class="k">throw</span> <span class="k">new</span> <span class="nf">Exception</span><span class="p">(</span><span class="err">\</span><span class="s">&quot;Service \&quot; + authPage.Service + \&quot; not yet supported\&quot;);</span>
+		<span class="p">}</span>
+
+		<span class="k">if</span> <span class="p">(</span><span class="n">auth2</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">auth2</span><span class="p">.</span><span class="n">Completed</span> <span class="p">+=</span> <span class="k">async</span> <span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">eventArgs</span><span class="p">)</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span>
+			<span class="p">{</span> <span class="cp">#if __IOS__</span>
+				<span class="n">DismissViewController</span><span class="p">(</span><span class="k">true</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span> <span class="cp">#endif</span>
+				<span class="k">if</span> <span class="p">(</span><span class="n">eventArgs</span><span class="p">.</span><span class="n">IsAuthenticated</span><span class="p">)</span>
+					<span class="n">AccountStore</span><span class="p">.</span><span class="n">Create</span><span class="p">().</span><span class="n">Save</span><span class="p">(</span><span class="n">eventArgs</span><span class="p">.</span><span class="n">Account</span><span class="p">,</span> <span class="n">authPage</span><span class="p">.</span><span class="n">Service</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+				<span class="k">await</span> <span class="n">authPage</span><span class="p">.</span><span class="n">Navigation</span><span class="p">.</span><span class="n">PopAsync</span><span class="p">();</span>
+			<span class="p">};</span> <span class="cp">#if __IOS__</span>
+			<span class="n">PresentViewController</span><span class="p">(</span><span class="n">auth2</span><span class="p">.</span><span class="n">GetUI</span><span class="p">(),</span> <span class="k">true</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span> <span class="cp">#elif __ANDROID__</span>
+			<span class="n">activity</span><span class="p">.</span><span class="n">StartActivity</span><span class="p">(</span><span class="n">auth2</span><span class="p">.</span><span class="n">GetUI</span><span class="p">(</span><span class="n">activity</span><span class="p">));</span> <span class="cp">#endif</span>
+		<span class="p">}</span>
+
+		<span class="k">if</span> <span class="p">(</span><span class="n">auth1</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">auth1</span><span class="p">.</span><span class="n">Completed</span> <span class="p">+=</span> <span class="k">async</span> <span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">eventArgs</span><span class="p">)</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span>
+			<span class="p">{</span> <span class="cp">#if __IOS__</span>
+				<span class="n">DismissViewController</span><span class="p">(</span><span class="k">true</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span> <span class="cp">#endif</span>
+				<span class="k">if</span> <span class="p">(</span><span class="n">eventArgs</span><span class="p">.</span><span class="n">IsAuthenticated</span><span class="p">)</span>
+					<span class="n">AccountStore</span><span class="p">.</span><span class="n">Create</span><span class="p">().</span><span class="n">Save</span><span class="p">(</span><span class="n">eventArgs</span><span class="p">.</span><span class="n">Account</span><span class="p">,</span> <span class="n">authPage</span><span class="p">.</span><span class="n">Service</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+				<span class="k">await</span> <span class="n">authPage</span><span class="p">.</span><span class="n">Navigation</span><span class="p">.</span><span class="n">PopAsync</span><span class="p">();</span>
+			<span class="p">};</span>
+<span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">h1</span> <span class="n">id</span><span class="p">=</span><span class="err">\</span><span class="s">&quot;if-ios-3\&quot;&gt;if &lt;strong&gt;IOS&lt;/strong&gt;&lt;/h1&gt;</span>
+<span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>			<span class="n">PresentViewController</span><span class="p">(</span><span class="n">auth1</span><span class="p">.</span><span class="n">GetUI</span><span class="p">(),</span> <span class="k">true</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span> <span class="cp">#elif __ANDROID__</span>
+			<span class="n">activity</span><span class="p">.</span><span class="n">StartActivity</span><span class="p">(</span><span class="n">auth1</span><span class="p">.</span><span class="n">GetUI</span><span class="p">(</span><span class="n">activity</span><span class="p">));</span> <span class="cp">#endif</span>
+		<span class="p">}</span>
+
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;}</span></code></pre></figure></p>
+
+<p>Lo que el código anterior hace es declarar dos formas de obtener la autorización (<code>OAuth2Authenticator</code> y <code>OAuth2Authenticator</code>), también delcara una variable del tipo <code>IKeys</code>.</p>
+
+<p>Luego obtiene una referencia a la página de Xamarin.Forms desde la que estamos llamándola (para saber a qué servicio queremos conectarnos), con esta información comienza a crear la petición adecuada de acuerdo al servicio que solicitamos. Es importante que veas que dentro de cada una de las opciones de la instrucción <code>switch</code>, se instancia la clase que contiene las llaves del servicio que vamos a usar.</p>
+
+<p>Por último, y después de que se ha creado correctamente una instancia de <code>OAuth2Authenticator</code> o de <code>OAuth1Authenticator</code>, asigna un manejador al evento <code>Completed</code>, para que si se obtuvo el permiso requerido lo almacene en el dispositivo mediante la llamada a <code>AccountStore.Create().Save()</code>. Luego de todo esto, podemos mostrar la pantalla al usuario. En android mediante el método <code>StartActivity</code>, mientras que en iOS mediante <code>PresentViewController</code>.</p>
+
+<p>De este modo, cada vez que naveguemos hacia una página del tipo <code>AuthorizePage</code>, se mostrará la interfaz de autorización solicitada, de acuerdo al valor pasado en el constructor de la clase.</p>
+
+<p>Ese es todo el código que necesitas para los proyectos “cliente”. Ahora, de vuelta al proyecto de Forms:</p>
+
+<h2 id=\"de-vuelta-en-xamarinforms\">De vuelta en Xamarin.Forms</h2>
+<p>Cuando solicitemos permiso para usar determinado servicio, lo único que debemos hacer es crear una nueva página en Forms y navegar hacia ella:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">await</span> <span class="n">Navigation</span><span class="p">.</span><span class="n">PushAsync</span><span class="p">(</span><span class="k">new</span> <span class="n">AuthorizePage</span><span class="p">(</span><span class="n">Services</span><span class="p">.</span><span class="n">Facebook</span><span class="p">));</span></code></pre></figure></p>
+
+<p>Para corroborar si el usuario ha otorgado permiso debemos obtener las cuentas que tenemos guardadas en el dispositivo usando la implementación de la clase <code>IAccountManagerService</code> del servicio de dependencias:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">_services</span> <span class="p">=</span> <span class="n">DependencyService</span><span class="p">.</span><span class="n">Get</span><span class="p">&lt;</span><span class="n">iaccountmanagerservice</span><span class="p">&gt;();</span></code></pre></figure></iaccountmanagerservice></p>
+
+<p>Y luego revisar la propiedad <code>Accounts</code> buscando si existe el servicio que deseamos:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">accounts</span> <span class="p">=</span> <span class="n">_services</span><span class="p">.</span><span class="n">Accounts</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">accounts</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">Services</span><span class="p">.</span><span class="n">Facebook</span><span class="p">))</span>
+<span class="p">{</span> <span class="c1">// …</span></code></pre></figure></p>
+
+<p>Si sabemos que el usuario nos ha autorizado, podemos acceder a los tokens, claves y demás información de permisos mediante el método <code>GetPropertyFromAccount</code>:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">screen_name</span> <span class="p">=</span> <span class="n">_services</span><span class="p">.</span><span class="n">GetPropertyFromAccount</span><span class="p">(</span><span class="n">Services</span><span class="p">.</span><span class="n">Twitter</span><span class="p">,</span> <span class="err">“</span><span class="n">screen_name</span><span class="err">”</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">oauth_consumer_key</span> <span class="p">=</span> <span class="n">_services</span><span class="p">.</span><span class="n">GetPropertyFromAccount</span><span class="p">(</span><span class="n">Services</span><span class="p">.</span><span class="n">Twitter</span><span class="p">,</span> <span class="err">“</span><span class="n">oauth_consumer_key</span><span class="err">”</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">oauth_token_secret</span> <span class="p">=</span> <span class="n">_services</span><span class="p">.</span><span class="n">GetPropertyFromAccount</span><span class="p">(</span><span class="n">Services</span><span class="p">.</span><span class="n">Twitter</span><span class="p">,</span> <span class="err">“</span><span class="n">oauth_token_secret</span><span class="err">”</span><span class="p">);</span></code></pre></figure></p>
+
+<h2 id=\"demo\">Demo</h2>
+<p>Puedes ver el vídeo de la app que usa el código explicado en el código anterior:</p>
+
+<div class=\"pure-g\">
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<img src=\"//i.imgur.com/7tBrHtI.gif\" />
+</div>
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<img src=\"http://i.giphy.com/11S78bw1xcfodi.gif\" />
+</div>  
+</div>
+
+<h2 id=\"para-finalizar\">Para finalizar</h2>
+<p>Como puedes ver no es tan complicado (espero me haya explicado bien), y añadir otros servicios es tan simple como conseguir las llaves, modificar unas cuantas clases y ¡listo! Tu app se puede conectar con el resto del internet.</p>
+
+<p>No olvides que me puedes preguntar dudas por correo o por Twitter, ah… y <a href=\"https://github.com/fferegrino/Authy\" target=\"_blank\"><strong>descargar el código fuente</strong></a>.</p>
+"
+}

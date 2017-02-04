@@ -1,0 +1,168 @@
+{	
+	"id" : "/post/introduction-xamarin-forms-sharpuladora/",
+	"tv" : false,
+	"date": "2015-12-16 12:00:00 -0600",
+	"title" : "Introduction to Xamarin.Forms (Sharpuladora app)",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
+	"tags" :
+	[ 
+		"Xamarin",
+		"XamarinForms",
+		"Guia"
+	],
+	"content" : "<p>Who hasn’t made a classic “Hello world!” while getting started with a new language or framework?</p>
+
+<p>Well, as classic as the “Hello world!” is to code a simple calculator, and for Xamarin.Forms it is not the exception. In this guide I’ll show you how to use some controls to build your apps… including your very own calculator!</p>
+
+<h1 id=\"how-does-this-guide-work\">How does this guide work?</h1>
+<p>This guide uses an interactive format, it comes with code that you can test and modify as you do the exercise. The code is divided in three or four folders:</p>
+
+<ul>
+  <li><strong>start</strong> is the starting point, contains a solution ready to be used to work with.</li>
+  <li><strong>parts</strong> contains each and every needed file to complete the guide, usually these are provided for you to use them as reference if you ever get stuck on something, of course you can copy the code. As this document is divided in <em>parts</em> to which a subfolder corresponds.</li>
+  <li><strong>final</strong> is the final result, the place we want to reach with this guide. This folder, as the last one, is included as reference, to show the result of this guide.</li>
+</ul>
+
+<h1 id=\"la-sharpuladora\">La Sharpuladora</h1>
+
+<h2 id=\"introduccin\">Introducción</h2>
+<p>This guide assumes that you have a basic understanding of how Xamarin works, if you dont, I encourage you to take a look to <a href=\"https://developer.xamarin.com/guides/cross-platform/getting_started/\">Getting started with Xamarin</a>. My post on <a href=\"http://thatcsharpguy.com/post/xamarin-como-empiezo/\">what do you need to develop in Xamarin (in spanish)</a> or this other about <a href=\"http://thatcsharpguy.com/post/from-console-to-mobile/\">how to go from console to mobile</a>.</p>
+
+<h2 id=\"part-1---getting-familiarized-with-the-code\">Part 1 - Getting familiarized with the code</h2>
+<p>As every IDE does, both Xamarin Studio and Visual Studio have their own ways of managing the files that make our app work. But to summarize: these environments divide the projects per platform, so, as we want our calculator to be available in the three main mobile platforms we will have three project plus another one which is the core of the app. I wrote a post about this, if you want to know more, check: <a href=\"http://thatcsharpguy.com/post/code-organization-visual-studio/\">How is my code organized in Visual Studio?</a>.</p>
+
+<p>Now is time to get our hands into the code, open up the solution <code>Sharpuladora.sln</code> that is inside the <code>start</code> folder and look a the panel in the solution explorer. For this part of the guide there is no code to add but there is code to look. Go ahead and explore, browse the solution. Once you have had enough, move on to part 2.</p>
+
+<h2 id=\"part-2---the-pages\">Part 2 - The pages</h2>
+<p>The graphic interface of the apps built with Xamarin.Forms are composed by a set of elements of type <code>Page</code>, you can build your own pages from scratch, however, Forms offers to us some pre-coded page templates that we can use to work with in our apps. You can see a full list of those template pages <a href=\"https://developer.xamarin.com/guides/cross-platform/xamarin-forms/controls/pages/\" target=\"_blank\">here</a>.</p>
+
+<p>The <em>Sharpuladora app</em> consists of only one page, created using a <code>ContentPage</code> since it is one of the easiest to use.</p>
+
+<h3 id=\"part-21---creating-the-main-page\">Part 2.1 - Creating the main page</h3>
+<p>When it comes to create a new page, we have to decide whether we will create using pure C# code or use XAML, this time, we will use C#.</p>
+
+<p>Create a new folder and name it  <code>Pages</code> inside the project named  <code>Sharpuladora</code>, then create a new C# class named  <code>CalcPage</code> inside that new folder. Make your <code>CalcPage</code> derive from  <code>ContentPage</code>.</p>
+
+<h5 id=\"code\">Code</h5>
+<p>File: <code>CalcPage.cs</code></p>
+
+<h3 id=\"part-22---setting-a-start-page\">Part 2.2 - Setting a start page</h3>
+<p>It is always important to set a start page for our app and in the case of Xamarin.Forms it has to be specified through a property. That property is named <code>MainPage</code> and can be found in the <code>App</code> class (inside <code>App.cs</code>).</p>
+
+<p>In the solution inside  <code>sart</code> the property <code>MainPage</code> is set with a page created in-place, we must change that for a reference to our <code>CalcPage</code>:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">MainPage</span> <span class="p">=</span> <span class="k">new</span> <span class="n">CalcPage</span><span class="p">();</span></code></pre></figure></p>
+
+<h5 id=\"code-1\">Code</h5>
+<p>File: <code>App.cs</code></p>
+
+<h2 id=\"part-3---the-layout\">Part 3 - The layout</h2>
+<p>Our page works as a container for the interface elements, however we must add a layout to position those elements in the page. As with the pages, Forms has a set of layouts out of the box, <a href=\"https://developer.xamarin.com/guides/cross-platform/xamarin-forms/controls/layouts/\" target=\"_blank\">see all here</a>.</p>
+
+<h3 id=\"part-31---the-grid\">Part 3.1 - The Grid</h3>
+<p>A simple calculator does not require of a lot of thought, the buttons are sorted in rows and columns, and that seems like a job for a <code>Grid</code>.</p>
+
+<p>A <code>Grid</code> is made of rows and columns which in Xamarin.Forms are specified in the form of <code>RowDefinition</code>s o <code>ColumnDefinition</code>s. Look at the following code:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">layout</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Grid</span><span class="p">();&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="c1">// Rows:</span>
+<span class="n">layout</span><span class="p">.</span><span class="n">RowDefinitions</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span> <span class="n">RowDefinition</span> <span class="p">{</span> <span class="n">Height</span> <span class="p">=</span> <span class="k">new</span> <span class="n">GridLength</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="n">GridUnitType</span><span class="p">.</span><span class="n">Star</span><span class="p">)</span> <span class="p">});</span>
+<span class="n">layout</span><span class="p">.</span><span class="n">RowDefinitions</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span> <span class="n">RowDefinition</span> <span class="p">{</span> <span class="n">Height</span> <span class="p">=</span> <span class="k">new</span> <span class="n">GridLength</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">GridUnitType</span><span class="p">.</span><span class="n">Star</span><span class="p">)</span> <span class="p">});&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="c1">// Columns:</span>
+<span class="n">layout</span><span class="p">.</span><span class="n">ColumnDefinitions</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span> <span class="n">ColumnDefinition</span> <span class="p">{</span> <span class="n">Width</span> <span class="p">=</span> <span class="k">new</span> <span class="n">GridLength</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">GridUnitType</span><span class="p">.</span><span class="n">Star</span><span class="p">)</span> <span class="p">});</span>
+<span class="n">layout</span><span class="p">.</span><span class="n">ColumnDefinitions</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span> <span class="n">ColumnDefinition</span> <span class="p">{</span> <span class="n">Width</span> <span class="p">=</span> <span class="k">new</span> <span class="n">GridLength</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">GridUnitType</span><span class="p">.</span><span class="n">Star</span><span class="p">)</span> <span class="p">});</span></code></pre></figure></p>
+
+<p>In the code above we create a new <code>Grid</code> called <code>layout</code> and then it gets added a pair of rows and columns. Something to notice here is that a <code>Width</code> is specified for the columns and a <code>Height</code> is specified for the rows. The fact that we use <code>GridUnitType.Star</code> (or <code>*</code>) indicates that the size of the columns will be proportional to each other.</p>
+
+<p>For this excerise, create a grid with rows and columns that represent the following figure:</p>
+
+<p><figure><img src='/postimages/post/introduction-xamarin-forms-sharpuladora/post.jsongrid.png' alt='“Grid” images_set' /></figure></p>
+
+<p>Once we have created the layout, it is important to tell our page to use it as a content, the way to do it is by specifying the property <code>Content</code> at the end of the page’s constructor with the following line of code:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">Content</span> <span class="p">=</span> <span class="n">_layout</span><span class="p">;</span></code></pre></figure></p>
+
+<h5 id=\"code-2\">Code</h5>
+<p>File: <code>CalcPage.cs</code></p>
+
+<h2 id=\"part-4---the-interface-element\">Part 4 - The interface element</h2>
+<p>Now that the container of our elements (the layout) has been created, it is the time to create the all the interface elements.</p>
+
+<p>We will use buttons for the digits and operators as well as a label to show the result.</p>
+
+<p>Initializing controls is pretty simple, for example, to create the button that will serve as the ‘0’ in our calculator, we must write something like the following code:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">_b0</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Button</span> <span class="p">{</span> <span class="n">Text</span> <span class="p">=</span> <span class="err">“</span><span class="m">0</span><span class="err">”</span> <span class="p">};</span></code></pre></figure></p>
+
+<p>Once the control has been created we must add it to the containing layout to be shown in the screen. Remember that in this case the layout is made of rows and columns, so we must set a column number and column number where it must appear on the screen,
+the <code>Grid</code> class allows us to set those values via the static <code>SetColumn</code> y <code>SetRow</code> methods. In the code below the first column and the fourth row are set to the button <code>_b0</code>:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">Grid</span><span class="p">.</span><span class="n">SetColumn</span><span class="p">(</span><span class="n">_b0</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+<span class="n">Grid</span><span class="p">.</span><span class="n">SetRow</span><span class="p">(</span><span class="n">_b0</span><span class="p">,</span> <span class="m">4</span><span class="p">);</span></code></pre></figure></p>
+
+<p>Next, we add it to the layout by using this line:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">_gridLayout</span><span class="p">.</span><span class="n">Children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_b0</span><span class="p">);</span></code></pre></figure></p>
+
+<p>For the label where the result will be shown, we will use the <code>SetColumnSpan</code> methods to indicate that our control that it has to span across more than one column within the layout. In this case, we are setting ca column span of 4 to the <code>_resultDisplay</code> label:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">Grid</span><span class="p">.</span><span class="n">SetColumnSpan</span><span class="p">(</span><span class="n">_resultDisplay</span><span class="p">,</span> <span class="m">4</span><span class="p">);</span></code></pre></figure></p>
+
+<p>We also can use <code>SetRowSpan</code> if we want a control to use more than one row.</p>
+
+<h5 id=\"code-3\">Code</h5>
+<p>File: <code>CalcPage.cs</code></p>
+
+<h2 id=\"part-5---the-events\">Part 5 - The events</h2>
+<p>In a calculator like the one we are doing, user interaction is required and in Xamarin.Forms such interactions are handled through events. Each of the controls we have added can have one or more events that are triggered by user interactions (or any other fragment of our code), we, as programmers, need to tell which events we want to handle and how are we going to handle them.</p>
+
+<p>For our calculator we will handle the <code>Clicked</code> event of the buttons. To handle events is a simple task in C#, all we have to do is to assign (using the <code>+=</code> operator) an event handler to the desired control. In the code below an event is specified as a handler for the <code>Clicked</code> event of <code>_b0</code>:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">_b0</span><span class="p">.</span><span class="n">Clicked</span> <span class="p">+=</span> <span class="n">OnNumericButtonClicked</span><span class="p">;</span></code></pre></figure></p>
+
+<p>The <code>OnNumericButtonClicked</code> handler is just a method with <code>void</code> as return value and gets passed in two arguments:</p>
+
+<ul>
+  <li><code>object sender</code> which is a reference to the control that triggered the event</li>
+  <li><code>EventArgs e</code> which are some arguments related to the triggered event</li>
+</ul>
+
+<p>As an example, here is the implementation of the method for our calculator keyboard buttons. In the first line  a cast is made from <code>sender</code> to <code>Button</code>, and that is valid (and does not throw an exception) because as we said before: <code>sender</code> contains the control that triggered the event.</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">void</span> <span class="nf">OnNumericButtonClicked</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">Button</span> <span class="n">botonClickeado</span> <span class="p">=</span> <span class="p">(</span><span class="n">Button</span><span class="p">)</span><span class="n">sender</span><span class="p">;</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">primerNumero</span> <span class="p">==</span> <span class="k">null</span> <span class="p">||</span> <span class="n">primerNumero</span> <span class="p">==</span> <span class="err">“”</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">primerNumero</span> <span class="p">=</span> <span class="n">botonClickeado</span><span class="p">.</span><span class="n">Text</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">else</span>
+	<span class="p">{</span>
+		<span class="n">segundoNumero</span> <span class="p">=</span> <span class="n">botonClickeado</span><span class="p">.</span><span class="n">Text</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></figure></p>
+
+<p>The handlers can be shared among several controls, so you do not have to create a handler for each control you use in your application. Now is your turn to build all the calculator’s logic using the controls and the event handlers. If you get stuck, you can always take a look to the file indicated below to get you started.</p>
+
+<h5 id=\"code-4\">Code</h5>
+<p>File: <code>CalcPage.cs</code></p>
+
+<h2 id=\"part-6---a-small-trick\">Part 6 - A small trick</h2>
+<p>By this point you may think that our calculator is (almost) completed, but that is not the case. If you run it as is, you will notice that the calculator does not fill the entire screen… this is a small bug in our code. To work around this problem we will use another kind of layout that wraps our original layout. For this a <code>RelativeLayout</code> will come handy, this layout gives us a lot of flexibility when it comes to control how the interface elements are shown. As useful as this is, it requires more configuration. Go ahead and replace the <code>Content = _layout;</code> assignation to the following fragment of code:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="c1">// Trick to make our calculater fullscreen</span>
+<span class="kt">var</span> <span class="n">relativeLayout</span> <span class="p">=</span> <span class="k">new</span> <span class="n">RelativeLayout</span><span class="p">();</span>
+<span class="n">relativeLayout</span><span class="p">.</span><span class="n">Children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_layout</span><span class="p">,</span> <span class="c1">// &amp;lt;= Original layout</span>
+	<span class="n">Constraint</span><span class="p">.</span><span class="n">Constant</span><span class="p">(</span><span class="m">0</span><span class="p">),</span>
+	<span class="n">Constraint</span><span class="p">.</span><span class="n">Constant</span><span class="p">(</span><span class="m">0</span><span class="p">),</span>
+	<span class="n">Constraint</span><span class="p">.</span><span class="n">RelativeToParent</span><span class="p">(</span><span class="n">p</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">p</span><span class="p">.</span><span class="n">Width</span><span class="p">),</span>
+	<span class="n">Constraint</span><span class="p">.</span><span class="n">RelativeToParent</span><span class="p">(</span><span class="n">p</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">p</span><span class="p">.</span><span class="n">Height</span><span class="p">));</span>
+<span class="n">Content</span> <span class="p">=</span> <span class="n">relativeLayout</span><span class="p">;</span></code></pre></figure></p>
+
+<h1 id=\"whats-next\">What’s next?</h1>
+<p>As you have realized, this application is not finished, we have to implement some handlers and all the calculator’s logic. Your mission, should you choose to accept it, is to finish building the <em>Sharpuladora</em>. You can check the book from Charles Petzold <a href=\" https://developer.xamarin.com/guides/cross-platform/xamarin-forms/creating-mobile-apps-xamarin-forms/\" target=\"_blank\">Xamarin.Forms Book Preview 2</a>.</p>
+"
+}

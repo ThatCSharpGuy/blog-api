@@ -1,0 +1,126 @@
+{	
+	"id" : "/post/out-ref-c-sharp/",
+	"tv" : false,
+	"date": "2016-04-11 14:00:01 -0500",
+	"title" : "out y ref en C#",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/ref-out.png",
+	"tags" :
+	[ 
+		"AprendeCSharp"
+	],
+	"content" : "<p>En un post anterior hablé acerca de <a href=\"../metodos-c-sharp\">métodos en C#</a>, ahí mencioné que los parámetros que recibía un método nos daban muchas posibilidades a la hora de desarrollar, y la característica de la que hablaré es otra de esas posibilidades.</p>
+
+<p>Seguramente si en alguna vez de tu carrera has usado código C o C++ te has encontrado con estos operadores: <code>*</code> o  <code>&amp;</code> que, en pocas palabras, nos sirven para trabajar con punteros y también sabrás que estos nos permitían pasar como referencia una variable, entonces ya sabíamos que para modificar el valor de una variable dentro de una función teníamos que pasar el apuntador a dicho objeto como argumento.</p>
+
+<p>Pues bien, en C# existen las palabras <code>ref</code> y <code>out</code> que vienen a realizar una tarea similar ya que al usarlos para declarar y llamar a algún método, permiten que el argumento sea pasado por referencia (digamos que algo “similar” a los punteros) y no por valor.</p>
+
+<h3 id=\"declaracin\">Declaración</h3>
+
+<p>Si deseamos emplear valores por referencia en algún método, es necesario expresarlo desde su definción:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">void</span> <span class="nf">Swap</span><span class="p">(</span><span class="k">ref</span> <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="k">ref</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="c1">// …</span>
+<span class="k">public</span> <span class="kt">bool</span> <span class="nf">SumaMaxima</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="n">max</span><span class="p">,</span> <span class="k">out</span> <span class="kt">int</span> <span class="n">resultado</span><span class="p">)</span> <span class="c1">// …</span>
+<span class="k">public</span> <span class="kt">string</span> <span class="nf">WeirdMethod</span><span class="p">(</span><span class="k">ref</span> <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="k">ref</span> <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="k">out</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="k">out</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="c1">// …</span></code></pre></figure></p>
+
+<p>En el primer caso, vemos que tanto <code>a</code> como <code>b</code> son enteros que el método recibe por referencia. En el segundo, únicamente <code>resultado</code> es una referencia y en el tercero <code>a</code>, <code>b</code>, <code>s</code> y <code>r</code> son pasados de esta manera.</p>
+
+<p>Para trabajar con las referencias dentro del método no tenemos que hacer nada especial, podemos usarlas como si fueran parámetros normales:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">void</span> <span class="nf">Swap</span><span class="p">(</span><span class="k">ref</span> <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="k">ref</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">m</span> <span class="p">=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">a</span> <span class="p">=</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">b</span> <span class="p">=</span> <span class="n">m</span><span class="p">;</span>
+<span class="p">}&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">public</span> <span class="kt">bool</span> <span class="n">SumaMaxima</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="n">max</span><span class="p">,</span> <span class="k">out</span> <span class="kt">int</span> <span class="n">resultado</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">resultado</span> <span class="p">=</span> <span class="n">a</span> <span class="p">+</span> <span class="n">b</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">resultado</span> <span class="p">&amp;</span><span class="n">gt</span><span class="p">;=</span> <span class="n">max</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">resultado</span> <span class="p">=</span> <span class="n">max</span><span class="p">;</span>
+        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+<span class="p">}&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">public</span> <span class="kt">string</span> <span class="n">WeirdMethod</span><span class="p">(</span><span class="k">ref</span> <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="k">ref</span> <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="k">out</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="k">out</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">s</span> <span class="p">=</span> <span class="n">a</span> <span class="p">+</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">r</span> <span class="p">=</span> <span class="n">a</span> <span class="p">-</span> <span class="n">b</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span> <span class="p">+</span> <span class="n">b</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
+<span class="p">}</span></code></pre></figure></p>
+
+<h3 id=\"uso\">Uso</h3>
+
+<p>Para usarlos, también es necesario indicar en la llamada al método que los parámetros deben ser pasados de determinado modo, fíjate en la llamada a <code>Swap</code> en el siguiente código</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">100</span><span class="p">,</span> <span class="n">b</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="err">“</span><span class="n">Valor</span> <span class="n">de</span> <span class="n">a</span><span class="p">:</span><span class="err">”</span> <span class="p">+</span> <span class="n">a</span> <span class="p">+</span> <span class="err">“</span> <span class="p">-</span> <span class="n">Valor</span> <span class="n">de</span> <span class="n">b</span><span class="p">:</span><span class="err">”</span> <span class="p">+</span> <span class="n">b</span><span class="p">);&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="n">parametros</span><span class="p">.</span><span class="n">Swap</span><span class="p">(</span><span class="k">ref</span> <span class="n">a</span><span class="p">,</span> <span class="k">ref</span> <span class="n">b</span><span class="p">);&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="err">“</span><span class="n">Valor</span> <span class="n">de</span> <span class="n">a</span><span class="p">:</span><span class="err">”</span> <span class="p">+</span> <span class="n">a</span> <span class="p">+</span> <span class="err">“</span> <span class="p">-</span> <span class="n">Valor</span> <span class="n">de</span> <span class="n">b</span><span class="p">:</span><span class="err">”</span> <span class="p">+</span> <span class="n">b</span><span class="p">);</span></code></pre></figure></p>
+
+<p>El resultado es el siguiente</p>
+
+<pre>
+Valor de a:100 - Valor de b:5  
+Valor de a:5 - Valor de b:100
+</pre>
+
+<p>Y esta es una llamada a un método con <code>out</code></p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">int</span> <span class="n">resSuma</span><span class="p">;</span>
+<span class="kt">var</span> <span class="n">isResultOk</span> <span class="p">=</span> <span class="n">parametros</span><span class="p">.</span><span class="n">SumaMaxima</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="m">100</span><span class="p">,</span> <span class="k">out</span> <span class="n">resSuma</span><span class="p">);&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">if</span> <span class="p">(</span><span class="n">isResultOk</span><span class="p">)</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="err">“</span><span class="n">La</span> <span class="n">suma</span> <span class="n">excedió</span> <span class="n">el</span> <span class="n">valor</span> <span class="n">máximo</span><span class="err">”</span><span class="p">);</span>
+<span class="k">else</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="err">“</span><span class="n">El</span> <span class="n">resultado</span> <span class="n">de</span> <span class="n">la</span> <span class="n">suma</span> <span class="n">es</span> <span class="err">“</span> <span class="p">+</span> <span class="n">resSuma</span><span class="p">);</span></code></pre></figure></p>
+
+<p>Que da como resultado
+<code>
+La suma excedió el valor máximo
+</code></p>
+
+<h3 id=\"la-diferencia-entre-ref-y-out\">La diferencia entre ref y out</h3>
+
+<p>Hasta ahora parecen similares, sin embargo, mientras que ambas son referencias, la semántica que tienen es distinta.</p>
+
+<p>+*Debemos usar <code>out</code> cuando se espera que sea el método llamado el encargado de asignarle valor**, así que si creas un método con un parámetro del tipo <code>out</code> y no le asignas valor dentro del mismo, el compilador te dará un error. Por ejemplo, si la definición de <code>WeirdMethod</code> fuera la siguiente:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="kt">string</span> <span class="nf">WeirdMethod</span><span class="p">(</span><span class="k">ref</span> <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="k">ref</span> <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="k">out</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="k">out</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span> <span class="p">+</span> <span class="n">b</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
+<span class="p">}</span></code></pre></figure></p>
+
+<p>Obtendríamos un error como este: <code>The out parameter 'r' must be assigned to before control leaves the current method</code>.</p>
+
+<p>Además, <strong>la variable que le pasamos como <code>out</code> puede o no estar inicializada antes de ser enviada al método</strong> sin que el compilador genere siquiera una advertencia.</p>
+
+<h3 id=\"ejemplo-de-la-vida-real\">Ejemplo de la vida real</h3>
+<p>Existen muchos escenarios en los que podemos usar el paso por referencia en nuestros programas, pero uno de los ejemplos màs significativos son los métodos <code>TryParse</code>, que reciben un parámetro <code>out</code> y regresan un valor <code>bool</code>. En ellos se intenta hacer la conversión de cadena al tipo de dato especificado y devuelven verdadero o falso dependiendo de si la conversión resultó exitosa, y en caso de que si, el valor vendrá asignada en el parámetro marcado:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">string</span> <span class="n">dec</span> <span class="p">=</span> <span class="err">“</span><span class="n">abcd</span><span class="err">”</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">dec2</span> <span class="p">=</span> <span class="err">“</span><span class="m">555</span><span class="err">”</span><span class="p">;&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="kt">decimal</span> <span class="n">one</span><span class="p">;</span>
+<span class="kt">decimal</span> <span class="n">two</span><span class="p">;&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">if</span> <span class="p">(</span><span class="n">Decimal</span><span class="p">.</span><span class="n">TryParse</span><span class="p">(</span><span class="n">dec</span><span class="p">,</span> <span class="k">out</span> <span class="n">one</span><span class="p">))</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="err">“</span><span class="n">Convertí</span> <span class="err">“</span> <span class="p">+</span> <span class="n">dec</span> <span class="p">+</span> <span class="err">“</span> <span class="n">en</span> <span class="err">“</span> <span class="p">+</span> <span class="n">one</span><span class="p">);</span>
+<span class="k">else</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">dec</span>  <span class="p">+</span> <span class="err">“</span> <span class="n">no</span> <span class="n">es</span> <span class="n">convertible</span> <span class="n">a</span> <span class="kt">decimal</span><span class="err">”</span><span class="p">);&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">if</span> <span class="p">(</span><span class="n">Decimal</span><span class="p">.</span><span class="n">TryParse</span><span class="p">(</span><span class="n">dec2</span><span class="p">,</span> <span class="k">out</span> <span class="n">two</span><span class="p">))</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="err">“</span><span class="n">Convertí</span> <span class="err">“</span> <span class="p">+</span> <span class="n">dec2</span> <span class="p">+</span> <span class="err">“</span> <span class="n">en</span> <span class="err">“</span> <span class="p">+</span> <span class="n">two</span><span class="p">);</span>
+<span class="k">else</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">dec</span>  <span class="p">+</span> <span class="err">“</span> <span class="n">no</span> <span class="n">es</span> <span class="n">convertible</span> <span class="n">a</span> <span class="kt">decimal</span><span class="err">”</span><span class="p">);</span></code></pre></figure></p>
+
+<h3 id=\"lo-que-sigue\">Lo que sigue</h3>
+
+<p>Te invito a que pruebes con el código que acompaña al post y que si tienes alguna duda me la hagas saber en Twitter o al correo electrónico. En realidad no es muy común que tu tengas que implementar los parámetos de este tipo en tu código, sin embargo si se puede presentar el caso y no hay más que estar preparado y conocerlos.</p>
+"
+}

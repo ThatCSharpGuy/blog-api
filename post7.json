@@ -1,9 +1,11 @@
 {
     "current_page" : 7,
     "total_pages": 8,
-    "posts" : 
+    "items" : 
         [   
             { 
+                "id" : "/post/anonimos-en-c-sharp/"
+                "tv" : false,
                 "title": "Tipos anónimos en C#", 
                 "date": "2015-11-26 15:00:00 -0600",
                 "featured_tag": "AprendeCSharp",
@@ -11,6 +13,8 @@
                 "summary": "Para cada tipo anónimo que usamos, el compilador crea una definición de clase para dicho tipo por nosotros, ahórrandonos así la tarea de tener que hacerlo."
             },
             { 
+                "id" : "/post/organizacion-codigo-visual-studio/"
+                "tv" : false,
                 "title": "¿Cómo organiza mi código Visual Studio?", 
                 "date": "2015-11-18 15:00:00 -0600",
                 "featured_tag": "VisualStudio",
@@ -18,6 +22,8 @@
                 "summary": "Si alguna vez has usado un IDE para desarrollar alguna aplicación tal vez te hayas preguntado cómo es que ese tipo de programas saben en dónde están los componentes para cada una de las cosas que hacen que tu app compile o funcione."
             },
             { 
+                "id" : "/post/xamarin-android-vs-traditional/"
+                "tv" : false,
                 "title": "Xamarin.Android vs traditional Android", 
                 "date": "2015-11-16 15:00:00 -0600",
                 "featured_tag": "Xamarin",
@@ -25,6 +31,8 @@
                 "summary": "There are no significant differences between traditional Android development and Xamarin.Android, meaning that if you have previous knowledge you can apply it without concerns but instead of writing Java you will be writing awesome C# code that can potentially be shared along any other platform."
             },
             { 
+                "id" : "/post/code-organization-visual-studio/"
+                "tv" : false,
                 "title": "How is my code organized in Visual Studio?", 
                 "date": "2015-11-16 15:00:00 -0600",
                 "featured_tag": "VisualStudio",
@@ -32,6 +40,8 @@
                 "summary": "If you have ever used an IDE to develop any application you might have wondered how do these kind of programs know where are the components for each one of the things that make your app compile or run. In this post I'll try to explain how Xamarin Studio and Visual Studio keeps that control."
             },
             { 
+                "id" : "/post/linq-en-c-sharp/"
+                "tv" : false,
                 "title": "Linq en C#", 
                 "date": "2015-11-11 14:00:00 -0600",
                 "featured_tag": "AprendeCSharp",
@@ -39,6 +49,8 @@
                 "summary": "Linq nos otorga la posibilidad de usar un lenguaje bastante similar al SQL dentro de nuestro código C# para consultar un origen de datos."
             },
             { 
+                "id" : "/post/xamarin-forms-mvvm-21-nov-2015/"
+                "tv" : false,
                 "title": "Xamarin.Forms y MVVM en la ESCOM (21 de noviembre de 2015)", 
                 "date": "2015-11-02 16:00:00 -0600",
                 "featured_tag": "Xamarin",
@@ -46,6 +58,8 @@
                 "summary": "En el evento haremos juntos una app utilizando estas tecnologías mientras platicamos un poco acerca de MVVM y cómo implementarlo junto con Xamarin.Forms."
             },
             { 
+                "id" : "/post/que-son-portable-class-library/"
+                "tv" : false,
                 "title": "¿Qué es una Portable Class Library?", 
                 "date": "2015-11-02 04:00:00 -0600",
                 "featured_tag": "VisualStudio",
@@ -53,6 +67,8 @@
                 "summary": "Las bibliotecas de clases portables nos permiten compartir código entre distintas plataformas de .NET"
             },
             { 
+                "id" : "/post/var-en-c-sharp/"
+                "tv" : false,
                 "title": "¿Qué es var en C#?", 
                 "date": "2015-10-29 14:00:00 -0600",
                 "featured_tag": "AprendeCSharp",
@@ -60,6 +76,8 @@
                 "summary": "Usar la palabra var significa que estamos dejándole al compilador la tarea de asignar un tipo a nuestras variables."
             },
             { 
+                "id" : "/post/arreglos-en-c-sharp-parte-3/"
+                "tv" : false,
                 "title": "Arreglos en C# (multidimensionales rectangulares)", 
                 "date": "2015-10-23 17:00:00 -0500",
                 "featured_tag": "AprendeCSharp",
@@ -67,6 +85,8 @@
                 "summary": "A diferencia de los arreglos escalonados, los rectangulares son lo más parecido a matrices que podemos encontrar en C#."
             },
             { 
+                "id" : "/post/arreglos-en-c-sharp-parte-2/"
+                "tv" : false,
                 "title": "Arreglos en C# (multidimensionales escalonados)", 
                 "date": "2015-10-22 16:00:00 -0500",
                 "featured_tag": "AprendeCSharp",
@@ -74,6 +94,8 @@
                 "summary": "Los arreglos escalonados (o jagged arrays) son los tipos de arreglos multidimensionales más conocidos, y es que también son compunes en otros lenguajes de programación. Un arreglo escalonado no es más que un arreglo de arreglos."
             },
             { 
+                "id" : "/post/arreglos-en-c-sharp-parte-1/"
+                "tv" : false,
                 "title": "Arreglos en C# (unidimensionales)", 
                 "date": "2015-10-22 16:00:00 -0500",
                 "featured_tag": "AprendeCSharp",
@@ -81,6 +103,8 @@
                 "summary": "En C# llamamos arreglo a una colección de objetos, dicha colección tiene longitud definida y esta no puede cambiar con el flujo del programa, esto podrá sonar limitante, pero al trabajar con arreglos se obtiene un mejor desempeño que con cualquier otra colección. Usando el lenguaje podemos crear, recorrer y manipular arreglos de cualquier tipo de objeto."
             },
             { 
+                "id" : "/post/mobile-c-sharp-workshop-17-oct-2015/"
+                "tv" : false,
                 "title": "Mobile C# developer kick-off (17-oct-2015)", 
                 "date": "2015-10-19 17:00:00 -0500",
                 "featured_tag": "Xamarin",
@@ -88,6 +112,8 @@
                 "summary": "Este es un post de recapitulación del evento Mobile C# developer kick-off del 17 de octubre en la ESCOM"
             },
             { 
+                "id" : "/post/tipos-nullables-en-c-sharp/"
+                "tv" : false,
                 "title": "Tipos nullables en C#", 
                 "date": "2015-10-14 15:30:00 -0500",
                 "featured_tag": "AprendeCSharp",
@@ -95,6 +121,8 @@
                 "summary": "Los tipos por referencia son nullables por definición. ¿Qué implica que sean nullables? pues nada más y nada menos que puedan tener un valor null o en términos prácticos, nungún valor."
             },
             { 
+                "id" : "/post/xamarin-como-empiezo/"
+                "tv" : false,
                 "title": "¿Cómo empiezo con Xamarin?", 
                 "date": "2015-10-08 16:00:00 -0500",
                 "featured_tag": "Xamarin",
@@ -102,6 +130,8 @@
                 "summary": "¿Quieres iniciar a desarrollar con Xamarin y no sabes por donde empezar? Acá te digo."
             },
             { 
+                "id" : "/post/tipos-dato-c-sharp/"
+                "tv" : false,
                 "title": "Tipos de dato en C#", 
                 "date": "2015-10-05 17:00:00 -0500",
                 "featured_tag": "AprendeCSharp",

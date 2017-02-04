@@ -1,16 +1,20 @@
 {
     "current_page" : 8,
     "total_pages": 8,
-    "posts" : 
+    "items" : 
         [   
             { 
+                "id" : "/post/tesseract-ocr-xamarin/"
+                "tv" : false,
                 "title": "Tesseract OCR in Xamarin", 
                 "date": "2015-09-23 14:00:00 -0500",
                 "featured_tag": "XamarinForms",
                 "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
-                "summary": "While surfing the web for a free / open source solution to a certain OCR problem that I came across I found this pretty cool library named Tesseract OCR which, in its own words, is probably the most accurate open source OCR engine available."
+                "summary": "While surfing the web for a free / open source solution to a certain OCR problem that I came across I found this pretty cool library named Tesseract OCR which, in its own words, is \"probably the most accurate open source OCR engine available\"."
             },
             { 
+                "id" : "/post/creando-propios-alias/"
+                "tv" : false,
                 "title": "Creando nuestros propios alias", 
                 "date": "2015-09-16 08:00:00 -0500",
                 "featured_tag": "AprendeCSharp",
@@ -18,6 +22,8 @@
                 "summary": "Hace poco vimos que existen alias en C# para los tipos predefinidos de datos, y hasta ahí todo claro. Pero nosotros como programadores también podemos beneficiarnos de crear nuestros propios alias."
             },
             { 
+                "id" : "/post/charphat-android/"
+                "tv" : false,
                 "title": "CharpHat para Android", 
                 "date": "2015-09-10 12:00:00 -0500",
                 "featured_tag": "XamarinForms",
@@ -25,6 +31,8 @@
                 "summary": "Con CharpHat toma una foto y muéstrale al mundo que te gusta C#, CharpHat te permite colocarte un birrete con mucho estilo."
             },
             { 
+                "id" : "/post/pushing-from-netduino-to-mobile/"
+                "tv" : false,
                 "title": "Pushing with Parse from Netduino to Xamarin.Forms", 
                 "date": "2015-08-31 16:00:00 -0500",
                 "featured_tag": "Xamarin",
@@ -32,6 +40,8 @@
                 "summary": "It's been a while since I took my Netduino out of its box and I did something with it, back then I promised to do a slightly more complex system using a push notification service."
             },
             { 
+                "id" : "/post/string-vs-system-string-es/"
+                "tv" : false,
                 "title": "Un post sobre alias, ¿string vs. System.String?", 
                 "date": "2015-08-21 08:00:00 -0500",
                 "featured_tag": "AprendeCSharp",
@@ -39,20 +49,26 @@
                 "summary": "He de aceptarlo, una de las cosas que más dudas me causaba cuando inicié a programar usando C# era sobre cuál era la diferencia entre usar string o System.String, la idea que yo tenía al respecto que estaba totalmente equivocada."
             },
             { 
+                "id" : "/post/importancia-de-programar-con-estilo/"
+                "tv" : false,
                 "title": "La importancia de programar con estilo", 
                 "date": "2015-08-15 12:00:00 -0500",
                 "featured_tag": "Meta",
                 "featured_image": "http://thatcsharpguy.com/postimagesfeatured.jpg",
-                "summary": "Y al decir programar con estilo no me refiero a que estén todo el tiempo con los meñiques levantados, o sólo hacerlo las tardes a las 5 p.m. No."
+                "summary": "Y al decir \"programar con estilo\" no me refiero a que estén todo el tiempo con los meñiques levantados, o sólo hacerlo las tardes a las 5 p.m. No."
             },
             { 
+                "id" : "/post/importance-of-coding-with-style/"
+                "tv" : false,
                 "title": "The importance of coding with style", 
                 "date": "2015-08-15 12:00:00 -0500",
                 "featured_tag": "Meta",
                 "featured_image": "http://thatcsharpguy.com/postimagesfeatured.jpg",
-                "summary": "And with coding with style I don't mean to keep your pinkies up while doing it or just write code every evening at 5:00 pm. No."
+                "summary": "And with \"coding with style\" I don't mean to keep your pinkies up while doing it or just write code every evening at 5:00 pm. No."
             },
             { 
+                "id" : "/post/of-xamarin-netduino-iot/"
+                "tv" : false,
                 "title": "Of Xamarin, Netduino and IoT", 
                 "date": "2015-08-07 13:31:38 -0500",
                 "featured_tag": "Xamarin",
@@ -60,6 +76,8 @@
                 "summary": "I decided to create an app to easily turn on or off my bedroom's light not only from my Windows Phone but from my iPod or any other device in my house. I'll try to explain how I did it."
             },
             { 
+                "id" : "/post/lambdas-en-c-sharp/"
+                "tv" : false,
                 "title": "Lambdas en C#", 
                 "date": "2015-08-03 13:00:00 -0500",
                 "featured_tag": "AprendeCSharp",
@@ -67,6 +85,8 @@
                 "summary": "Una vez que conocemos lo que es un delegado, y lo que son Func y Action, es momento de llegar a un tema que se convierte en algo muy sencillo, además es de mis cosas favoritas en C#: Las expresiones lambda."
             },
             { 
+                "id" : "/post/func-y-action-en-c-sharp/"
+                "tv" : false,
                 "title": "Func y Action en C#", 
                 "date": "2015-07-29 13:00:00 -0500",
                 "featured_tag": "AprendeCSharp",
@@ -74,6 +94,8 @@
                 "summary": "Func y Action son moldes para crear delegados, podemos usarlos para evitarnos la fatiga de declarar un delegado para cada ocasión que sea necesario."
             },
             { 
+                "id" : "/post/from-console-to-mobile/"
+                "tv" : false,
                 "title": "From console to mobile", 
                 "date": "2015-07-26 13:00:00 -0500",
                 "featured_tag": "Xamairn",
@@ -81,6 +103,8 @@
                 "summary": "What happens when we face real people/world problems? for sure, there are still console apps out in the wild, but nowadays all the successful applications have a mobile version, why yours shouldn't have one?"
             },
             { 
+                "id" : "/post/delegados-en-c-sharp/"
+                "tv" : false,
                 "title": "Delegados en C#", 
                 "date": "2015-07-24 05:00:00 -0500",
                 "featured_tag": "AprendeCSharp",
@@ -88,6 +112,8 @@
                 "summary": "Podemos ver un delegado en C# como un tipo de dato que apunta a un método permitiéndonos así extender las capacidades de nuestro código o permitir que otros lo hagan."
             },
             { 
+                "id" : "/post/hello-world/"
+                "tv" : false,
                 "title": "Hello World", 
                 "date": "2015-07-18 13:31:38 -0500",
                 "featured_tag": "Meta",
@@ -95,6 +121,8 @@
                 "summary": "I've decided to kill my old blog, if you ever visit [blog.fferegrino.org] again you'll find that it isn't what it used to be. I decided to divide the content and if you came here looking for technical stuff, this is the right place."
             },
             { 
+                "id" : "/post/bubble-display-netduino-plus-2/"
+                "tv" : false,
                 "title": "Conectando un Bubble Display a un Netduino Plus 2", 
                 "date": "2015-07-17 13:31:38 -0500",
                 "featured_tag": "Netduino",
@@ -102,11 +130,13 @@
                 "summary": "Para un proyecto Instrumentación en la escuela decidí desempolvar mi Netduino Plus 2, en el proyecto decesitábamos mostrar las mediciones de tres distintos sensores en un par de displays de 7 segmentos."
             },
             { 
+                "id" : "/post/hola-mundo/"
+                "tv" : false,
                 "title": "¡Hola mundo!", 
                 "date": "2015-07-11 13:31:38 -0500",
                 "featured_tag": "Meta",
                 "featured_image": "http://thatcsharpguy.com/postimages",
-                "summary": "He decididio matar el blog anterior, si por casualidad llegan a blog.fferegrino.org, encontrarán que ya no es lo que era antes. He decidido dividir el contenido y si llegaron acá buscando cosas técnicas este es el lugar indicado."
+                "summary": "He decididio \"matar\" el blog anterior, si por casualidad llegan a blog.fferegrino.org, encontrarán que ya no es lo que era antes. He decidido dividir el contenido y si llegaron acá buscando cosas técnicas este es el lugar indicado."
             }	
         ]
 }

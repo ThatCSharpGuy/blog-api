@@ -1,0 +1,199 @@
+{	
+	"id" : "/post/linq-en-c-sharp-2/",
+	"tv" : false,
+	"date": "2016-02-01 14:00:00 -0600",
+	"title" : "Linq en C# - segunda parte",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimages/linq-en-c-sharp/featured.png",
+	"tags" :
+	[ 
+		"AprendeCSharp"
+	],
+	"content" : "<p>Hace algunos cuantos posts <a href=\"/post/linq-en-c-sharp\">les hablaba de Linq en C#</a>, y este post es una especie de continuación, para que, si aún no has integrado esta poderosa herramienta dentro de tus tareas de desarrollo, por fin te animes a hacerlo.</p>
+
+<h3 id=\"preparando-el-terreno\">Preparando el terreno</h3>
+<p>Para este post me auxiliaré de tres elementos.</p>
+
+<ul>
+  <li>Las clases <code>Lecture</code>, <code>Teacher</code> que representarán nuestros objetos de negocios. Un profesor (<code>Teacher</code>) imparte una o más clases (<code>Lecture</code>).</li>
+  <li><code>FakeDatabase</code> que como su nombre lo indica, pretende ser una simulación de un almacenaje de datos con soporte para Linq. Hay que recordar que existen varias implementaciones: Linq to objects, Linq to SQL, Linq to XML, …</li>
+</ul>
+
+<h2 id=\"dos-sintaxis\">Dos sintaxis</h2>
+<p>Para usar Linq, tenemos disponibles dos formas de hacerlo: mediante el uso de la sintaxis de método o mediante la sintaxis de consulta, ambas son en su mayor parte intercambiables, sin embargo hay algunas funciones que únicamente son accesibles mediante la sintaxis de método. Diferenciarlas es sencillo, una son los métodos tradicionales mientras que la otra hace uso de palabras especiales como <code>from</code>, <code>in</code>, <code>select</code>.</p>
+
+<p>Por ejemplo, estas dos operaciones con Linq hacen lo mismo:</p>
+
+<div class=\"pure-g\">
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">from</span> <span class="n">lecture</span> <span class="k">in</span> <span class="n">db</span><span class="p">.</span><span class="n">Lectures</span>
+<span class="k">group</span> <span class="n">lecture</span> <span class="n">by</span> <span class="n">lecture</span><span class="p">.</span><span class="n">TeacherId</span> <span class="k">into</span> <span class="n">grouped</span>
+<span class="k">join</span> <span class="n">teacher</span> <span class="k">in</span> <span class="n">db</span><span class="p">.</span><span class="n">Teachers</span> 
+    <span class="n">on</span> <span class="n">grouped</span><span class="p">.</span><span class="n">Key</span> <span class="k">equals</span> <span class="n">teacher</span><span class="p">.</span><span class="n">Id</span>
+<span class="k">where</span> <span class="n">teacher</span><span class="p">.</span><span class="n">LastName</span> <span class="p">==</span> <span class="err">\</span><span class="s">&quot;Williams\&quot;</span>
+<span class="k">select</span> <span class="k">new</span> <span class="p">{</span> <span class="n">TeacherId</span> <span class="p">=</span> <span class="n">grouped</span><span class="p">.</span><span class="n">Key</span><span class="p">,</span> 
+             <span class="n">Name</span> <span class="p">=</span> <span class="n">teacher</span><span class="p">.</span><span class="n">GivenName</span> <span class="p">};</span></code></pre></figure>
+</div>
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">db</span><span class="p">.</span><span class="n">Lectures</span>
+<span class="p">.</span><span class="n">GroupBy</span> <span class="p">(</span><span class="n">lecture</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">lecture</span><span class="p">.</span><span class="n">TeacherId</span><span class="p">)</span>
+<span class="p">.</span><span class="n">Join</span> <span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Teachers</span><span class="p">,</span>
+        <span class="n">g</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">g</span><span class="p">.</span><span class="n">Key</span><span class="p">,</span> <span class="n">t</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">t</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="k">new</span> <span class="p">{</span><span class="n">Grouped</span> <span class="p">=</span> <span class="n">g</span><span class="p">,</span> <span class="n">Teacher</span> <span class="p">=</span> <span class="n">t</span><span class="p">})</span>
+<span class="p">.</span><span class="n">Where</span> <span class="p">(</span><span class="n">an</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">an</span><span class="p">.</span><span class="n">Teacher</span><span class="p">.</span><span class="n">LastName</span> <span class="p">==</span> <span class="err">\</span><span class="s">&quot;Williams\&quot;)</span>
+<span class="p">.</span><span class="n">Select</span> <span class="p">(</span><span class="n">an</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="k">new</span> <span class="p">{</span> <span class="n">TeacherId</span> <span class="p">=</span> <span class="n">an</span><span class="p">.</span><span class="n">Grouped</span><span class="p">.</span><span class="n">Key</span><span class="p">,</span>
+                     <span class="n">Name</span> <span class="p">=</span> <span class="n">an</span><span class="p">.</span><span class="n">Teacher</span><span class="p">.</span><span class="n">GivenName</span> <span class="p">});</span></code></pre></figure>
+</div>
+</div>
+
+<p>Tal vez con solo ver los ejemplos anteriores ya tengas tu favorito, pero no te dejes llevar todavía, los dos tienen sus fortalezas. Sin olvidar que hay operaciones únicamente disponibles en la sintaxis de método, para mí la sintaxis de método tiene el poder de las <a href=\"/post/lambdas-en-c-sharp\">expresiones lambda</a> y la sintaxis de consulta es más legible al ojo humano.</p>
+
+<p>Sin importar por cual nos decidamos, el compilador siempre toma las consultas en Linq y las transforma a métodos, puesto que <strong>elegir una sobre otra es únicamente cuestión de gustos</strong> y necesidad del programador ya que <strong>no existe un beneficio en desempeño entre una y otra</strong>. De hecho, la <a href=\"https://msdn.microsoft.com/en-us/library/bb397676.aspx\" target=\"_blank\">recomendación de Microsoft es</a>:</p>
+
+<blockquote>
+  <p>Usa sintaxis de consulta en donde sea posible y sintaxis de método cuando sea necesario.</p>
+</blockquote>
+
+<p>Yo no la sigo al pie de la letra, de nuevo: cuestión de gustos. Porque a mi parecer hay algunas consultas que son más sencillas de escribir y leer como métodos, como un simple filtrado con <code>Where</code>, o en ocasiones la combinación de ambas facilita la lectura.</p>
+
+<h2 id=\"proyecciones-select-select\">Proyecciones (Select, select)</h2>
+<p>La finalidad de usar Linq es el hacer consultas, el resultado de nuestras consultas está definido por las proyecciones que hacemos sobre los datos, dichas proyecciones están definidas por la cláusula <code>select</code> o el método <code>Select</code>.</p>
+
+<p>Con ellos se puede modelar los resultados de una consulta en un <a href=\"/post/anonimos-en-c-sharp\">tipo anónimo</a> o en un tipo previamente creado por nosotros. Por ejemplo, en la consulta anterior, el resultado era un conjunto de elementos que tenían las propiedades  <code>int TeacherId</code> y <code>string Name</code>. Es posible que usando los métodos de Linq, muchas veces se omita la proyección y es cuando se realiza una “proyección implícita”, mientras que usando consultas siempre es necesario hacer un <em>select</em>.</p>
+
+<p>Solo por decir, así como en la consulta se crea un tipo anónimo con</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">new</span> <span class="p">{</span> <span class="n">TeacherId</span> <span class="p">=</span> <span class="n">grouped</span><span class="p">.</span><span class="n">Key</span><span class="p">,</span> <span class="n">Name</span> <span class="p">=</span> <span class="n">teacher</span><span class="p">.</span><span class="n">GivenName</span> <span class="p">};</span></code></pre></figure></p>
+
+<p>Igual se pudo haber creado un objeto de <code>Teacher</code> con</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">new</span> <span class="n">Teacher</span> <span class="p">{</span> <span class="n">TeacherId</span> <span class="p">=</span> <span class="n">grouped</span><span class="p">.</span><span class="n">Key</span><span class="p">,</span> <span class="n">GivenName</span> <span class="p">=</span> <span class="n">teacher</span><span class="p">.</span><span class="n">GivenName</span> <span class="p">};</span></code></pre></figure></p>
+
+<h2 id=\"operadores-de-agregacin\">Operadores de agregación</h2>
+<p>Promedios, sumas, mínimos… de todo. Usualmente metemos esto dentro de un <code>for</code> más unas cuantas variables auxiliares y tenemos el resultado, con Linq, eso se acaba.</p>
+
+<h3 id=\"conteo-count\">Conteo (Count)</h3>
+<p>Supongamos que queremos contar la cantidad de profesores cuyo nombre comienza con <code>L</code>, entonces debemos utilizar el método <code>Count</code> (no está disponible en la sintaxis de consulta), y se hace de la siguiente manera:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">profesoresConL</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Teachers</span><span class="p">.</span><span class="n">Count</span><span class="p">(</span><span class="n">p</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">p</span><span class="p">.</span><span class="n">GivenName</span><span class="p">.</span><span class="n">StartsWith</span><span class="p">(</span><span class="err">“</span><span class="n">L</span><span class="err">”</span><span class="p">));</span></code></pre></figure></p>
+
+<p>La llamada al método <code>Count</code> se puede hacer sin parámetros o pasando un <code>Func</code> que actúa como condicional  para indicar qué elementos dentro de la colección deben ser considerados para la cuenta.</p>
+
+<h3 id=\"suma-sum\">Suma (Sum)</h3>
+<p>¿Cuantos años en total suman los profesores que tienen menos de 30? fácil, con más Linq. En este caso es necesario aplicar una función de filtrado antes de hacer la sumatoria, el filtrado se puede hacer con la sintaxis de consulta, pero la sumatoria debe ser con la de método:</p>
+
+<div class=\"pure-g\">
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">edadMasMenos30</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Teachers</span>
+    <span class="p">.</span><span class="n">Where</span> <span class="p">(</span><span class="n">t</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">t</span><span class="p">.</span><span class="n">Age</span> <span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="m">30</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">Sum</span> <span class="p">(</span><span class="n">t</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">t</span><span class="p">.</span><span class="n">Age</span><span class="p">);</span></code></pre></figure>  
+</div>
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">menosDe30Total1</span> <span class="p">=</span> <span class="p">(</span><span class="k">from</span> <span class="n">t</span> <span class="k">in</span> <span class="n">db</span><span class="p">.</span><span class="n">Teachers</span>
+                        <span class="k">where</span> <span class="n">t</span><span class="p">.</span><span class="n">Age</span> <span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="m">30</span>
+                        <span class="k">select</span> <span class="n">t</span><span class="p">.</span><span class="n">Age</span><span class="p">).</span><span class="n">Sum</span> <span class="p">();</span></code></pre></figure>  
+</div>  
+</div>
+
+<h3 id=\"mnimos-y-mximos-min-max\">Mínimos y máximos (Min, Max)</h3>
+<p>No todos los profesores tienen correo electrónico, ¿tendrá algo que ver con la edad? con los métodos <code>Min</code> y <code>Max</code> podemos obtener los valores máximos y mínimos dentro de un conjunto de resultados:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">edadMinSinEmail</span> <span class="p">=</span> <span class="p">(</span><span class="k">from</span> <span class="n">t</span> <span class="k">in</span> <span class="n">db</span><span class="p">.</span><span class="n">Teachers</span>
+                        <span class="k">where</span> <span class="n">t</span><span class="p">.</span><span class="n">Email</span> <span class="p">==</span> <span class="err">“”</span>
+                        <span class="k">select</span> <span class="n">t</span><span class="p">).</span><span class="n">Min</span> <span class="p">(</span><span class="n">t</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">t</span><span class="p">.</span><span class="n">Age</span><span class="p">);&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="kt">var</span> <span class="n">edadMaxSinEmail</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Teachers</span>
+    <span class="p">.</span><span class="n">Where</span> <span class="p">(</span><span class="n">t</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">t</span><span class="p">.</span><span class="n">Email</span> <span class="p">==</span> <span class="err">“”</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">Max</span> <span class="p">(</span><span class="n">t</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">t</span><span class="p">.</span><span class="n">Age</span><span class="p">);&lt;</span><span class="n">br</span> <span class="p">/&gt;</span></code></pre></figure></p>
+
+<h3 id=\"promedio-average\">Promedio (Average)</h3>
+<p>Mmm… ¿Qué tal si probamos con los promedios de edad?, podemos usar el método <code>Average</code> para obtenerlo, primero filtramos los resultados para después obtener el promedio:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">promedioEdadSMail</span> <span class="p">=</span> <span class="p">(</span><span class="k">from</span> <span class="n">t</span> <span class="k">in</span> <span class="n">db</span><span class="p">.</span><span class="n">Teachers</span>
+    <span class="k">where</span> <span class="n">t</span><span class="p">.</span><span class="n">Email</span> <span class="p">==</span> <span class="err">“”</span>
+    <span class="k">select</span> <span class="n">t</span><span class="p">).</span><span class="n">Average</span> <span class="p">(</span><span class="n">t</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">t</span><span class="p">.</span><span class="n">Age</span><span class="p">);&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="kt">var</span> <span class="n">promedioEmailCMail</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Teachers</span>
+    <span class="p">.</span><span class="n">Where</span> <span class="p">(</span><span class="n">t</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">t</span><span class="p">.</span><span class="n">Email</span> <span class="p">!=</span> <span class="err">“”</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">Average</span> <span class="p">(</span><span class="n">t</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">t</span><span class="p">.</span><span class="n">Age</span><span class="p">);</span></code></pre></figure></p>
+
+<p>También existe una función llamada <code>Aggregate</code> que nos da flexibilidad para integrar nuestra propia funcionalidad de agregación.</p>
+
+<h2 id=\"cuantificadores\">Cuantificadores</h2>
+<p>Otro lugar en donde metíamos un <code>bool</code>, un ciclo <code>for</code>, un condicional y problema resuelto. Usando Linq lo único que necesitamos es la condición.</p>
+
+<h3 id=\"todos-los-elementos-all\">Todos los elementos (All)</h3>
+<p>Podemos usar el método <code>All</code> para verificar que todos los elementos dentro del conjunto cumplen con la condición especificada, <strong>si todos cumplen la condición</strong>, el método nos regresará <code>true</code>. Por ejemplo, si quisiéramos saber si todos los maestros tienen más de 18 años:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">bool</span> <span class="n">todosMayores</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Teachers</span><span class="p">.</span><span class="n">All</span><span class="p">(</span><span class="n">teacher</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">teacher</span><span class="p">.</span><span class="n">Age</span> <span class="p">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="m">18</span><span class="p">);</span></code></pre></figure></p>
+
+<h3 id=\"algn-elemento-any\">Algún elemento (Any)</h3>
+<p>Contrario a <code>All</code>, el método <code>Any</code> devolverá <code>true</code> cuando exista <strong>al menos un elemento que cumpla con la condición</strong> que se le pasa como argumento. Por ejemplo, si queremos saber si existe algún maestro que se llame Cosme Fulanito:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">bool</span> <span class="n">existeCosmeFulanito</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Teachers</span><span class="p">.</span><span class="n">Any</span><span class="p">(</span><span class="n">teacher</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">teacher</span><span class="p">.</span><span class="n">GivenName</span> <span class="p">==</span> <span class="err">“</span><span class="n">Cosme</span><span class="err">”</span>
+                            <span class="p">&amp;</span><span class="n">amp</span><span class="p">;&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="n">teacher</span><span class="p">.</span><span class="n">LastName</span> <span class="p">==</span> <span class="err">“</span><span class="n">Fulanito</span><span class="err">”</span><span class="p">);</span></code></pre></figure></p>
+
+<p>Otra de las funciones de <code>Any</code> es evitarnos el “molesto” condicional de <code>.Count &gt; 0</code>. Porque si llamamos <code>Any</code> sin pasar ningún condicional, este nos devolverá <code>true</code> siempre que nuestra secuencia contenga algún elemento. Digamos que antes de seguir queremos saber si hay clases registradas:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">bool</span> <span class="n">hayClases</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Lectures</span><span class="p">.</span><span class="n">Any</span><span class="p">();&lt;</span><span class="n">br</span> <span class="p">/&gt;</span></code></pre></figure></p>
+
+<h2 id=\"ordenamiento-orderby-orderby\">Ordenamiento (OrderBy, orderby)</h2>
+<p>Con Linq también es posible ordenar nuestros conjuntos de datos. Solo hay que recordar que generalmente el ordenamiento operará solo de manera temporal y que el ordenamiento no permanecerá una vez que hemos dejado de trabajar con los datos.</p>
+
+<p>Para ordenar podemos usar tanto la cláusula <code>orderby</code> y especificarle la propiedad a usar como referencia o el método <code>OrderBy</code> y usar una expresión lambda para el mismo fin. Vamos a ordenar a los maestros por la longitud de su apellido:</p>
+
+<div class=\"pure-g\">
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">maestrosOrdenados1</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Teachers</span>
+    <span class="p">.</span><span class="n">OrderBy</span><span class="p">(</span><span class="n">t</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">t</span><span class="p">.</span><span class="n">LastName</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span></code></pre></figure>  
+</div>
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">maestrosOrdenados2</span> <span class="p">=</span> 
+        <span class="k">from</span> <span class="n">t</span> <span class="k">in</span> <span class="n">db</span><span class="p">.</span><span class="n">Teachers</span>
+        <span class="k">orderby</span> <span class="n">t</span><span class="p">.</span><span class="n">LastName</span><span class="p">.</span><span class="n">Length</span>
+        <span class="k">select</span> <span class="n">t</span><span class="p">;</span></code></pre></figure>  
+</div>  
+</div>
+
+<p>También tenemos disponible la cláusula <code>descending</code> y el método <code>OrderByDescending</code> que invertirán el ordenamiento, se usan así:</p>
+
+<div class=\"pure-g\">
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="p">.</span><span class="n">OrderByDescending</span><span class="p">(</span><span class="n">t</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">t</span><span class="p">.</span><span class="n">LastName</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span></code></pre></figure>  
+</div>
+<div class=\"pure-u-1 pure-u-md-1-2\">
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">orderby</span> <span class="n">t</span><span class="p">.</span><span class="n">LastName</span><span class="p">.</span><span class="n">Length</span> <span class="k">descending</span></code></pre></figure>  
+</div>  
+</div>
+
+<p>¿Pero qué ocurre cuando queremos tomar en cuenta dos propiedades para realizar el ordenamiento? pues para eso podemos usar el método <code>ThenBy</code> o <code>ThenByDescending</code> para especificar otra condición de ordenamiento.</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">maestrosOrdenados3</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Teachers</span>
+    <span class="p">.</span><span class="n">OrderBy</span><span class="p">(</span><span class="n">t</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">t</span><span class="p">.</span><span class="n">LastName</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">ThenByDescending</span><span class="p">(</span><span class="n">t</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">t</span><span class="p">.</span><span class="n">GivenName</span><span class="p">);</span></code></pre></figure></p>
+
+<h2 id=\"operadores-de-particin\">Operadores de partición</h2>
+<p>Los operadores de partición son especialmente útiles para paginar los resultados, estos permiten considerar (o no considerar) cierta cantidad de elementos al inicio de la secuencia que los contiene.</p>
+
+<h3 id=\"toma-take\">Toma (Take)</h3>
+<p>El método <code>Take</code> recibe un entero como parámetro que especifica la cantidad de elementos que son requeridos de toda la secuencia sobre la que opera, en caso de que haya menos de los requeridos únicamente devolverá los que encontró. Por ejemplo, si quisiéramos tomar los primeros 5 maestros más jóvenes, menores de 20 años:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">cincoMenores20</span> <span class="p">=</span> <span class="p">(</span><span class="k">from</span> <span class="n">t</span> <span class="k">in</span> <span class="n">db</span><span class="p">.</span><span class="n">Teachers</span>
+                      <span class="k">where</span> <span class="n">t</span><span class="p">.</span><span class="n">Age</span> <span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="m">20</span>
+                      <span class="k">orderby</span> <span class="n">t</span><span class="p">.</span><span class="n">Age</span>
+                      <span class="k">select</span> <span class="n">t</span><span class="p">).</span><span class="n">Take</span> <span class="p">(</span><span class="m">5</span><span class="p">);</span></code></pre></figure></p>
+
+<h3 id=\"salta-skip\">Salta (Skip)</h3>
+<p>Podríamos verlo como el contrario de <code>Take</code>, ya que <code>Skip</code> igualmente toma un entero, pero este entero indica cuántos elementos de la secuencia debe ignorar antes de comenzar a tomar en cuenta. Supongamos que necesitamos tomar todos los maestros mayores de 30 años, comenzando por los mayores, pero ignorar a los primeros 4:</p>
+
+<p><figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">otrosMaestros</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Teachers</span>
+    <span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">t</span><span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">t</span><span class="p">.</span><span class="n">Age</span> <span class="p">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="m">30</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">OrderByDescending</span><span class="p">(</span><span class="n">t</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">t</span><span class="p">.</span><span class="n">Age</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">Skip</span><span class="p">(</span><span class="m">4</span><span class="p">);</span></code></pre></figure></p>
+
+<p>También existe un método que se llama <code>TakeWhile</code> y otro que se llama <code>SkipWhile</code>, ambos requieren de una condición sobre la que se decidirá a partir de cuándo comenzar a tomar (o dejar de ignorar) los elementos de la secuencia.</p>
+
+<h4 id=\"lo-que-sigue\">Lo que sigue</h4>
+<p>Una vez que hemos visto el poder de Linq con estos ejemplos relativamente sencillos, no queda más que seguir y aprender sobre agrupamientos, uniones, intersecciones y otras cuantas cosas un poco más complejas. Lo visto aquí sigue sin ser lo más impresionante de esta herramienta. Recuerda que puedes encontrar el código fuente en la información del post.</p>
+"
+}
