@@ -6,49 +6,7 @@
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/events/1-jun-2016.jpg",
 	"tags" :
-	[ 
-		"Xamarin",
-		"XamarinForms",
-		"Events"
-	],
-	"content" : "<div class=\"video-wrapper\">
-<iframe src=\"https://onedrive.live.com/embed?cid=05D7523CBBAF0419&amp;resid=5D7523CBBAF0419%21128777&amp;authkey=AJJchC74gobuJYE&amp;em=2&amp;wdAr=1.7777777777777777&amp;wdEaa=1\" width=\"1186px\" height=\"691px\" frameborder=\"0\">Esto es un documento de <a target=\"_blank\" href=\"https://office.com\">Microsoft Office</a> incrustado con tecnología de <a target=\"_blank\" href=\"https://office.com/webapps\">Office Online</a>.</iframe>
-</div>
-
-<p><br />
-Esta es la presentación y el código la charla que di sobre <em>custom renderers</em> en el <a href=\"http://www.meetup.com/Xamarin-Students-Mexico/events/230561270/\" target=\"_blank\" rel=\"nofollow\">Meetup de Xamarin Students México</a> junto a <a href=\"http://www.hjr.com.mx\" target=\"_blank\" rel=\"nofollow\">Humberto</a> quién habló de estrategias para compartir código y <a href=\"https://vicenteguzman.mx\" target=\"_blank\" rel=\"nofollow\">Vicente</a> quién habló de las diferencias entre Forms y Xamarin tradicional.</p>
-
-<p>Puedes checar el <a href=\"https://github.com/fferegrino/custom-renderers-talk/releases/tag/m-1\">código fuente del demo</a> en GitHub.</p>
-
-<h2 id=\"diapositiva-9---renderers-de-xamarinforms\">Diapositiva 9 - Renderers de Xamarin.Forms</h2>
-<p>El código fuente de Xamarin.Forms (y otras de sus tecnologías relacionadas) es ahora <em>open source</em> y puedes checarlo también en GitHub: <a href=\"https://github.com/xamarin/Xamarin.Forms\">https://github.com/xamarin/Xamarin.Forms</a>. Podemos ayudarnos de esto para ver cómo es que están hechos sus <em>renderers</em>:</p>
-
-<p>Button y sus implementaciones:</p>
-
-<p><a href=\"https://github.com/xamarin/Xamarin.Forms/blob/master/Xamarin.Forms.Core/Button.cs\" target=\"_blank\" rel=\"nofollow\">Abstracción de Button</a><br />
-<a href=\"https://github.com/xamarin/Xamarin.Forms/blob/master/Xamarin.Forms.Platform.iOS/Renderers/ButtonRenderer.cs\" target=\"_blank\" rel=\"nofollow\">Renderer en iOS</a><br />
-<a href=\"https://github.com/xamarin/Xamarin.Forms/blob/master/Xamarin.Forms.Platform.Android/Renderers/ButtonRenderer.cs\" target=\"_blank\" rel=\"nofollow\">Renderer en Android</a><br />
-<a href=\"https://github.com/xamarin/Xamarin.Forms/blob/master/Xamarin.Forms.Platform.WinRT/ButtonRenderer.cs\" target=\"_blank\" rel=\"nofollow\">Renderer en Windows</a></p>
-
-<h2 id=\"diapositiva-10---aplicacin-demo\">Diapositiva 10 - Aplicación demo</h2>
-
-<p>El cliente de la Pokéapi es Jirapi, hecho por mi, puedes <a href=\"http://thatcsharpguy.com/post/jirapi\">leer más sobre él aquí</a>.</p>
-
-<h2 id=\"diapositiva-12---effects\">Diapositiva 12 - Effects</h2>
-<p>Para modificaciones simples, puedes usar una de las funciones más nuevas de Forms, <a href=\"https://developer.xamarin.com/guides/xamarin-forms/effects/introduction/\" target=\"_blank\" rel=\"nofollow\">los Effects</a>.</p>
-
-<h2 id=\"diapositiva-15---ejemplos-reales\">Diapositiva 15 - Ejemplos “reales”</h2>
-<p>Estos son ejemplos de proyectos y productos que usan <em>custom renderers</em> para funcionar:</p>
-
-<ul>
-  <li>Xlabs: <a href=\"https://github.com/XLabs/Xamarin-Forms-Labs\" target=\"_blank\" rel=\"nofollow\">https://github.com/XLabs/Xamarin-Forms-Labs</a></li>
-  <li>Telerik UI for Xamarin: <a href=\"http://www.telerik.com/xamarin-ui\" target=\"_blank\" rel=\"nofollow\">http://www.telerik.com/xamarin-ui</a></li>
-  <li>Messier16 Controls: <a href=\"https://github.com/messier16/Forms.Controls\" target=\"_blank\">https://github.com/messier16/Forms.Controls</a></li>
-</ul>
-
-<h2 id=\"siguiente-evento\">Siguiente evento</h2>
-<p>Si quieres estar al tanto de los siguientes eventos, no olvides darle <em>me gusta</em> a nuestra <a href=\"https://www.facebook.com/xspmexico\" target=\"_blank\">página de Facebook</a> o unirte <a href=\"http://www.meetup.com/Xamarin-Students-Mexico/\" target=\"_blank\">al grupo en Meetup</a>.</p>
-
-<p>Muchas gracias a <a href=\"http://mexico.enjoyurbanstation.com/es/\" target=\"_blank\" rel=\"nofollow\">Urban Station</a> por patrocinar el lugar para el evento.</p>
-"
+	["Xamarin","XamarinForms","Events"],
+	
+	"content" : body"<div class=\"video-wrapper\">\n<iframe src='https://onedrive.live.com/embed?cid=05D7523CBBAF0419&resid=5D7523CBBAF0419%21128777&authkey=AJJchC74gobuJYE&em=2&wdAr=1.7777777777777777&wdEaa=1' width='1186px' height='691px' frameborder='0'>Esto es un documento de <a target='_blank' href='https://office.com'>Microsoft Office</a> incrustado con tecnología de <a target='_blank' href='https://office.com/webapps'>Office Online</a>.</iframe>\n</div>\n\n<br />\nEsta es la presentación y el código la charla que di sobre *custom renderers* en el <a href=\"http://www.meetup.com/Xamarin-Students-Mexico/events/230561270/\" target=\"_blank\" rel=\"nofollow\">Meetup de Xamarin Students México</a> junto a <a href=\"http://www.hjr.com.mx\" target=\"_blank\" rel=\"nofollow\">Humberto</a> quién habló de estrategias para compartir código y <a href=\"https://vicenteguzman.mx\" target=\"_blank\" rel=\"nofollow\">Vicente</a> quién habló de las diferencias entre Forms y Xamarin tradicional. \n\nPuedes checar el [código fuente del demo](https://github.com/fferegrino/custom-renderers-talk/releases/tag/m-1) en GitHub.\n\n## Diapositiva 9 - Renderers de Xamarin.Forms\nEl código fuente de Xamarin.Forms (y otras de sus tecnologías relacionadas) es ahora *open source* y puedes checarlo también en GitHub: [https://github.com/xamarin/Xamarin.Forms](https://github.com/xamarin/Xamarin.Forms). Podemos ayudarnos de esto para ver cómo es que están hechos sus *renderers*:\n\nButton y sus implementaciones:\n\n<a href=\"https://github.com/xamarin/Xamarin.Forms/blob/master/Xamarin.Forms.Core/Button.cs\" target=\"_blank\" rel=\"nofollow\">Abstracción de Button</a>  \n<a href=\"https://github.com/xamarin/Xamarin.Forms/blob/master/Xamarin.Forms.Platform.iOS/Renderers/ButtonRenderer.cs\" target=\"_blank\" rel=\"nofollow\">Renderer en iOS</a>  \n<a href=\"https://github.com/xamarin/Xamarin.Forms/blob/master/Xamarin.Forms.Platform.Android/Renderers/ButtonRenderer.cs\" target=\"_blank\" rel=\"nofollow\">Renderer en Android</a>  \n<a href=\"https://github.com/xamarin/Xamarin.Forms/blob/master/Xamarin.Forms.Platform.WinRT/ButtonRenderer.cs\" target=\"_blank\" rel=\"nofollow\">Renderer en Windows</a>\n\n## Diapositiva 10 - Aplicación demo\n\nEl cliente de la Pokéapi es Jirapi, hecho por mi, puedes <a href=\"http://thatcsharpguy.com/post/jirapi\">leer más sobre él aquí</a>.\n\n## Diapositiva 12 - Effects\nPara modificaciones simples, puedes usar una de las funciones más nuevas de Forms, <a href=\"https://developer.xamarin.com/guides/xamarin-forms/effects/introduction/\" target=\"_blank\" rel=\"nofollow\">los Effects</a>.\n\n\n## Diapositiva 15 - Ejemplos \"reales\"\nEstos son ejemplos de proyectos y productos que usan *custom renderers* para funcionar:\n\n - Xlabs: <a href=\"https://github.com/XLabs/Xamarin-Forms-Labs\" target=\"_blank\" rel=\"nofollow\">https://github.com/XLabs/Xamarin-Forms-Labs</a>  \n - Telerik UI for Xamarin: <a href=\"http://www.telerik.com/xamarin-ui\" target=\"_blank\" rel=\"nofollow\">http://www.telerik.com/xamarin-ui</a>\n - Messier16 Controls: <a href=\"https://github.com/messier16/Forms.Controls\" target=\"_blank\">https://github.com/messier16/Forms.Controls</a>\n \n## Siguiente evento\nSi quieres estar al tanto de los siguientes eventos, no olvides darle *me gusta* a nuestra <a href=\"https://www.facebook.com/xspmexico\" target=\"_blank\">página de Facebook</a> o unirte <a href=\"http://www.meetup.com/Xamarin-Students-Mexico/\" target=\"_blank\" >al grupo en Meetup</a>.\n\nMuchas gracias a <a href=\"http://mexico.enjoyurbanstation.com/es/\" target=\"_blank\" rel=\"nofollow\">Urban Station</a> por patrocinar el lugar para el evento."
 }

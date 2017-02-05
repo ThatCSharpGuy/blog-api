@@ -6,20 +6,7 @@
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//tv/hola-mundo/featured.png",
 	"tags" :
-	[ 
-		"Meta",
-		"Tv"
-	],
-	"content" : "<p>Este es el video de presentación de este nuevo canal de YouTube en donde, a pesar del nombre, no solamente hablaré de C#, si no de varias muchas otras cosas relacionadas con la programación.</p>
-
-<p>En este canal podrás encontrar:</p>
-
-<ul>
-  <li>Explicaciones de patrones de diseño, conceptos de programación y algoritmos</li>
-  <li>Reseñas de aplicaciones para desarrollar</li>
-  <li>Reseñas de librerías, estas si serán específicas para C#</li>
-</ul>
-
-<p>Y temas de este tipo, te invito a que te suscribas en el botón que está un poco más abajo. Y pues nos vemos en el siguiente video.</p>
-"
+	["Meta","Tv"],
+	
+	"content" : body"Este es el video de presentación de este nuevo canal de YouTube en donde, a pesar del nombre, no solamente hablaré de C#, si no de varias muchas otras cosas relacionadas con la programación.\n\nEn este canal podrás encontrar:  \n\n - Explicaciones de patrones de diseño, conceptos de programación y algoritmos\n - Reseñas de aplicaciones para desarrollar \n - Reseñas de librerías, estas si serán específicas para C#\n \n \nY temas de este tipo, te invito a que te suscribas en el botón que está un poco más abajo. Y pues nos vemos en el siguiente video."
 }
