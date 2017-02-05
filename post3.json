@@ -4,7 +4,7 @@
     "items" : 
         [   
             { 
-                "id" : "/post/c-sharp-events/"
+                "id" : "/post/c-sharp-events/",
                 "tv" : false,
                 "title": "Events en C#", 
                 "date": "2016-08-22 14:00:01 -0500",
@@ -13,7 +13,7 @@
                 "summary": "Un evento no es más que un mensaje que se envía de un objeto (el emisor) a otros (los receptores) cada vez que se cumple cierta condición o un cambio ocurre en él."
             },
             { 
-                "id" : "/post/servicios-web-movil-xamarin/"
+                "id" : "/post/servicios-web-movil-xamarin/",
                 "tv" : false,
                 "title": "Servicios web resistentes en aplicaciones móviles", 
                 "date": "2016-08-15 14:00:01 -0500",
@@ -22,7 +22,7 @@
                 "summary": "Llevamos nuestros dispositivos con nosotros a donde sea. Los tenemos en casa, en el trabajo y durante las vacaciones. Están con nosotros sin importar si estamos conectados a internet wifi de 1 gigabit o en una red 4g."
             },
             { 
-                "id" : "/tv/programar-con-estilo/"
+                "id" : "/tv/programar-con-estilo/",
                 "tv" : true,
                 "title": "Programando con estilo", 
                 "date": "2016-08-10 13:00:00 -0500",
@@ -31,7 +31,7 @@
                 "summary": "Programar con estilo es escribir nuestros programas fáciles de entender, bien documentados y siguiendo convenciones de escritura previamente adoptadas."
             },
             { 
-                "id" : "/post/akavache/"
+                "id" : "/post/akavache/",
                 "tv" : false,
                 "title": "Persistencia de datos con Akavache", 
                 "date": "2016-08-08 14:00:01 -0500",
@@ -40,7 +40,7 @@
                 "summary": "Dale memoria a tus aplicaciones con este paquete de NuGet, con Akavache almacena información en el dispositivo del usuario para dar una impresión de fluidez y rapidez en tu app."
             },
             { 
-                "id" : "/post/c-sharp-enums/"
+                "id" : "/post/c-sharp-enums/",
                 "tv" : false,
                 "title": "Enums en C#", 
                 "date": "2016-08-01 14:00:01 -0500",
@@ -49,7 +49,7 @@
                 "summary": "Los enum son un tipo de dato que nos permite expresar valores constantes, con la particularidad de poderlos agrupar lógicamente de acuerdo a la relación que tienen unos con otros."
             },
             { 
-                "id" : "/post/formatted-number-entry/"
+                "id" : "/post/formatted-number-entry/",
                 "tv" : false,
                 "title": "Formatted number entry", 
                 "date": "2016-08-01 03:00:00 -0500",
@@ -58,7 +58,7 @@
                 "summary": "I faced with the necessity of having a &quot;formatted textbox&quot; where the user could enter a given integer number and have it formatted instantly to a comma separated number."
             },
             { 
-                "id" : "/post/map-filter-reduce-f-sharp/"
+                "id" : "/post/map-filter-reduce-f-sharp/",
                 "tv" : false,
                 "title": "Map, reduce y filter en F#", 
                 "date": "2016-07-25 14:00:00 -0500",
@@ -67,7 +67,7 @@
                 "summary": "F# es un gran lenguaje, y unas de las cosas que me gusta de él es que está orientado completamente a la programación funcional. Comparte varias características con lenguajes como Elixir y otras pocas con lenguajes como Swift."
             },
             { 
-                "id" : "/post/map-filter-reduce-c-sharp/"
+                "id" : "/post/map-filter-reduce-c-sharp/",
                 "tv" : false,
                 "title": "Map, reduce y filter en C#", 
                 "date": "2016-07-25 14:00:00 -0500",
@@ -76,7 +76,7 @@
                 "summary": "C# es un gran lenguaje, y unas de las cosas que me gusta de él, es que puedes programar funcionalmente aún si el lenguaje no es 100% funcional. Comparte algunas de sus características con lenguajes como Swift y F#."
             },
             { 
-                "id" : "/tv/first-class-citizens/"
+                "id" : "/tv/first-class-citizens/",
                 "tv" : true,
                 "title": "Ciudadanos de primera clase", 
                 "date": "2016-07-20 13:00:00 -0500",
@@ -85,7 +85,7 @@
                 "summary": "En programación, cuando se habla de ciudadanos de primera clase es para hacer referencia a un elemento del lenguaje que posee la mayor cantidad de privilegios."
             },
             { 
-                "id" : "/post/usos-using-2/"
+                "id" : "/post/usos-using-2/",
                 "tv" : false,
                 "title": "Uso de using", 
                 "date": "2016-07-18 14:00:01 -0500",
@@ -94,7 +94,7 @@
                 "summary": "En C#, también podemos emplear using para especificar un bloque de código asociado a una o varias instancias de una clase que implemente IDisposable."
             },
             { 
-                "id" : "/tv/sal-sintactica/"
+                "id" : "/tv/sal-sintactica/",
                 "tv" : true,
                 "title": "Sal sintáctica", 
                 "date": "2016-07-13 13:00:00 -0500",
@@ -103,7 +103,7 @@
                 "summary": "La sal sintáctica, cuyo objetivo es supuestamente ser lo totalmente opuesto a la azúcar, hacen difícil escribir mal código y, en teoría, hacen más difícil de usar un lenguaje."
             },
             { 
-                "id" : "/post/imageprocessor/"
+                "id" : "/post/imageprocessor/",
                 "tv" : false,
                 "title": "Trabajando con imágenes e ImageProcessor", 
                 "date": "2016-07-11 14:00:01 -0500",
@@ -112,7 +112,7 @@
                 "summary": "Es muy probable que ya te hayas enfrentado o que tengas que enfrentarte con el trabajo procesar imágenes en un sistema, puede ser algo tan simple como cargar y recortar las imagenes de perfil de usuarios a un sistema o..."
             },
             { 
-                "id" : "/post/anatomia-app-xamarin-forms/"
+                "id" : "/post/anatomia-app-xamarin-forms/",
                 "tv" : false,
                 "title": "Xamarin.Forms, anatomía de una app", 
                 "date": "2016-07-04 16:00:00 -0500",
@@ -121,7 +121,7 @@
                 "summary": "Las partes que componen una aplicación hecha con Forms son dos&ellip; el núcleo o shared code y los proyectos clientes móviles que consumen dicho núcleo."
             },
             { 
-                "id" : "/tv/mvvm/"
+                "id" : "/tv/mvvm/",
                 "tv" : true,
                 "title": "MVVM", 
                 "date": "2016-06-28 17:00:00 -0500",
@@ -130,7 +130,7 @@
                 "summary": "Conoce este patrón arquitectónico para el desarrollo de aplicaciones. MVVM es comunmente usado para el desarrollo de apps móviles."
             },
             { 
-                "id" : "/post/mvvm-xamarin-forms/"
+                "id" : "/post/mvvm-xamarin-forms/",
                 "tv" : false,
                 "title": "MVVM en Xamarin.Forms, caso práctico", 
                 "date": "2016-06-26 16:00:00 -0500",

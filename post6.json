@@ -4,7 +4,7 @@
     "items" : 
         [   
             { 
-                "id" : "/post/linq-en-c-sharp-3/"
+                "id" : "/post/linq-en-c-sharp-3/",
                 "tv" : false,
                 "title": "Linq en C# - tercera parte", 
                 "date": "2016-02-08 14:00:00 -0600",
@@ -13,7 +13,7 @@
                 "summary": "Esta es la tercera parte de la serie sobre LINQ en donde hablaré sobre cómo trabajar con dos conjuntos de datos diferentes, con ellos se pueden realizar uniones y agrupaciones para obtener más conocimiento de la información que tenemos."
             },
             { 
-                "id" : "/post/markdownview-xamarin-forms-control/"
+                "id" : "/post/markdownview-xamarin-forms-control/",
                 "tv" : false,
                 "title": "MarkdownView control for Xamarin.Forms", 
                 "date": "2016-02-01 15:00:00 -0600",
@@ -22,7 +22,7 @@
                 "summary": "Taking advantage of the vast number of implementations of Md converters out in the wild, I decided to create a MarkdownView control, one that could display Md documents without much hassle from the developer's point of view."
             },
             { 
-                "id" : "/post/linq-en-c-sharp-2/"
+                "id" : "/post/linq-en-c-sharp-2/",
                 "tv" : false,
                 "title": "Linq en C# - segunda parte", 
                 "date": "2016-02-01 14:00:00 -0600",
@@ -31,7 +31,7 @@
                 "summary": "Conoce un poco más sobre el poder de Linq a través de ejemplos sencillos. Promedios, sumas, filtrados, ordenamientos y más."
             },
             { 
-                "id" : "/post/c-sharp-netmf-iot/"
+                "id" : "/post/c-sharp-netmf-iot/",
                 "tv" : false,
                 "title": "Cosas para hacer en C#: IoT", 
                 "date": "2016-01-25 13:00:00 -0600",
@@ -40,7 +40,7 @@
                 "summary": "A lo largo de los años se ha avanzado en la creación de un ambiente más amigable para las personas que están interesadas en la programación de microcontroladores para construir sistemas a la medida o a veces solo jugar con ellos."
             },
             { 
-                "id" : "/post/humaniza-tus-apps/"
+                "id" : "/post/humaniza-tus-apps/",
                 "tv" : false,
                 "title": "Humaniza tus apps", 
                 "date": "2016-01-18 13:00:00 -0600",
@@ -49,7 +49,7 @@
                 "summary": "Dale un toque más humano a tus aplicaciones con esta pequeña pero útil librería de clases que te ayuda a presentar en un lenguaje más fluído los datos dentro de tu app al usuario final."
             },
             { 
-                "id" : "/post/sentencias-expresiones-operadores/"
+                "id" : "/post/sentencias-expresiones-operadores/",
                 "tv" : false,
                 "title": "Sentencias, expresiones y operadores", 
                 "date": "2016-01-11 13:00:00 -0600",
@@ -58,7 +58,7 @@
                 "summary": "Hace tiempo yo pensaba que sabía programar más o menos bien en C#, pero había ocasiones en las que leyendo documentación me encontraba con ciertas palabras que no lograba comprender, entre ellas estaba las palabras \"sentencia\" y \"expresión\"."
             },
             { 
-                "id" : "/post/opening-files-xamarin-forms/"
+                "id" : "/post/opening-files-xamarin-forms/",
                 "tv" : false,
                 "title": "Opening files in Xamarin.Forms", 
                 "date": "2016-01-08 15:00:00 -0600",
@@ -67,7 +67,7 @@
                 "summary": "Learn how to enable your application to receive files from other apps in the same device."
             },
             { 
-                "id" : "/post/c-sharp-seis/"
+                "id" : "/post/c-sharp-seis/",
                 "tv" : false,
                 "title": "Seis características de C# 6", 
                 "date": "2016-01-04 16:00:00 -0600",
@@ -76,7 +76,7 @@
                 "summary": "La mayoría de las características nuevas de C# 6 tienen como objeto agilizar la escritura de código y mejorar la comprensión de este cuando es revisado. Pero además acercan al lenguaje a la programación funcional."
             },
             { 
-                "id" : "/post/fiestas-desarrolladoras-accesorios/"
+                "id" : "/post/fiestas-desarrolladoras-accesorios/",
                 "tv" : false,
                 "title": "Accesorios para un desarrollador", 
                 "date": "2015-12-27 17:00:00 -0600",
@@ -85,7 +85,7 @@
                 "summary": "Con algo se tiene que escribir el código y seamos honestos ¿por qué no hacerlo de forma cómoda y eficiente? de eso se trata este post."
             },
             { 
-                "id" : "/post/fiestas-desarrolladoras-libros/"
+                "id" : "/post/fiestas-desarrolladoras-libros/",
                 "tv" : false,
                 "title": "Libros para un desarrollador", 
                 "date": "2015-12-22 16:00:00 -0600",
@@ -94,7 +94,7 @@
                 "summary": "En este post no habrá nada de código... al menos escrito por mi. Aprovechando la época, mi intención es presentar algunos de los regalos que harán de un desarrollador alguien más feliz, más cómodo o más completo profesionalmente."
             },
             { 
-                "id" : "/post/ser-xamarin-student-partner/"
+                "id" : "/post/ser-xamarin-student-partner/",
                 "tv" : false,
                 "title": "Ser un Xamarin Student Partner", 
                 "date": "2015-12-16 12:31:38 -0600",
@@ -103,7 +103,7 @@
                 "summary": "Que yo les hable tanto de Xamarin en este blog no es obra de la casualidad, y es que formo parte de los primeros Xamarin Student Partners, un grupo formado a principios de 2015 formado por estudiantes interesadoes en difundir el desarrollo móvil."
             },
             { 
-                "id" : "/post/introduction-xamarin-forms-sharpuladora/"
+                "id" : "/post/introduction-xamarin-forms-sharpuladora/",
                 "tv" : false,
                 "title": "Introduction to Xamarin.Forms (Sharpuladora app)", 
                 "date": "2015-12-16 12:00:00 -0600",
@@ -112,7 +112,7 @@
                 "summary": "This guide will take you step by step to create your first Xamarin.Forms app."
             },
             { 
-                "id" : "/post/c-sharp-juegos/"
+                "id" : "/post/c-sharp-juegos/",
                 "tv" : false,
                 "title": "Cosas para hacer en C#: Juegos", 
                 "date": "2015-12-09 15:00:00 -0600",
@@ -121,7 +121,7 @@
                 "summary": "C# no es solo trabajo de oficina de 9 a 5, también se pueden hacer algunas otras cosas bastante divertidas pero sobre todo interesantes, como videojuegos."
             },
             { 
-                "id" : "/post/xamarin-forms-uwp/"
+                "id" : "/post/xamarin-forms-uwp/",
                 "tv" : false,
                 "title": "Xamarin.Forms 2 and UWP", 
                 "date": "2015-12-06 15:00:00 -0600",
@@ -130,7 +130,7 @@
                 "summary": "Xamarin 4 has everything you need to create great mobile apps. Check out Universal Windows Platform Apps, my favorite feature."
             },
             { 
-                "id" : "/post/introduccion-xamarin-forms-sharpuladora/"
+                "id" : "/post/introduccion-xamarin-forms-sharpuladora/",
                 "tv" : false,
                 "title": "Introducción a Xamarin.Forms (app Sharpuladora)", 
                 "date": "2015-11-26 15:00:00 -0600",

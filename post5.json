@@ -4,7 +4,7 @@
     "items" : 
         [   
             { 
-                "id" : "/post/params-c-sharp/"
+                "id" : "/post/params-c-sharp/",
                 "tv" : false,
                 "title": "params en C#", 
                 "date": "2016-04-18 14:00:00 -0500",
@@ -13,7 +13,7 @@
                 "summary": "La palabra reservada params se usa en la declaración de los parámetros de un método, se antepone al tipo de dato que vamos a declarar y tiene una peculiaridad, solamente se puede anteponer a parámetros que sean arreglos."
             },
             { 
-                "id" : "/tv/ideone/"
+                "id" : "/tv/ideone/",
                 "tv" : true,
                 "title": "Ideone", 
                 "date": "2016-04-18 13:00:00 -0500",
@@ -22,7 +22,7 @@
                 "summary": "Ideone es una colección de compiladores en línea, que permite escribir, compilar y ejecutar código fuente escrito en más de 60 lenguajes de programación."
             },
             { 
-                "id" : "/tv/hola-mundo/"
+                "id" : "/tv/hola-mundo/",
                 "tv" : true,
                 "title": "¡Hola mundo!", 
                 "date": "2016-04-18 13:00:00 -0500",
@@ -31,7 +31,7 @@
                 "summary": "Video de presentación de este nuevo canal de YouTube en donde, a pesar del nombre, no solamente hablaré de C#, si no de varias muchas otras cosas relacionadas con la programación."
             },
             { 
-                "id" : "/post/out-ref-c-sharp/"
+                "id" : "/post/out-ref-c-sharp/",
                 "tv" : false,
                 "title": "out y ref en C#", 
                 "date": "2016-04-11 14:00:01 -0500",
@@ -40,7 +40,7 @@
                 "summary": "Seguramente si en alguna vez de tu carrera has usado código C o C++ te has encontrado con estos operadores&#58; &#42; y &amp; que, en pocas palabras, nos sirven para trabajar con punteros y también sabrás que estos nos permitían pasar como referencia una variable."
             },
             { 
-                "id" : "/post/metodos-c-sharp/"
+                "id" : "/post/metodos-c-sharp/",
                 "tv" : false,
                 "title": "Métodos en C#", 
                 "date": "2016-04-11 14:00:00 -0500",
@@ -49,7 +49,7 @@
                 "summary": "Un método no es más que un procedimiento o acción asociado con una clase y se compone de datos y un comportamiento. Esta es la manera de definir un método en C#."
             },
             { 
-                "id" : "/post/c-sharp-obj-c/"
+                "id" : "/post/c-sharp-obj-c/",
                 "tv" : false,
                 "title": "Xamarin.iOS, C# y Objective-C", 
                 "date": "2016-04-04 14:00:00 -0500",
@@ -58,7 +58,7 @@
                 "summary": "Un post en el que se compara la sintaxis de Objective-C con la de C# con Xamarin.iOS."
             },
             { 
-                "id" : "/post/automapper/"
+                "id" : "/post/automapper/",
                 "tv" : false,
                 "title": "AutoMapper", 
                 "date": "2016-03-28 13:00:00 -0600",
@@ -67,7 +67,7 @@
                 "summary": "AutoMapper es un mapeador objeto-objeto que &quot;convierte&quot; un objeto de un tipo a otro, sin embargo lo que hace realmente útil a esta herramienta es que facilita la tarea mediante el uso de convenciones de código."
             },
             { 
-                "id" : "/post/multiselect-listview-mvvm/"
+                "id" : "/post/multiselect-listview-mvvm/",
                 "tv" : false,
                 "title": "Multi-select ListView y MVVM", 
                 "date": "2016-03-23 02:00:00 -0600",
@@ -76,7 +76,7 @@
                 "summary": "Aprende cómo permitir al usuario selecionar más de un item en una lista y a hacerlo todo desde MVVM con Xamarin.Forms."
             },
             { 
-                "id" : "/post/multiselect-listview-mvvm-en/"
+                "id" : "/post/multiselect-listview-mvvm-en/",
                 "tv" : false,
                 "title": "Multi-select ListView and MVVM", 
                 "date": "2016-03-23 02:00:00 -0600",
@@ -85,7 +85,7 @@
                 "summary": "Learn how to allow the user to select more than one item in a ListView, everything from MVVM with Xamarin.Forms."
             },
             { 
-                "id" : "/post/inicializadores-c-sharp/"
+                "id" : "/post/inicializadores-c-sharp/",
                 "tv" : false,
                 "title": "Inicializadores en C#", 
                 "date": "2016-03-14 13:00:00 -0600",
@@ -94,7 +94,7 @@
                 "summary": "Lo que permite la inicialización de objetos es hacer uso de los constructores y además de asignar &quot;al mismo tiempo&quot; las propiedades o campos públicos que contiene el objeto."
             },
             { 
-                "id" : "/post/xlsx-c-sharp/"
+                "id" : "/post/xlsx-c-sharp/",
                 "tv" : false,
                 "title": "Trabajando con XslX en C#", 
                 "date": "2016-03-07 13:00:00 -0600",
@@ -103,7 +103,7 @@
                 "summary": "¿Quieres trabajar con documentos de Word sin tener que depender de Office? DocX es la librería para ti. Con ella tienes un montón de opciones disponibles para desarrollar. Conócela aquí."
             },
             { 
-                "id" : "/post/directivas-preprocesador-c-sharp/"
+                "id" : "/post/directivas-preprocesador-c-sharp/",
                 "tv" : false,
                 "title": "Directivas de preprocesamiento en C#", 
                 "date": "2016-02-29 04:00:00 -0600",
@@ -112,7 +112,7 @@
                 "summary": "Las directivas nos pueden ayudar a personalizar nuestro código a partir de condiciones dictadas antes de la compilación del mismo, o a forzar que ciertas condiciones se cumplan para que siquiera compile."
             },
             { 
-                "id" : "/post/unit-testing/"
+                "id" : "/post/unit-testing/",
                 "tv" : false,
                 "title": "Unit testing", 
                 "date": "2016-02-22 15:00:00 -0600",
@@ -121,7 +121,7 @@
                 "summary": "Is a level of the software testing process where individual components of a software are tested. The purpose is to validate that each unit of the software performs as designed."
             },
             { 
-                "id" : "/post/code-snippets-visual-studio/"
+                "id" : "/post/code-snippets-visual-studio/",
                 "tv" : false,
                 "title": "Code Snippets en Visual Studio", 
                 "date": "2016-02-22 04:00:00 -0600",
@@ -130,7 +130,7 @@
                 "summary": "Agiliza el proceso de desarrollo en Visual Studio mediante el uso de fragmentos de código, que no solo te ahorraran unas cuantas tecleadas, sino te librarán de tareas repetitivas."
             },
             { 
-                "id" : "/post/docx-c-sharp/"
+                "id" : "/post/docx-c-sharp/",
                 "tv" : false,
                 "title": "Trabajando con DocX en C#", 
                 "date": "2016-02-15 13:00:00 -0600",
