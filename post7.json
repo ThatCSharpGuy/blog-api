@@ -4,6 +4,15 @@
     "items" : 
         [   
             { 
+                "id" : "/post/introduccion-xamarin-forms-sharpuladora/",
+                "tv" : false,
+                "title": "Introducción a Xamarin.Forms (app Sharpuladora)", 
+                "date": "2015-11-26 15:00:00 -0600",
+                "featured_tag": "XamarinForms",
+                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
+                "summary": "Esta es una guía que te llevará paso a paso a crear tu primera aplicación en Xamarin.Forms."
+            },
+            { 
                 "id" : "/post/anonimos-en-c-sharp/",
                 "tv" : false,
                 "title": "Tipos anónimos en C#", 
@@ -128,15 +137,6 @@
                 "featured_tag": "Xamarin",
                 "featured_image": "http://thatcsharpguy.com/postimagesfeatured_true.jpg",
                 "summary": "¿Quieres iniciar a desarrollar con Xamarin y no sabes por donde empezar? Acá te digo."
-            },
-            { 
-                "id" : "/post/tipos-dato-c-sharp/",
-                "tv" : false,
-                "title": "Tipos de dato en C#", 
-                "date": "2015-10-05 17:00:00 -0500",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.jpg",
-                "summary": "Para la mayoría de sus aplicaciones, C# es un lenguaje fuertemente tipado, en este post presento dos categorías de tipos que nos podemos encontrar cuando trabajamos con este lenguaje."
             }	
         ]
 }

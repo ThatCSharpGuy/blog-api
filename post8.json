@@ -4,6 +4,15 @@
     "items" : 
         [   
             { 
+                "id" : "/post/tipos-dato-c-sharp/",
+                "tv" : false,
+                "title": "Tipos de dato en C#", 
+                "date": "2015-10-05 17:00:00 -0500",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.jpg",
+                "summary": "Para la mayoría de sus aplicaciones, C# es un lenguaje fuertemente tipado, en este post presento dos categorías de tipos que nos podemos encontrar cuando trabajamos con este lenguaje."
+            },
+            { 
                 "id" : "/post/tesseract-ocr-xamarin/",
                 "tv" : false,
                 "title": "Tesseract OCR in Xamarin", 
@@ -128,15 +137,6 @@
                 "featured_tag": "Netduino",
                 "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
                 "summary": "Para un proyecto Instrumentación en la escuela decidí desempolvar mi Netduino Plus 2, en el proyecto decesitábamos mostrar las mediciones de tres distintos sensores en un par de displays de 7 segmentos."
-            },
-            { 
-                "id" : "/post/hola-mundo/",
-                "tv" : false,
-                "title": "¡Hola mundo!", 
-                "date": "2015-07-11 13:31:38 -0500",
-                "featured_tag": "Meta",
-                "featured_image": "http://thatcsharpguy.com/postimages",
-                "summary": "He decididio \"matar\" el blog anterior, si por casualidad llegan a blog.fferegrino.org, encontrarán que ya no es lo que era antes. He decidido dividir el contenido y si llegaron acá buscando cosas técnicas este es el lugar indicado."
             }	
         ]
 }

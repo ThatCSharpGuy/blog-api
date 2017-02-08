@@ -4,6 +4,15 @@
     "items" : 
         [   
             { 
+                "id" : "/post/revisando-github/",
+                "tv" : false,
+                "title": "Revisando mis repos en GitHub", 
+                "date": "2016-08-29 14:00:01 -0500",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//mis-repos-github/featured.png",
+                "summary": "Un post un poco diferente, en este no hablaré sobre alguna característica de C# o un paquete de NuGet, sino de proyectos, pruebas y aplicaciones en los que lo he usado. Conoce algunas de las cosas que he hecho y subido a GitHub."
+            },
+            { 
                 "id" : "/post/c-sharp-events/",
                 "tv" : false,
                 "title": "Events en C#", 
@@ -128,15 +137,6 @@
                 "featured_tag": "Tv",
                 "featured_image": "http://thatcsharpguy.com/postimages//tv/mvvm/mvvm.png",
                 "summary": "Conoce este patrón arquitectónico para el desarrollo de aplicaciones. MVVM es comunmente usado para el desarrollo de apps móviles."
-            },
-            { 
-                "id" : "/post/mvvm-xamarin-forms/",
-                "tv" : false,
-                "title": "MVVM en Xamarin.Forms, caso práctico", 
-                "date": "2016-06-26 16:00:00 -0500",
-                "featured_tag": "XamarinForms",
-                "featured_image": "http://thatcsharpguy.com/postimages//mvvm/mvvm-featured.png",
-                "summary": "Hice una pequeña app con MVVM y en este post te explico algunas de sus partes escenciales de ella, ah... ¡la app es de Pokémon!"
             }	
         ]
 }

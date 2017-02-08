@@ -4,6 +4,15 @@
     "items" : 
         [   
             { 
+                "id" : "/post/docx-c-sharp/",
+                "tv" : false,
+                "title": "Trabajando con DocX en C#", 
+                "date": "2016-02-15 13:00:00 -0600",
+                "featured_tag": "NuGetRecomendado",
+                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
+                "summary": "¿Quieres trabajar con documentos de Word sin tener que depender de Office? DocX es la librería para ti. Con ella tienes un montón de opciones disponibles para desarrollar. Conócela aquí."
+            },
+            { 
                 "id" : "/post/linq-en-c-sharp-3/",
                 "tv" : false,
                 "title": "Linq en C# - tercera parte", 
@@ -128,15 +137,6 @@
                 "featured_tag": "XamarinForms",
                 "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
                 "summary": "Xamarin 4 has everything you need to create great mobile apps. Check out Universal Windows Platform Apps, my favorite feature."
-            },
-            { 
-                "id" : "/post/introduccion-xamarin-forms-sharpuladora/",
-                "tv" : false,
-                "title": "Introducción a Xamarin.Forms (app Sharpuladora)", 
-                "date": "2015-11-26 15:00:00 -0600",
-                "featured_tag": "XamarinForms",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
-                "summary": "Esta es una guía que te llevará paso a paso a crear tu primera aplicación en Xamarin.Forms."
             }	
         ]
 }

@@ -4,6 +4,15 @@
     "items" : 
         [   
             { 
+                "id" : "/tv/control-versiones/",
+                "tv" : true,
+                "title": "Control de versiones", 
+                "date": "2016-04-25 13:00:00 -0500",
+                "featured_tag": "Tv",
+                "featured_image": "http://thatcsharpguy.com/postimages//tv/control-versiones/featured.png",
+                "summary": "El control de versiones es una forma de organizar los elementos de una *cosa* cuyo contenido es modificado con el paso del tiempo."
+            },
+            { 
                 "id" : "/post/params-c-sharp/",
                 "tv" : false,
                 "title": "params en C#", 
@@ -128,15 +137,6 @@
                 "featured_tag": "VisualStudio",
                 "featured_image": "http://thatcsharpguy.com/postimages/code-snippets/featured.png",
                 "summary": "Agiliza el proceso de desarrollo en Visual Studio mediante el uso de fragmentos de código, que no solo te ahorraran unas cuantas tecleadas, sino te librarán de tareas repetitivas."
-            },
-            { 
-                "id" : "/post/docx-c-sharp/",
-                "tv" : false,
-                "title": "Trabajando con DocX en C#", 
-                "date": "2016-02-15 13:00:00 -0600",
-                "featured_tag": "NuGetRecomendado",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
-                "summary": "¿Quieres trabajar con documentos de Word sin tener que depender de Office? DocX es la librería para ti. Con ella tienes un montón de opciones disponibles para desarrollar. Conócela aquí."
             }	
         ]
 }
