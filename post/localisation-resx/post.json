@@ -6,5 +6,6 @@
 	"title" : "Archivos de recursos y apps multilenguaje en C#",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/resx/featured.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//aprende-c-sharp/resx/",
 	"tags" : ["AprendeCSharp"]
 }

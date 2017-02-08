@@ -6,5 +6,6 @@
 	"title" : "Xamarin.Forms",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//tv/xamarinforms/featured.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//tv/xamarinforms/",
 	"tags" : ["Meta","Tv","Xamarin","XamarinForms"]
 }

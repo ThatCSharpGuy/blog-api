@@ -6,5 +6,6 @@
 	"title" : "Unit testing",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/unit-testing/featured.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/unit-testing/",
 	"tags" : ["Meta","XamarinForms"]
 }

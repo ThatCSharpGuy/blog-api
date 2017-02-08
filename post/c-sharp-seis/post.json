@@ -6,5 +6,6 @@
 	"title" : "Seis características de C# 6",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/c-sharp-seis/featured.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/c-sharp-seis/",
 	"tags" : ["AprendeCSharp"]
 }

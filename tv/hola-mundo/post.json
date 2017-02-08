@@ -6,5 +6,6 @@
 	"title" : "¡Hola mundo!",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//tv/hola-mundo/featured.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//tv/hola-mundo/",
 	"tags" : ["Meta","Tv"]
 }

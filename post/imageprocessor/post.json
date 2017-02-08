@@ -6,5 +6,6 @@
 	"title" : "Trabajando con imágenes e ImageProcessor",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//imageprocessor/featured.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//imageprocessor/",
 	"tags" : ["NuGetRecomendado"]
 }

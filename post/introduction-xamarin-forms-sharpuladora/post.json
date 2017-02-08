@@ -6,5 +6,6 @@
 	"title" : "Introduction to Xamarin.Forms (Sharpuladora app)",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/introduction-xamarin-forms-sharpuladora/featured.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/introduction-xamarin-forms-sharpuladora/",
 	"tags" : ["Xamarin","XamarinForms","Guia"]
 }

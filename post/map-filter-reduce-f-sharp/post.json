@@ -6,5 +6,6 @@
 	"title" : "Map, reduce y filter en F#",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//map-reduce-filter/featured.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//map-reduce-filter/",
 	"tags" : ["AprendeFSharp","ProgramaciónFuncional"]
 }

@@ -5,5 +5,6 @@
 	"title" : "Conectando un Bubble Display a un Netduino Plus 2",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/bubble-display-netduino-plus-2/featured.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/bubble-display-netduino-plus-2/",
 	"tags" : ["Netduino"]
 }

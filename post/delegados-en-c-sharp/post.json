@@ -5,5 +5,6 @@
 	"title" : "Delegados en C#",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/delegados-en-c-sharp/featured.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/delegados-en-c-sharp/",
 	"tags" : ["AprendeCSharp"]
 }

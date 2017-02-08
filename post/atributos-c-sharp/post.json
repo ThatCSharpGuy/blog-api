@@ -6,5 +6,6 @@
 	"title" : "Xamarin.Auth",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/attrs/featured.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//aprende-c-sharp/attrs/",
 	"tags" : ["AprendeCSharp"]
 }

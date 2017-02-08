@@ -6,5 +6,6 @@
 	"title" : "Dynamic y ExpandoObject",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/dynamic.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//aprende-c-sharp/",
 	"tags" : ["AprendeCSharp"]
 }

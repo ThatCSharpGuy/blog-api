@@ -6,5 +6,6 @@
 	"title" : "Notación O grande",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//tv/bigo/featured.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//tv/bigo/",
 	"tags" : ["Git","GitHub","Tv"]
 }

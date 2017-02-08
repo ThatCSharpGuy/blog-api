@@ -6,5 +6,6 @@
 	"title" : "Xamarin.Android vs Android tradicional (con Java)",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//xamarin-android/java-c-sharp.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//xamarin-android/",
 	"tags" : ["VisualStudio","Xamarin"]
 }

@@ -6,5 +6,6 @@
 	"title" : "Subiéndo código a GitHub",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//tv/github.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//tv/",
 	"tags" : ["Git","GitHub","Tv"]
 }

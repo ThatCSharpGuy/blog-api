@@ -6,5 +6,6 @@
 	"title" : "Learning Xamarin.iOS at Stanford",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//xamarin-ios/stanford.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//xamarin-ios/",
 	"tags" : ["Xamarin","XamariniOS"]
 }

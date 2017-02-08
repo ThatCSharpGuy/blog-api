@@ -6,5 +6,6 @@
 	"title" : "From console to mobile",
 	"author" : "",
 	"featured_image": "http://thatcsharpguy.com/postimages/from-console-to-mobile/featured.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/from-console-to-mobile/",
 	"tags" : ["Xamarin"]
 }

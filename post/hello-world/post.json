@@ -5,5 +5,6 @@
 	"title" : "Hello World",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/hello-world/",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/hello-world/",
 	"tags" : ["Meta"]
 }

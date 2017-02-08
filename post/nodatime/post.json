@@ -6,5 +6,6 @@
 	"title" : "Maneja el tiempo con NodaTime",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//nodatime/featured.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//nodatime/",
 	"tags" : ["NuGetRecomendado"]
 }

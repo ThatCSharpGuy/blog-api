@@ -6,5 +6,6 @@
 	"title" : "Sentencias, expresiones y operadores",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/sentencias-expresiones-operadores/featured.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/sentencias-expresiones-operadores/",
 	"tags" : ["AprendeCSharp"]
 }

@@ -6,5 +6,6 @@
 	"title" : "Creando nuestros propios alias",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/creando-propios-alias/featured.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/creando-propios-alias/",
 	"tags" : ["AprendeCSharp"]
 }

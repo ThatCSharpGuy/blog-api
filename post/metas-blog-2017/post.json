@@ -5,5 +5,6 @@
 	"title" : "Metas de That C# guy en 2017",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//meta/2017.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//meta/",
 	"tags" : ["Meta"]
 }

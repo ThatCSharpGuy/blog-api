@@ -6,5 +6,6 @@
 	"title" : "More familiar tabs for your users in Xamarin.Forms",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//xamarin-forms/tabbed-page/featured.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//xamarin-forms/tabbed-page/",
 	"tags" : ["Xamarin","XamarinForms","NuGetRecomendado"]
 }

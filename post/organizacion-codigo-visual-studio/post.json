@@ -5,5 +5,6 @@
 	"title" : "¿Cómo organiza mi código Visual Studio?",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/organizacion-codigo-visual-studio/featured.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/organizacion-codigo-visual-studio/",
 	"tags" : ["VisualStudio","Xamarin"]
 }

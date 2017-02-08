@@ -6,5 +6,6 @@
 	"title" : "La palabra yield en C#",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/yield/featured.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//aprende-c-sharp/yield/",
 	"tags" : ["AprendeCSharp"]
 }

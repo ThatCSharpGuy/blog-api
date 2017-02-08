@@ -6,5 +6,6 @@
 	"title" : "Jirapi",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//jirapi/featured.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//jirapi/",
 	"tags" : ["NuGetRecomendado"]
 }

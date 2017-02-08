@@ -6,5 +6,6 @@
 	"title" : "Bienvenido a los Xamarin Workbooks",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//xamarin/workbooks/featured.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//xamarin/workbooks/",
 	"tags" : ["AprendeCSharp","Xamarin"]
 }

@@ -6,5 +6,6 @@
 	"title" : "Debugging parte 1",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/debugging/f.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//aprende-c-sharp/debugging/",
 	"tags" : ["AprendeCSharp"]
 }

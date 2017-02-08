@@ -6,5 +6,6 @@
 	"title" : "Multi-select ListView and MVVM",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//xamarin-forms/multiselect-featured.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//xamarin-forms/",
 	"tags" : ["XamarinForms","Xamarin"]
 }

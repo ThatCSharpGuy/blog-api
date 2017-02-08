@@ -6,5 +6,6 @@
 	"title" : "Servicios web resistentes en aplicaciones móviles",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//xamarin-forms/resilient/featured.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//xamarin-forms/resilient/",
 	"tags" : ["Xamarin","XamarinForms","NuGetRecomendado"]
 }

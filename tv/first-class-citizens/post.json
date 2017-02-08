@@ -6,5 +6,6 @@
 	"title" : "Ciudadanos de primera clase",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//tv/first-class-citizens/fcc.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//tv/first-class-citizens/",
 	"tags" : ["Meta","Tv"]
 }

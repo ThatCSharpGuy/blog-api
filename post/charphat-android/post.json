@@ -6,5 +6,6 @@
 	"title" : "CharpHat para Android",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/charphat-android/featured.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/charphat-android/",
 	"tags" : ["Xamarin","XamarinForms"]
 }

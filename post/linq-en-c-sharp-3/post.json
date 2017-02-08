@@ -6,5 +6,6 @@
 	"title" : "Linq en C# - tercera parte",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/linq-en-c-sharp/featured.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/linq-en-c-sharp/",
 	"tags" : ["AprendeCSharp"]
 }

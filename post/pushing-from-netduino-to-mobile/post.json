@@ -5,5 +5,6 @@
 	"title" : "Pushing with Parse from Netduino to Xamarin.Forms",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/pushing-from-netduino-to-mobile/featured.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/pushing-from-netduino-to-mobile/",
 	"tags" : ["Xamarin","Netduino"]
 }

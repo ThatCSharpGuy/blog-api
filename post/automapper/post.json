@@ -6,5 +6,6 @@
 	"title" : "AutoMapper",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/automapper/featured.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/automapper/",
 	"tags" : ["NuGetRecomendado"]
 }

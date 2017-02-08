@@ -6,5 +6,6 @@
 	"title" : "MVVM",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//tv/mvvm/mvvm.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//tv/mvvm/",
 	"tags" : ["Meta","Tv","MVVM"]
 }

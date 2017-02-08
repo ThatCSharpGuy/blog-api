@@ -6,5 +6,6 @@
 	"title" : "Directivas de preprocesamiento en C#",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/directives/featured.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/directives/",
 	"tags" : ["AprendeCSharp"]
 }

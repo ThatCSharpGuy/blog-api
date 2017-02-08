@@ -6,5 +6,6 @@
 	"title" : "Revisando mis repos en GitHub",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//mis-repos-github/featured.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//mis-repos-github/",
 	"tags" : ["AprendeCSharp"]
 }

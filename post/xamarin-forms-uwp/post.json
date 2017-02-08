@@ -6,5 +6,6 @@
 	"title" : "Xamarin.Forms 2 and UWP",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/xamarin-forms-uwp/featured.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/xamarin-forms-uwp/",
 	"tags" : ["Xamarin","XamarinForms"]
 }

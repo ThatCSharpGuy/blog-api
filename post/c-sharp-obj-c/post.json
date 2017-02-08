@@ -6,5 +6,6 @@
 	"title" : "Xamarin.iOS, C# y Objective-C",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//xamarin-ios/featured_obj.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//xamarin-ios/",
 	"tags" : ["Xamarin"]
 }

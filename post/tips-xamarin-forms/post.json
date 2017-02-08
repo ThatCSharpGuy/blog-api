@@ -5,5 +5,6 @@
 	"title" : "Tips de desempeño en Xamarin Forms",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//xamarin-forms/tips.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//xamarin-forms/",
 	"tags" : ["XamarinForms","Xamarin"]
 }

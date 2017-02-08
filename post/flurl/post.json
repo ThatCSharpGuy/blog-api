@@ -6,5 +6,6 @@
 	"title" : "La web es tuya con Flurl",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/flurl/featured.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/flurl/",
 	"tags" : ["NuGetRecomendado"]
 }

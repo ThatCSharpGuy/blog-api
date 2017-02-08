@@ -6,5 +6,6 @@
 	"title" : "Sobrecarga de operadores",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/aprende-c-sharp/sobrecarga.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/aprende-c-sharp/",
 	"tags" : ["AprendeCSharp"]
 }

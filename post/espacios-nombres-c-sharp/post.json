@@ -6,5 +6,6 @@
 	"title" : "Espacios de nombres en C#",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/namespaces.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//aprende-c-sharp/",
 	"tags" : ["AprendeCSharp"]
 }

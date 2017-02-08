@@ -6,5 +6,6 @@
 	"title" : "UserDialogs en Xamarin Forms",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//xamarin-forms/userdialogs/featured.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//xamarin-forms/userdialogs/",
 	"tags" : ["Xamarin","XamarinForms","NuGetRecomendado"]
 }

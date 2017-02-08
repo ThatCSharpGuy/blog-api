@@ -6,5 +6,6 @@
 	"title" : "Xamarin.iOS vs iOS tradicional (con Swift)",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//xamarin-ios/swift-c-sharp.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//xamarin-ios/",
 	"tags" : ["VisualStudio","Xamarin"]
 }

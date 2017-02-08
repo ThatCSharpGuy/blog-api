@@ -5,5 +5,6 @@
 	"title" : "Primer Meetup Xamarin Students México",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/events/1-jun-2016.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/events/",
 	"tags" : ["Xamarin","XamarinForms","Events"]
 }

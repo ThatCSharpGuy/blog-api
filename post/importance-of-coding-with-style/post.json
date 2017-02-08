@@ -6,5 +6,6 @@
 	"title" : "The importance of coding with style",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/importance-of-coding-with-style/featured.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/importance-of-coding-with-style/",
 	"tags" : ["Meta"]
 }

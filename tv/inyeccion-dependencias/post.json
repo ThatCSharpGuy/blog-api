@@ -7,5 +7,6 @@
 	"title" : "La inyección de dependencias",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//tv/di/featured.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//tv/di/",
 	"tags" : ["Meta","Tv"]
 }

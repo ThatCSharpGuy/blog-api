@@ -5,5 +5,6 @@
 	"title" : "¿Cómo empiezo con Xamarin?",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/xamarin-como-empiezo/featured_true.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/xamarin-como-empiezo/",
 	"tags" : ["Xamarin"]
 }

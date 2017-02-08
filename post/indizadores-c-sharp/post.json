@@ -6,5 +6,6 @@
 	"title" : "Sobrecarga de indizadores en C#",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages/aprende-c-sharp/indexers.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/aprende-c-sharp/",
 	"tags" : ["AprendeCSharp"]
 }

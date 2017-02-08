@@ -6,5 +6,6 @@
 	"title" : "OAuth en Forms con Xamarin.Auth",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//xamarin/auth/featured.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//xamarin/auth/",
 	"tags" : ["Xamarin","XamarinForms","NuGetRecomendado"]
 }

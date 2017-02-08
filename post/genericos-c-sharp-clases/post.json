@@ -6,5 +6,6 @@
 	"title" : "Clases genéricas en C#",
 	"author" : "Antonio Feregrino Bolaños",
 	"featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/generics-es.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//aprende-c-sharp/",
 	"tags" : ["AprendeCSharp"]
 }
