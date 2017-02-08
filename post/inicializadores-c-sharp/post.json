@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/inicializadores-c-sharp/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/inicializadores,
+	"github": "https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/inicializadores",
 	"date": "2016-03-14 13:00:00 -0600",
 	"title" : "Inicializadores en C#",
 	"author" : "Antonio Feregrino Bolaños",

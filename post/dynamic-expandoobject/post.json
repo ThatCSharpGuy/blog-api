@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/dynamic-expandoobject/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Dynamics,
+	"github": "https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Dynamics",
 	"date": "2016-12-06 13:00:02 -0600",
 	"title" : "Dynamic y ExpandoObject",
 	"author" : "Antonio Feregrino Bolaños",

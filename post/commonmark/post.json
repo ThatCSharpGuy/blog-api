@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/commonmark/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/CommonMark.NET-Sample,
+	"github": "https://github.com/ThatCSharpGuy/CommonMark.NET-Sample",
 	"date": "2016-09-05 14:00:01 -0500",
 	"title" : "CommonMark.NET",
 	"author" : "Antonio Feregrino Bolaños",

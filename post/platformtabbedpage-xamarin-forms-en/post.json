@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/platformtabbedpage-xamarin-forms-en/",
 	"tv" : false,
-	"github": https://github.com/messier16/PlatformTabbedPage,
+	"github": "https://github.com/messier16/PlatformTabbedPage",
 	"date": "2017-02-02 13:00:01 -0600",
 	"title" : "More familiar tabs for your users in Xamarin.Forms",
 	"author" : "Antonio Feregrino Bolaños",

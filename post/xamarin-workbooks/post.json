@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/xamarin-workbooks/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/guoerbucs/blob/master/hola.workbook/index.workbook,
+	"github": "https://github.com/ThatCSharpGuy/guoerbucs/blob/master/hola.workbook/index.workbook",
 	"date": "2016-11-29 13:00:01 -0600",
 	"title" : "Bienvenido a los Xamarin Workbooks",
 	"author" : "Antonio Feregrino Bolaños",

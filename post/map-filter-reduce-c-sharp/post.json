@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/map-filter-reduce-c-sharp/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/MapFilterReduce,
+	"github": "https://github.com/ThatCSharpGuy/MapFilterReduce",
 	"date": "2016-07-25 14:00:00 -0500",
 	"title" : "Map, reduce y filter en C#",
 	"author" : "Antonio Feregrino Bolaños",

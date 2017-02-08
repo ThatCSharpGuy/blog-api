@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/sentencias-expresiones-operadores/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/CsSeis,
+	"github": "https://github.com/ThatCSharpGuy/CsSeis",
 	"date": "2016-01-11 13:00:00 -0600",
 	"title" : "Sentencias, expresiones y operadores",
 	"author" : "Antonio Feregrino Bolaños",

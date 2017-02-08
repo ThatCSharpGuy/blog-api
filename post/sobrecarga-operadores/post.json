@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/sobrecarga-operadores/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Operadores,
+	"github": "https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Operadores",
 	"date": "2016-12-20 13:00:02 -0600",
 	"title" : "Sobrecarga de operadores",
 	"author" : "Antonio Feregrino Bolaños",

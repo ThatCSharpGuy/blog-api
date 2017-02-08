@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/nodatime/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/NodaTime-Sample,
+	"github": "https://github.com/ThatCSharpGuy/NodaTime-Sample",
 	"date": "2017-02-07 13:00:01 -0600",
 	"title" : "Maneja el tiempo con NodaTime",
 	"author" : "Antonio Feregrino Bolaños",

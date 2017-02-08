@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/que-son-portable-class-library/",
 	"tv" : false,
-	"github": https://github.com/fferegrino/pcls,
+	"github": "https://github.com/fferegrino/pcls",
 	"date": "2015-11-02 04:00:00 -0600",
 	"title" : "¿Qué es una Portable Class Library?",
 	"author" : "Antonio Feregrino Bolaños",

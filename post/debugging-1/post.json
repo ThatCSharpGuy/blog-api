@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/debugging-1/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/DebuggingTips,
+	"github": "https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/DebuggingTips",
 	"date": "2016-10-31 13:00:01 -0600",
 	"title" : "Debugging parte 1",
 	"author" : "Antonio Feregrino Bolaños",

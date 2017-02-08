@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/localisation-resx/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Resxs,
+	"github": "https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Resxs",
 	"date": "2016-10-03 14:00:01 -0500",
 	"title" : "Archivos de recursos y apps multilenguaje en C#",
 	"author" : "Antonio Feregrino Bolaños",

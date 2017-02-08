@@ -1,8 +1,8 @@
 {	
 	"id" : "/tv/inyeccion-dependencias/",
 	"tv" : true,
-	"youtube": lzfPJdurQIc,
-	"github": https://github.com/ThatCSharpGuy/patterns,
+	"youtube": "lzfPJdurQIc",
+	"github": "https://github.com/ThatCSharpGuy/patterns",
 	"date": "2016-09-05 13:00:00 -0500",
 	"title" : "La inyección de dependencias",
 	"author" : "Antonio Feregrino Bolaños",

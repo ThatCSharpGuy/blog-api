@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/xamarin-auth-es/",
 	"tv" : false,
-	"github": https://github.com/fferegrino/Authy,
+	"github": "https://github.com/fferegrino/Authy",
 	"date": "2016-10-17 14:00:01 -0500",
 	"title" : "OAuth en Forms con Xamarin.Auth",
 	"author" : "Antonio Feregrino Bolaños",

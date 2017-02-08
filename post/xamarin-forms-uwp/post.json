@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/xamarin-forms-uwp/",
 	"tv" : false,
-	"github": https://github.com/fferegrino/Xevenshtein-UWP,
+	"github": "https://github.com/fferegrino/Xevenshtein-UWP",
 	"date": "2015-12-06 15:00:00 -0600",
 	"title" : "Xamarin.Forms 2 and UWP",
 	"author" : "Antonio Feregrino Bolaños",

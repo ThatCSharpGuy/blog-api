@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/full-camera-page-es/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/Forms-FullCameraPage,
+	"github": "https://github.com/ThatCSharpGuy/Forms-FullCameraPage",
 	"date": "2016-11-08 02:00:00 -0600",
 	"title" : "Cámara a página completa en Xamarin.Forms",
 	"author" : "Antonio Feregrino Bolaños",

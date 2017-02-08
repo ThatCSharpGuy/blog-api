@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/yield-c-sharp/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/yield,
+	"github": "https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/yield",
 	"date": "2016-11-22 13:00:01 -0600",
 	"title" : "La palabra yield en C#",
 	"author" : "Antonio Feregrino Bolaños",

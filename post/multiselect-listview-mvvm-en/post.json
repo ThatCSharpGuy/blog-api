@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/multiselect-listview-mvvm-en/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/MultiPokeList,
+	"github": "https://github.com/ThatCSharpGuy/MultiPokeList",
 	"date": "2016-03-23 02:00:00 -0600",
 	"title" : "Multi-select ListView and MVVM",
 	"author" : "Antonio Feregrino Bolaños",

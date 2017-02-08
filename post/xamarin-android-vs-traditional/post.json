@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/xamarin-android-vs-traditional/",
 	"tv" : false,
-	"github": https://github.com/fferegrino/Xevenshtein,
+	"github": "https://github.com/fferegrino/Xevenshtein",
 	"date": "2015-11-16 15:00:00 -0600",
 	"title" : "Xamarin.Android vs traditional Android",
 	"author" : "Antonio Feregrino Bolaños",

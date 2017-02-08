@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/anatomia-app-xamarin-forms/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/xfmvvm,
+	"github": "https://github.com/ThatCSharpGuy/xfmvvm",
 	"date": "2016-07-04 16:00:00 -0500",
 	"title" : "Xamarin.Forms, anatomía de una app",
 	"author" : "Antonio Feregrino Bolaños",

@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/string-format/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/StringFormat,
+	"github": "https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/StringFormat",
 	"date": "2016-10-24 14:00:01 -0500",
 	"title" : "String.Format",
 	"author" : "Antonio Feregrino Bolaños",

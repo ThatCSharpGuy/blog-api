@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/akavache/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/Akavache-sample,
+	"github": "https://github.com/ThatCSharpGuy/Akavache-sample",
 	"date": "2016-08-08 14:00:01 -0500",
 	"title" : "Persistencia de datos con Akavache",
 	"author" : "Antonio Feregrino Bolaños",

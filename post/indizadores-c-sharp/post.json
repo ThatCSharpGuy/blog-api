@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/indizadores-c-sharp/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Indizadores,
+	"github": "https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Indizadores",
 	"date": "2016-12-27 13:00:02 -0600",
 	"title" : "Sobrecarga de indizadores en C#",
 	"author" : "Antonio Feregrino Bolaños",

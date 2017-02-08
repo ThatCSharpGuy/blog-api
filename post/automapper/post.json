@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/automapper/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/AutoMapper-Sample,
+	"github": "https://github.com/ThatCSharpGuy/AutoMapper-Sample",
 	"date": "2016-03-28 13:00:00 -0600",
 	"title" : "AutoMapper",
 	"author" : "Antonio Feregrino Bolaños",

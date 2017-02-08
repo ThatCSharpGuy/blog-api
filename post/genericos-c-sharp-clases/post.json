@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/genericos-c-sharp-clases/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Generics,
+	"github": "https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Generics",
 	"date": "2016-06-12 14:00:01 -0500",
 	"title" : "Clases genéricas en C#",
 	"author" : "Antonio Feregrino Bolaños",

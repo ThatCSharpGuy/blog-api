@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/genericos-c-sharp-metodos/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/GenericMethods,
+	"github": "https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/GenericMethods",
 	"date": "2016-06-19 14:00:01 -0500",
 	"title" : "Métodos genéricos en C#",
 	"author" : "Antonio Feregrino Bolaños",

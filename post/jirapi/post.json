@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/jirapi/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/Jirapi-Sample,
+	"github": "https://github.com/ThatCSharpGuy/Jirapi-Sample",
 	"date": "2016-05-26 14:00:01 -0500",
 	"title" : "Jirapi",
 	"author" : "Antonio Feregrino Bolaños",

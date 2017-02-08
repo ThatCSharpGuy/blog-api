@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/unit-testing/",
 	"tv" : false,
-	"github": https://github.com/fferegrino/Xevenshtein,
+	"github": "https://github.com/fferegrino/Xevenshtein",
 	"date": "2016-02-22 15:00:00 -0600",
 	"title" : "Unit testing",
 	"author" : "Antonio Feregrino Bolaños",

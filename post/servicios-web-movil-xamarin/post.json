@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/servicios-web-movil-xamarin/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/Akavache-sample,
+	"github": "https://github.com/ThatCSharpGuy/Akavache-sample",
 	"date": "2016-08-15 14:00:01 -0500",
 	"title" : "Servicios web resistentes en aplicaciones móviles",
 	"author" : "Antonio Feregrino Bolaños",

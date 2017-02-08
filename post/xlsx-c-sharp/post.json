@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/xlsx-c-sharp/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/DocX-sample,
+	"github": "https://github.com/ThatCSharpGuy/DocX-sample",
 	"date": "2016-03-07 13:00:00 -0600",
 	"title" : "Trabajando con XslX en C#",
 	"author" : "Antonio Feregrino Bolaños",

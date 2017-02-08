@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/of-xamarin-netduino-iot/",
 	"tv" : false,
-	"github": https://github.com/fferegrino/MyLightbulb,
+	"github": "https://github.com/fferegrino/MyLightbulb",
 	"date": "2015-08-07 13:31:38 -0500",
 	"title" : "Of Xamarin, Netduino and IoT",
 	"author" : "Antonio Feregrino Bolaños",

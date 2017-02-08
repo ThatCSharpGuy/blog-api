@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/markdownview-xamarin-forms-control/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/MarkdownView,
+	"github": "https://github.com/ThatCSharpGuy/MarkdownView",
 	"date": "2016-02-01 15:00:00 -0600",
 	"title" : "MarkdownView control for Xamarin.Forms",
 	"author" : "Antonio Feregrino Bolaños",

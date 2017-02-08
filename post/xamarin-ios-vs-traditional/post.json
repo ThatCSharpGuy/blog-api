@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/xamarin-ios-vs-traditional/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/silo-xamarin-comparation,
+	"github": "https://github.com/ThatCSharpGuy/silo-xamarin-comparation",
 	"date": "2016-05-02 16:00:00 -0500",
 	"title" : "Xamarin.iOS vs iOS tradicional (con Swift)",
 	"author" : "Antonio Feregrino Bolaños",

@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/imageprocessor/",
 	"tv" : false,
-	"github": https://github.com/ThatCSharpGuy/ImageProcessor-Sample,
+	"github": "https://github.com/ThatCSharpGuy/ImageProcessor-Sample",
 	"date": "2016-07-11 14:00:01 -0500",
 	"title" : "Trabajando con imágenes e ImageProcessor",
 	"author" : "Antonio Feregrino Bolaños",

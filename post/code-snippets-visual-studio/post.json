@@ -1,7 +1,7 @@
 {	
 	"id" : "/post/code-snippets-visual-studio/",
 	"tv" : false,
-	"github": https://github.com/fferegrino/fantastic-broccoli,
+	"github": "https://github.com/fferegrino/fantastic-broccoli",
 	"date": "2016-02-22 04:00:00 -0600",
 	"title" : "Code Snippets en Visual Studio",
 	"author" : "Antonio Feregrino Bolaños",
