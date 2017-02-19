@@ -1,0 +1,10 @@
+{	
+	"id" : "/post/correcto-colecciones/",
+	"tv" : false,
+	"date": "2017-01-10 13:00:02 -0600",
+	"title" : "Colecciones en C#, ¿cuál elegir?",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimages/aprende-c-sharp/colecciones/featured.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages/aprende-c-sharp/colecciones/",
+	"tags" : ["AprendeCSharp"]
+}

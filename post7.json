@@ -4,6 +4,33 @@
     "items" : 
         [   
             { 
+                "id" : "/post/c-sharp-juegos/",
+                "tv" : false,
+                "title": "Cosas para hacer en C#: Juegos", 
+                "date": "2015-12-09 15:00:00 -0600",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.jpg",
+                "summary": "C# no es solo trabajo de oficina de 9 a 5, también se pueden hacer algunas otras cosas bastante divertidas pero sobre todo interesantes, como videojuegos."
+            },
+            { 
+                "id" : "/post/xamarin-forms-uwp/",
+                "tv" : false,
+                "title": "Xamarin.Forms 2 and UWP", 
+                "date": "2015-12-06 15:00:00 -0600",
+                "featured_tag": "XamarinForms",
+                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
+                "summary": "Xamarin 4 has everything you need to create great mobile apps. Check out Universal Windows Platform Apps, my favorite feature."
+            },
+            { 
+                "id" : "/post/introduccion-xamarin-forms-sharpuladora/",
+                "tv" : false,
+                "title": "Introducción a Xamarin.Forms (app Sharpuladora)", 
+                "date": "2015-11-26 15:00:00 -0600",
+                "featured_tag": "XamarinForms",
+                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
+                "summary": "Esta es una guía que te llevará paso a paso a crear tu primera aplicación en Xamarin.Forms."
+            },
+            { 
                 "id" : "/post/anonimos-en-c-sharp/",
                 "tv" : false,
                 "title": "Tipos anónimos en C#", 
@@ -110,33 +137,6 @@
                 "featured_tag": "Xamarin",
                 "featured_image": "http://thatcsharpguy.com/postimages/commons/event.png",
                 "summary": "Este es un post de recapitulación del evento Mobile C# developer kick-off del 17 de octubre en la ESCOM"
-            },
-            { 
-                "id" : "/post/tipos-nullables-en-c-sharp/",
-                "tv" : false,
-                "title": "Tipos nullables en C#", 
-                "date": "2015-10-14 15:30:00 -0500",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
-                "summary": "Los tipos por referencia son nullables por definición. ¿Qué implica que sean nullables? pues nada más y nada menos que puedan tener un valor null o en términos prácticos, nungún valor."
-            },
-            { 
-                "id" : "/post/xamarin-como-empiezo/",
-                "tv" : false,
-                "title": "¿Cómo empiezo con Xamarin?", 
-                "date": "2015-10-08 16:00:00 -0500",
-                "featured_tag": "Xamarin",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured_true.jpg",
-                "summary": "¿Quieres iniciar a desarrollar con Xamarin y no sabes por donde empezar? Acá te digo."
-            },
-            { 
-                "id" : "/post/tipos-dato-c-sharp/",
-                "tv" : false,
-                "title": "Tipos de dato en C#", 
-                "date": "2015-10-05 17:00:00 -0500",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.jpg",
-                "summary": "Para la mayoría de sus aplicaciones, C# es un lenguaje fuertemente tipado, en este post presento dos categorías de tipos que nos podemos encontrar cuando trabajamos con este lenguaje."
             }	
         ]
 }

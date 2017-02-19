@@ -1,0 +1,11 @@
+{	
+	"id" : "/tv/apis/",
+	"tv" : true,
+	"youtube": "4VcpwTSFcyI",
+	"date": "2017-02-14 12:00:00 -0600",
+	"title" : "API",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimages//tv/api/api_thumb.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//tv/api/",
+	"tags" : ["Meta","Tv"]
+}

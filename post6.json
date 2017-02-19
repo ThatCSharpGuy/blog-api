@@ -4,6 +4,33 @@
     "items" : 
         [   
             { 
+                "id" : "/post/unit-testing/",
+                "tv" : false,
+                "title": "Unit testing", 
+                "date": "2016-02-22 15:00:00 -0600",
+                "featured_tag": "Meta",
+                "featured_image": "http://thatcsharpguy.com/postimages/unit-testing/featured.png",
+                "summary": "Is a level of the software testing process where individual components of a software are tested. The purpose is to validate that each unit of the software performs as designed."
+            },
+            { 
+                "id" : "/post/code-snippets-visual-studio/",
+                "tv" : false,
+                "title": "Code Snippets en Visual Studio", 
+                "date": "2016-02-22 04:00:00 -0600",
+                "featured_tag": "VisualStudio",
+                "featured_image": "http://thatcsharpguy.com/postimages/code-snippets/featured.png",
+                "summary": "Agiliza el proceso de desarrollo en Visual Studio mediante el uso de fragmentos de código, que no solo te ahorraran unas cuantas tecleadas, sino te librarán de tareas repetitivas."
+            },
+            { 
+                "id" : "/post/docx-c-sharp/",
+                "tv" : false,
+                "title": "Trabajando con DocX en C#", 
+                "date": "2016-02-15 13:00:00 -0600",
+                "featured_tag": "NuGetRecomendado",
+                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
+                "summary": "¿Quieres trabajar con documentos de Word sin tener que depender de Office? DocX es la librería para ti. Con ella tienes un montón de opciones disponibles para desarrollar. Conócela aquí."
+            },
+            { 
                 "id" : "/post/linq-en-c-sharp-3/",
                 "tv" : false,
                 "title": "Linq en C# - tercera parte", 
@@ -110,33 +137,6 @@
                 "featured_tag": "XamarinForms",
                 "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
                 "summary": "This guide will take you step by step to create your first Xamarin.Forms app."
-            },
-            { 
-                "id" : "/post/c-sharp-juegos/",
-                "tv" : false,
-                "title": "Cosas para hacer en C#: Juegos", 
-                "date": "2015-12-09 15:00:00 -0600",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.jpg",
-                "summary": "C# no es solo trabajo de oficina de 9 a 5, también se pueden hacer algunas otras cosas bastante divertidas pero sobre todo interesantes, como videojuegos."
-            },
-            { 
-                "id" : "/post/xamarin-forms-uwp/",
-                "tv" : false,
-                "title": "Xamarin.Forms 2 and UWP", 
-                "date": "2015-12-06 15:00:00 -0600",
-                "featured_tag": "XamarinForms",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
-                "summary": "Xamarin 4 has everything you need to create great mobile apps. Check out Universal Windows Platform Apps, my favorite feature."
-            },
-            { 
-                "id" : "/post/introduccion-xamarin-forms-sharpuladora/",
-                "tv" : false,
-                "title": "Introducción a Xamarin.Forms (app Sharpuladora)", 
-                "date": "2015-11-26 15:00:00 -0600",
-                "featured_tag": "XamarinForms",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
-                "summary": "Esta es una guía que te llevará paso a paso a crear tu primera aplicación en Xamarin.Forms."
             }	
         ]
 }

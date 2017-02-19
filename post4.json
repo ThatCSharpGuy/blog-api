@@ -4,6 +4,33 @@
     "items" : 
         [   
             { 
+                "id" : "/post/anatomia-app-xamarin-forms/",
+                "tv" : false,
+                "title": "Xamarin.Forms, anatomía de una app", 
+                "date": "2016-07-04 16:00:00 -0500",
+                "featured_tag": "XamarinForms",
+                "featured_image": "http://thatcsharpguy.com/postimages//xamarin-forms/arch/featured.jpg",
+                "summary": "Las partes que componen una aplicación hecha con Forms son dos&ellip; el núcleo o shared code y los proyectos clientes móviles que consumen dicho núcleo."
+            },
+            { 
+                "id" : "/tv/mvvm/",
+                "tv" : true,
+                "title": "MVVM", 
+                "date": "2016-06-28 17:00:00 -0500",
+                "featured_tag": "Tv",
+                "featured_image": "http://thatcsharpguy.com/postimages//tv/mvvm/mvvm.png",
+                "summary": "Conoce este patrón arquitectónico para el desarrollo de aplicaciones. MVVM es comunmente usado para el desarrollo de apps móviles."
+            },
+            { 
+                "id" : "/post/mvvm-xamarin-forms/",
+                "tv" : false,
+                "title": "MVVM en Xamarin.Forms, caso práctico", 
+                "date": "2016-06-26 16:00:00 -0500",
+                "featured_tag": "XamarinForms",
+                "featured_image": "http://thatcsharpguy.com/postimages//mvvm/mvvm-featured.png",
+                "summary": "Hice una pequeña app con MVVM y en este post te explico algunas de sus partes escenciales de ella, ah... ¡la app es de Pokémon!"
+            },
+            { 
                 "id" : "/post/genericos-c-sharp-metodos/",
                 "tv" : false,
                 "title": "Métodos genéricos en C#", 
@@ -110,33 +137,6 @@
                 "featured_tag": "Tv",
                 "featured_image": "http://thatcsharpguy.com/postimages//tv/azucar-sintactica/featured.png",
                 "summary": "El azúcar sintáctico no es más que eso, un endulzante que en teoría debe mejorar nuestra experiencia cuando escribimos código."
-            },
-            { 
-                "id" : "/post/xamarin-ios-vs-traditional/",
-                "tv" : false,
-                "title": "Xamarin.iOS vs iOS tradicional (con Swift)", 
-                "date": "2016-05-02 16:00:00 -0500",
-                "featured_tag": "Xamarin",
-                "featured_image": "http://thatcsharpguy.com/postimages//xamarin-ios/swift-c-sharp.png",
-                "summary": "Una de las diferencias más notorias es la asignación de manejadores de evento, fuera de eso la transición entre un lenguaje y otro es sencilla."
-            },
-            { 
-                "id" : "/post/flurl/",
-                "tv" : false,
-                "title": "La web es tuya con Flurl", 
-                "date": "2016-04-25 14:00:00 -0500",
-                "featured_tag": "NuGetRecomendado",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
-                "summary": "En este post te voy a hablar de Flurl y Flurl.Http, que son librerías con una api fluida que facilitan la escritura y ejecución de peticiones HTTP."
-            },
-            { 
-                "id" : "/tv/control-versiones/",
-                "tv" : true,
-                "title": "Control de versiones", 
-                "date": "2016-04-25 13:00:00 -0500",
-                "featured_tag": "Tv",
-                "featured_image": "http://thatcsharpguy.com/postimages//tv/control-versiones/featured.png",
-                "summary": "El control de versiones es una forma de organizar los elementos de una *cosa* cuyo contenido es modificado con el paso del tiempo."
             }	
         ]
 }

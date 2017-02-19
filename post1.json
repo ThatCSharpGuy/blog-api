@@ -4,6 +4,33 @@
     "items" : 
         [   
             { 
+                "id" : "/post/async-await/",
+                "tv" : false,
+                "title": "async y await", 
+                "date": "2017-02-14 13:00:01 -0600",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/asyncawait/featured.png",
+                "summary": "Mejora el manejo de las fechas y el tiempo en tu aplicación con NodaTime, muévelas a través de zonas horarias, horarios de verano y en los relojes de todo el mundo sin complicaciones."
+            },
+            { 
+                "id" : "/tv/apis/",
+                "tv" : true,
+                "title": "API", 
+                "date": "2017-02-14 12:00:00 -0600",
+                "featured_tag": "Tv",
+                "featured_image": "http://thatcsharpguy.com/postimages//tv/api/api_thumb.png",
+                "summary": "Las interfaces de programación de aplicaciones, son un elemento vital del desarrollo de sistemas de software, y aunque desde casi siempre han existido entre nosotros, no es sino hasta últimamente que la &quot;popularidad&quot; de esta palabra ha aumentado gracias a los servicios web y las aplicaciones móviles."
+            },
+            { 
+                "id" : "/post/nodatime/",
+                "tv" : false,
+                "title": "Maneja el tiempo con NodaTime", 
+                "date": "2017-02-07 13:00:01 -0600",
+                "featured_tag": "NuGetRecomendado",
+                "featured_image": "http://thatcsharpguy.com/postimages//nodatime/featured.jpg",
+                "summary": "Mejora el manejo de las fechas y el tiempo en tu aplicación con NodaTime, muévelas a través de zonas horarias, horarios de verano y en los relojes de todo el mundo sin complicaciones."
+            },
+            { 
                 "id" : "/post/platformtabbedpage-xamarin-forms-en/",
                 "tv" : false,
                 "title": "More familiar tabs for your users in Xamarin.Forms", 
@@ -40,7 +67,7 @@
                 "summary": "Usa esta librería de NuGet para interactuar con el usuario de tu aplicación de una forma más intuitiva, con mensajes de alerta, de error y de éxito. Consigue información a través de controles nativos como calendarios y selectores de tiempo."
             },
             { 
-                "id" : "/post/correcto-colecciones.1/",
+                "id" : "/post/correcto-colecciones/",
                 "tv" : false,
                 "title": "Colecciones en C#, ¿cuál elegir?", 
                 "date": "2017-01-10 13:00:02 -0600",
@@ -110,33 +137,6 @@
                 "featured_tag": "AprendeCSharp",
                 "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/dynamic.jpg",
                 "summary": "Con dynamic convierte a C# en un lenguaje dinámico y fuertemente tipado (consulte restricciones)."
-            },
-            { 
-                "id" : "/tv/subiendo-github/",
-                "tv" : true,
-                "title": "Subiéndo código a GitHub", 
-                "date": "2016-12-06 12:00:00 -0600",
-                "featured_tag": "Tv",
-                "featured_image": "http://thatcsharpguy.com/postimages//tv/github.jpg",
-                "summary": "Un tutorial de cómo empezar con GitHub desde cero."
-            },
-            { 
-                "id" : "/post/xamarin-workbooks/",
-                "tv" : false,
-                "title": "Bienvenido a los Xamarin Workbooks", 
-                "date": "2016-11-29 13:00:01 -0600",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimages//xamarin/workbooks/featured.jpg",
-                "summary": "Los Workbooks son una especie de documentos &quot;vivos&quot; con los que puedes compilar y ejecutar código en C#."
-            },
-            { 
-                "id" : "/post/yield-c-sharp/",
-                "tv" : false,
-                "title": "La palabra yield en C#", 
-                "date": "2016-11-22 13:00:01 -0600",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/yield/featured.jpg",
-                "summary": "La palabra yield en C# tiene un uso bastante peculiar pero sencillo de entender cuando se explica de la manera adecuada, básicamente te ayudará a mejorar la eficiencia de tus aplicaciones. En este post trato de explicar qué es y cómo funciona eso a través de ejemplos de código."
             }	
         ]
 }

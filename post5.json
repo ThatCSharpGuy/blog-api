@@ -4,6 +4,33 @@
     "items" : 
         [   
             { 
+                "id" : "/post/xamarin-ios-vs-traditional/",
+                "tv" : false,
+                "title": "Xamarin.iOS vs iOS tradicional (con Swift)", 
+                "date": "2016-05-02 16:00:00 -0500",
+                "featured_tag": "Xamarin",
+                "featured_image": "http://thatcsharpguy.com/postimages//xamarin-ios/swift-c-sharp.png",
+                "summary": "Una de las diferencias más notorias es la asignación de manejadores de evento, fuera de eso la transición entre un lenguaje y otro es sencilla."
+            },
+            { 
+                "id" : "/post/flurl/",
+                "tv" : false,
+                "title": "La web es tuya con Flurl", 
+                "date": "2016-04-25 14:00:00 -0500",
+                "featured_tag": "NuGetRecomendado",
+                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
+                "summary": "En este post te voy a hablar de Flurl y Flurl.Http, que son librerías con una api fluida que facilitan la escritura y ejecución de peticiones HTTP."
+            },
+            { 
+                "id" : "/tv/control-versiones/",
+                "tv" : true,
+                "title": "Control de versiones", 
+                "date": "2016-04-25 13:00:00 -0500",
+                "featured_tag": "Tv",
+                "featured_image": "http://thatcsharpguy.com/postimages//tv/control-versiones/featured.png",
+                "summary": "El control de versiones es una forma de organizar los elementos de una *cosa* cuyo contenido es modificado con el paso del tiempo."
+            },
+            { 
                 "id" : "/post/params-c-sharp/",
                 "tv" : false,
                 "title": "params en C#", 
@@ -110,33 +137,6 @@
                 "featured_tag": "AprendeCSharp",
                 "featured_image": "http://thatcsharpguy.com/postimages/directives/featured.png",
                 "summary": "Las directivas nos pueden ayudar a personalizar nuestro código a partir de condiciones dictadas antes de la compilación del mismo, o a forzar que ciertas condiciones se cumplan para que siquiera compile."
-            },
-            { 
-                "id" : "/post/unit-testing/",
-                "tv" : false,
-                "title": "Unit testing", 
-                "date": "2016-02-22 15:00:00 -0600",
-                "featured_tag": "Meta",
-                "featured_image": "http://thatcsharpguy.com/postimages/unit-testing/featured.png",
-                "summary": "Is a level of the software testing process where individual components of a software are tested. The purpose is to validate that each unit of the software performs as designed."
-            },
-            { 
-                "id" : "/post/code-snippets-visual-studio/",
-                "tv" : false,
-                "title": "Code Snippets en Visual Studio", 
-                "date": "2016-02-22 04:00:00 -0600",
-                "featured_tag": "VisualStudio",
-                "featured_image": "http://thatcsharpguy.com/postimages/code-snippets/featured.png",
-                "summary": "Agiliza el proceso de desarrollo en Visual Studio mediante el uso de fragmentos de código, que no solo te ahorraran unas cuantas tecleadas, sino te librarán de tareas repetitivas."
-            },
-            { 
-                "id" : "/post/docx-c-sharp/",
-                "tv" : false,
-                "title": "Trabajando con DocX en C#", 
-                "date": "2016-02-15 13:00:00 -0600",
-                "featured_tag": "NuGetRecomendado",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
-                "summary": "¿Quieres trabajar con documentos de Word sin tener que depender de Office? DocX es la librería para ti. Con ella tienes un montón de opciones disponibles para desarrollar. Conócela aquí."
             }	
         ]
 }

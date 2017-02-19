@@ -4,6 +4,33 @@
     "items" : 
         [   
             { 
+                "id" : "/post/commonmark/",
+                "tv" : false,
+                "title": "CommonMark.NET", 
+                "date": "2016-09-05 14:00:01 -0500",
+                "featured_tag": "NuGetRecomendado",
+                "featured_image": "http://thatcsharpguy.com/postimages//commonmark/featured.png",
+                "summary": "Convertir de un documento escrito con el lenguaje Markdown a uno escrito en HTML con este paquete de NuGet es muy intuitivo, además de que su API permite una personalización de la salida bastante intuitiva."
+            },
+            { 
+                "id" : "/tv/inyeccion-dependencias/",
+                "tv" : true,
+                "title": "La inyección de dependencias", 
+                "date": "2016-09-05 13:00:00 -0500",
+                "featured_tag": "Tv",
+                "featured_image": "http://thatcsharpguy.com/postimages//tv/di/featured.jpg",
+                "summary": "La inyección de dependencias es un patrón de diseño que nos permite implementar en nuestras aplicaciones el principio de inversión de control. Consiste en evitar la instanciación de unos objetos dentro de otros, evitando así el acoplamiento fuerte."
+            },
+            { 
+                "id" : "/post/revisando-github/",
+                "tv" : false,
+                "title": "Revisando mis repos en GitHub", 
+                "date": "2016-08-29 14:00:01 -0500",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//mis-repos-github/featured.png",
+                "summary": "Un post un poco diferente, en este no hablaré sobre alguna característica de C# o un paquete de NuGet, sino de proyectos, pruebas y aplicaciones en los que lo he usado. Conoce algunas de las cosas que he hecho y subido a GitHub."
+            },
+            { 
                 "id" : "/post/c-sharp-events/",
                 "tv" : false,
                 "title": "Events en C#", 
@@ -110,33 +137,6 @@
                 "featured_tag": "NuGetRecomendado",
                 "featured_image": "http://thatcsharpguy.com/postimages//imageprocessor/featured.jpg",
                 "summary": "Es muy probable que ya te hayas enfrentado o que tengas que enfrentarte con el trabajo procesar imágenes en un sistema, puede ser algo tan simple como cargar y recortar las imagenes de perfil de usuarios a un sistema o..."
-            },
-            { 
-                "id" : "/post/anatomia-app-xamarin-forms/",
-                "tv" : false,
-                "title": "Xamarin.Forms, anatomía de una app", 
-                "date": "2016-07-04 16:00:00 -0500",
-                "featured_tag": "XamarinForms",
-                "featured_image": "http://thatcsharpguy.com/postimages//xamarin-forms/arch/featured.jpg",
-                "summary": "Las partes que componen una aplicación hecha con Forms son dos&ellip; el núcleo o shared code y los proyectos clientes móviles que consumen dicho núcleo."
-            },
-            { 
-                "id" : "/tv/mvvm/",
-                "tv" : true,
-                "title": "MVVM", 
-                "date": "2016-06-28 17:00:00 -0500",
-                "featured_tag": "Tv",
-                "featured_image": "http://thatcsharpguy.com/postimages//tv/mvvm/mvvm.png",
-                "summary": "Conoce este patrón arquitectónico para el desarrollo de aplicaciones. MVVM es comunmente usado para el desarrollo de apps móviles."
-            },
-            { 
-                "id" : "/post/mvvm-xamarin-forms/",
-                "tv" : false,
-                "title": "MVVM en Xamarin.Forms, caso práctico", 
-                "date": "2016-06-26 16:00:00 -0500",
-                "featured_tag": "XamarinForms",
-                "featured_image": "http://thatcsharpguy.com/postimages//mvvm/mvvm-featured.png",
-                "summary": "Hice una pequeña app con MVVM y en este post te explico algunas de sus partes escenciales de ella, ah... ¡la app es de Pokémon!"
             }	
         ]
 }
