@@ -3,7 +3,7 @@
     "total_pages": 8,
     "items" : 
         [   
-            { 
+            {
                 "id" : "/post/anatomia-app-xamarin-forms/",
                 "tv" : false,
                 "title": "Xamarin.Forms, anatomía de una app", 
