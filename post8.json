@@ -4,6 +4,15 @@
     "items" : 
         [   
             { 
+                "id" : "/post/mobile-c-sharp-workshop-17-oct-2015/",
+                "tv" : false,
+                "title": "Mobile C# developer kick-off (17-oct-2015)", 
+                "date": "2015-10-19 17:00:00 -0500",
+                "featured_tag": "Xamarin",
+                "featured_image": "http://thatcsharpguy.com/postimages/commons/event.png",
+                "summary": "Este es un post de recapitulación del evento Mobile C# developer kick-off del 17 de octubre en la ESCOM"
+            },
+            { 
                 "id" : "/post/tipos-nullables-en-c-sharp/",
                 "tv" : false,
                 "title": "Tipos nullables en C#", 
@@ -128,33 +137,6 @@
                 "featured_tag": "Xamairn",
                 "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
                 "summary": "What happens when we face real people/world problems? for sure, there are still console apps out in the wild, but nowadays all the successful applications have a mobile version, why yours shouldn't have one?"
-            },
-            { 
-                "id" : "/post/delegados-en-c-sharp/",
-                "tv" : false,
-                "title": "Delegados en C#", 
-                "date": "2015-07-24 05:00:00 -0500",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
-                "summary": "Podemos ver un delegado en C# como un tipo de dato que apunta a un método permitiéndonos así extender las capacidades de nuestro código o permitir que otros lo hagan."
-            },
-            { 
-                "id" : "/post/hello-world/",
-                "tv" : false,
-                "title": "Hello World", 
-                "date": "2015-07-18 13:31:38 -0500",
-                "featured_tag": "Meta",
-                "featured_image": "http://thatcsharpguy.com/postimages",
-                "summary": "I've decided to kill my old blog, if you ever visit [blog.fferegrino.org] again you'll find that it isn't what it used to be. I decided to divide the content and if you came here looking for technical stuff, this is the right place."
-            },
-            { 
-                "id" : "/post/bubble-display-netduino-plus-2/",
-                "tv" : false,
-                "title": "Conectando un Bubble Display a un Netduino Plus 2", 
-                "date": "2015-07-17 13:31:38 -0500",
-                "featured_tag": "Netduino",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
-                "summary": "Para un proyecto Instrumentación en la escuela decidí desempolvar mi Netduino Plus 2, en el proyecto decesitábamos mostrar las mediciones de tres distintos sensores en un par de displays de 7 segmentos."
             }	
         ]
 }

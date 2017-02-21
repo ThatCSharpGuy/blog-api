@@ -1,0 +1,11 @@
+{	
+	"id" : "/post/async-await-2/",
+	"tv" : false,
+	"github": "https://github.com/ThatCSharpGuy/AsyncAwait",
+	"date": "2017-02-21 13:00:01 -0600",
+	"title" : "async y await (tareas paralelas)",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/asyncawait/featured.png",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//aprende-c-sharp/asyncawait/",
+	"tags" : ["AprendeCSharp","XamarinForms","Xamarin"]
+}

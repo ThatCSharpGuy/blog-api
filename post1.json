@@ -4,13 +4,22 @@
     "items" : 
         [   
             { 
+                "id" : "/post/async-await-2/",
+                "tv" : false,
+                "title": "async y await (tareas paralelas)", 
+                "date": "2017-02-21 13:00:01 -0600",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/asyncawait/featured.png",
+                "summary": "Trabaja con tareas asíncronas y paralelas en tus aplicaciones móviles, de escritorio y hasta en el servidor."
+            },
+            { 
                 "id" : "/post/async-await/",
                 "tv" : false,
                 "title": "async y await", 
                 "date": "2017-02-14 13:00:01 -0600",
                 "featured_tag": "AprendeCSharp",
                 "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/asyncawait/featured.png",
-                "summary": "Mejora el manejo de las fechas y el tiempo en tu aplicación con NodaTime, muévelas a través de zonas horarias, horarios de verano y en los relojes de todo el mundo sin complicaciones."
+                "summary": "En este post voy a hablar acerca de uno de los mejores tipos de azúcar sintáctica que existen en el lenguaje de programación C#. Y con ello me refiero a las palabras async y await."
             },
             { 
                 "id" : "/tv/apis/",
@@ -128,15 +137,6 @@
                 "featured_tag": "AprendeCSharp",
                 "featured_image": "http://thatcsharpguy.com/postimages/linq-en-c-sharp/featured.png",
                 "summary": "Conoce más de linq, métodos para unir, intersectar y filtrar conjuntos."
-            },
-            { 
-                "id" : "/post/dynamic-expandoobject/",
-                "tv" : false,
-                "title": "Dynamic y ExpandoObject", 
-                "date": "2016-12-06 13:00:02 -0600",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/dynamic.jpg",
-                "summary": "Con dynamic convierte a C# en un lenguaje dinámico y fuertemente tipado (consulte restricciones)."
             }	
         ]
 }

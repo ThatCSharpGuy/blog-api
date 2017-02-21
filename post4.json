@@ -3,7 +3,16 @@
     "total_pages": 8,
     "items" : 
         [   
-            {
+            { 
+                "id" : "/post/imageprocessor/",
+                "tv" : false,
+                "title": "Trabajando con imágenes e ImageProcessor", 
+                "date": "2016-07-11 14:00:01 -0500",
+                "featured_tag": "NuGetRecomendado",
+                "featured_image": "http://thatcsharpguy.com/postimages//imageprocessor/featured.jpg",
+                "summary": "Es muy probable que ya te hayas enfrentado o que tengas que enfrentarte con el trabajo procesar imágenes en un sistema, puede ser algo tan simple como cargar y recortar las imagenes de perfil de usuarios a un sistema o..."
+            },
+            { 
                 "id" : "/post/anatomia-app-xamarin-forms/",
                 "tv" : false,
                 "title": "Xamarin.Forms, anatomía de una app", 
@@ -128,15 +137,6 @@
                 "featured_tag": "Xamarin",
                 "featured_image": "http://thatcsharpguy.com/postimages//xamarin-android/java-c-sharp.png",
                 "summary": "En cuanto a la famosa clase R, en Xamarin.Android se llama Resource y su contenido es similar al que contiene en la tradicional, como podrás ver en el código más adelante."
-            },
-            { 
-                "id" : "/tv/azucar-sintactica/",
-                "tv" : true,
-                "title": "Azúcar Sintáctica", 
-                "date": "2016-05-04 13:00:00 -0500",
-                "featured_tag": "Tv",
-                "featured_image": "http://thatcsharpguy.com/postimages//tv/azucar-sintactica/featured.png",
-                "summary": "El azúcar sintáctico no es más que eso, un endulzante que en teoría debe mejorar nuestra experiencia cuando escribimos código."
             }	
         ]
 }

@@ -4,6 +4,15 @@
     "items" : 
         [   
             { 
+                "id" : "/post/introduction-xamarin-forms-sharpuladora/",
+                "tv" : false,
+                "title": "Introduction to Xamarin.Forms (Sharpuladora app)", 
+                "date": "2015-12-16 12:00:00 -0600",
+                "featured_tag": "XamarinForms",
+                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
+                "summary": "This guide will take you step by step to create your first Xamarin.Forms app."
+            },
+            { 
                 "id" : "/post/c-sharp-juegos/",
                 "tv" : false,
                 "title": "Cosas para hacer en C#: Juegos", 
@@ -128,15 +137,6 @@
                 "featured_tag": "AprendeCSharp",
                 "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
                 "summary": "En C# llamamos arreglo a una colección de objetos, dicha colección tiene longitud definida y esta no puede cambiar con el flujo del programa, esto podrá sonar limitante, pero al trabajar con arreglos se obtiene un mejor desempeño que con cualquier otra colección. Usando el lenguaje podemos crear, recorrer y manipular arreglos de cualquier tipo de objeto."
-            },
-            { 
-                "id" : "/post/mobile-c-sharp-workshop-17-oct-2015/",
-                "tv" : false,
-                "title": "Mobile C# developer kick-off (17-oct-2015)", 
-                "date": "2015-10-19 17:00:00 -0500",
-                "featured_tag": "Xamarin",
-                "featured_image": "http://thatcsharpguy.com/postimages/commons/event.png",
-                "summary": "Este es un post de recapitulación del evento Mobile C# developer kick-off del 17 de octubre en la ESCOM"
             }	
         ]
 }

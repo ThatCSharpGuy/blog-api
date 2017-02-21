@@ -4,6 +4,15 @@
     "items" : 
         [   
             { 
+                "id" : "/post/atributos-c-sharp/",
+                "tv" : false,
+                "title": "Xamarin.Auth", 
+                "date": "2016-09-12 14:00:01 -0500",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/attrs/featured.png",
+                "summary": "Los atributos nos ofrecen otra manera de interactuar con el código que escribimos, ya sea dándole información al compilador o extendiendo las definiciones de nuestros métodos, propiedades o clases en tiempo de ejecución."
+            },
+            { 
                 "id" : "/post/commonmark/",
                 "tv" : false,
                 "title": "CommonMark.NET", 
@@ -128,15 +137,6 @@
                 "featured_tag": "Tv",
                 "featured_image": "http://thatcsharpguy.com/postimages//tv/sal-sintactica/featured.jpg",
                 "summary": "La sal sintáctica, cuyo objetivo es supuestamente ser lo totalmente opuesto a la azúcar, hacen difícil escribir mal código y, en teoría, hacen más difícil de usar un lenguaje."
-            },
-            { 
-                "id" : "/post/imageprocessor/",
-                "tv" : false,
-                "title": "Trabajando con imágenes e ImageProcessor", 
-                "date": "2016-07-11 14:00:01 -0500",
-                "featured_tag": "NuGetRecomendado",
-                "featured_image": "http://thatcsharpguy.com/postimages//imageprocessor/featured.jpg",
-                "summary": "Es muy probable que ya te hayas enfrentado o que tengas que enfrentarte con el trabajo procesar imágenes en un sistema, puede ser algo tan simple como cargar y recortar las imagenes de perfil de usuarios a un sistema o..."
             }	
         ]
 }

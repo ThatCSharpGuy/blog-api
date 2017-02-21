@@ -4,6 +4,15 @@
     "items" : 
         [   
             { 
+                "id" : "/post/dynamic-expandoobject/",
+                "tv" : false,
+                "title": "Dynamic y ExpandoObject", 
+                "date": "2016-12-06 13:00:02 -0600",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/dynamic.jpg",
+                "summary": "Con dynamic convierte a C# en un lenguaje dinámico y fuertemente tipado (consulte restricciones)."
+            },
+            { 
                 "id" : "/tv/subiendo-github/",
                 "tv" : true,
                 "title": "Subiéndo código a GitHub", 
@@ -128,15 +137,6 @@
                 "featured_tag": "AprendeCSharp",
                 "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/null-c.png",
                 "summary": "Este operador te ayudará a escribir con mayor claridad el código, al tiempo que te ahorras escribir algunos cuantos ifs en tu código."
-            },
-            { 
-                "id" : "/post/atributos-c-sharp/",
-                "tv" : false,
-                "title": "Xamarin.Auth", 
-                "date": "2016-09-12 14:00:01 -0500",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/attrs/featured.png",
-                "summary": "Los atributos nos ofrecen otra manera de interactuar con el código que escribimos, ya sea dándole información al compilador o extendiendo las definiciones de nuestros métodos, propiedades o clases en tiempo de ejecución."
             }	
         ]
 }

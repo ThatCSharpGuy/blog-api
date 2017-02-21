@@ -4,6 +4,15 @@
     "items" : 
         [   
             { 
+                "id" : "/tv/azucar-sintactica/",
+                "tv" : true,
+                "title": "Azúcar Sintáctica", 
+                "date": "2016-05-04 13:00:00 -0500",
+                "featured_tag": "Tv",
+                "featured_image": "http://thatcsharpguy.com/postimages//tv/azucar-sintactica/featured.png",
+                "summary": "El azúcar sintáctico no es más que eso, un endulzante que en teoría debe mejorar nuestra experiencia cuando escribimos código."
+            },
+            { 
                 "id" : "/post/xamarin-ios-vs-traditional/",
                 "tv" : false,
                 "title": "Xamarin.iOS vs iOS tradicional (con Swift)", 
@@ -128,15 +137,6 @@
                 "featured_tag": "NuGetRecomendado",
                 "featured_image": "http://thatcsharpguy.com/postimages//xlsx-c-sharp/featured.png",
                 "summary": "¿Quieres trabajar con documentos de Word sin tener que depender de Office? DocX es la librería para ti. Con ella tienes un montón de opciones disponibles para desarrollar. Conócela aquí."
-            },
-            { 
-                "id" : "/post/directivas-preprocesador-c-sharp/",
-                "tv" : false,
-                "title": "Directivas de preprocesamiento en C#", 
-                "date": "2016-02-29 04:00:00 -0600",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimages/directives/featured.png",
-                "summary": "Las directivas nos pueden ayudar a personalizar nuestro código a partir de condiciones dictadas antes de la compilación del mismo, o a forzar que ciertas condiciones se cumplan para que siquiera compile."
             }	
         ]
 }
