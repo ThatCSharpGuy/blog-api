@@ -4,6 +4,24 @@
     "items" : 
         [   
             { 
+                "id" : "/tv/xamarin/",
+                "tv" : true,
+                "title": "Xamarin", 
+                "date": "2016-05-09 17:00:00 -0500",
+                "featured_tag": "Xamarin",
+                "featured_image": "http://thatcsharpguy.com/postimages//tv/xamarin/featured.png",
+                "summary": "Pero la principal y en la que se centra este video es la Xamarin Platform que se es un framework, un set de compiladores y en algun sentido un traductor de código..."
+            },
+            { 
+                "id" : "/post/xamarin-android-vs-traditional-java/",
+                "tv" : false,
+                "title": "Xamarin.Android vs Android tradicional (con Java)", 
+                "date": "2016-05-09 16:00:00 -0500",
+                "featured_tag": "Xamarin",
+                "featured_image": "http://thatcsharpguy.com/postimages//xamarin-android/java-c-sharp.png",
+                "summary": "En cuanto a la famosa clase R, en Xamarin.Android se llama Resource y su contenido es similar al que contiene en la tradicional, como podrás ver en el código más adelante."
+            },
+            { 
                 "id" : "/tv/azucar-sintactica/",
                 "tv" : true,
                 "title": "Azúcar Sintáctica", 
@@ -119,24 +137,6 @@
                 "featured_tag": "XamarinForms",
                 "featured_image": "http://thatcsharpguy.com/postimages//xamarin-forms/multiselect-featured.png",
                 "summary": "Learn how to allow the user to select more than one item in a ListView, everything from MVVM with Xamarin.Forms."
-            },
-            { 
-                "id" : "/post/inicializadores-c-sharp/",
-                "tv" : false,
-                "title": "Inicializadores en C#", 
-                "date": "2016-03-14 13:00:00 -0600",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/inicializadores.png",
-                "summary": "Lo que permite la inicialización de objetos es hacer uso de los constructores y además de asignar &quot;al mismo tiempo&quot; las propiedades o campos públicos que contiene el objeto."
-            },
-            { 
-                "id" : "/post/xlsx-c-sharp/",
-                "tv" : false,
-                "title": "Trabajando con XslX en C#", 
-                "date": "2016-03-07 13:00:00 -0600",
-                "featured_tag": "NuGetRecomendado",
-                "featured_image": "http://thatcsharpguy.com/postimages//xlsx-c-sharp/featured.png",
-                "summary": "¿Quieres trabajar con documentos de Word sin tener que depender de Office? DocX es la librería para ti. Con ella tienes un montón de opciones disponibles para desarrollar. Conócela aquí."
             }	
         ]
 }

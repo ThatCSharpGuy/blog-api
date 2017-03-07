@@ -4,6 +4,24 @@
     "items" : 
         [   
             { 
+                "id" : "/post/usos-using-2/",
+                "tv" : false,
+                "title": "Uso de using", 
+                "date": "2016-07-18 14:00:01 -0500",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/using-2.png",
+                "summary": "En C#, también podemos emplear using para especificar un bloque de código asociado a una o varias instancias de una clase que implemente IDisposable."
+            },
+            { 
+                "id" : "/tv/sal-sintactica/",
+                "tv" : true,
+                "title": "Sal sintáctica", 
+                "date": "2016-07-13 13:00:00 -0500",
+                "featured_tag": "Tv",
+                "featured_image": "http://thatcsharpguy.com/postimages//tv/sal-sintactica/featured.jpg",
+                "summary": "La sal sintáctica, cuyo objetivo es supuestamente ser lo totalmente opuesto a la azúcar, hacen difícil escribir mal código y, en teoría, hacen más difícil de usar un lenguaje."
+            },
+            { 
                 "id" : "/post/imageprocessor/",
                 "tv" : false,
                 "title": "Trabajando con imágenes e ImageProcessor", 
@@ -119,24 +137,6 @@
                 "featured_tag": "AprendeCSharp",
                 "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/tuples.png",
                 "summary": "Seguramente te ha pasado, alguna vez has pensado &quot;Ojalá pudiera devolver dos cosas desde este método&quot; y si bien recuerdas que los métodos en C# únicamente pueden tener un solo tipo de retorno, es posible devolver más de dos valores haciendo uso de la clase genérica Tuple."
-            },
-            { 
-                "id" : "/tv/xamarin/",
-                "tv" : true,
-                "title": "Xamarin", 
-                "date": "2016-05-09 17:00:00 -0500",
-                "featured_tag": "Xamarin",
-                "featured_image": "http://thatcsharpguy.com/postimages//tv/xamarin/featured.png",
-                "summary": "Pero la principal y en la que se centra este video es la Xamarin Platform que se es un framework, un set de compiladores y en algun sentido un traductor de código..."
-            },
-            { 
-                "id" : "/post/xamarin-android-vs-traditional-java/",
-                "tv" : false,
-                "title": "Xamarin.Android vs Android tradicional (con Java)", 
-                "date": "2016-05-09 16:00:00 -0500",
-                "featured_tag": "Xamarin",
-                "featured_image": "http://thatcsharpguy.com/postimages//xamarin-android/java-c-sharp.png",
-                "summary": "En cuanto a la famosa clase R, en Xamarin.Android se llama Resource y su contenido es similar al que contiene en la tradicional, como podrás ver en el código más adelante."
             }	
         ]
 }

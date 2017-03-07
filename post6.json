@@ -4,6 +4,24 @@
     "items" : 
         [   
             { 
+                "id" : "/post/inicializadores-c-sharp/",
+                "tv" : false,
+                "title": "Inicializadores en C#", 
+                "date": "2016-03-14 13:00:00 -0600",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/inicializadores.png",
+                "summary": "Lo que permite la inicialización de objetos es hacer uso de los constructores y además de asignar &quot;al mismo tiempo&quot; las propiedades o campos públicos que contiene el objeto."
+            },
+            { 
+                "id" : "/post/xlsx-c-sharp/",
+                "tv" : false,
+                "title": "Trabajando con XslX en C#", 
+                "date": "2016-03-07 13:00:00 -0600",
+                "featured_tag": "NuGetRecomendado",
+                "featured_image": "http://thatcsharpguy.com/postimages//xlsx-c-sharp/featured.png",
+                "summary": "¿Quieres trabajar con documentos de Word sin tener que depender de Office? DocX es la librería para ti. Con ella tienes un montón de opciones disponibles para desarrollar. Conócela aquí."
+            },
+            { 
                 "id" : "/post/directivas-preprocesador-c-sharp/",
                 "tv" : false,
                 "title": "Directivas de preprocesamiento en C#", 
@@ -119,24 +137,6 @@
                 "featured_tag": "Meta",
                 "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
                 "summary": "Con algo se tiene que escribir el código y seamos honestos ¿por qué no hacerlo de forma cómoda y eficiente? de eso se trata este post."
-            },
-            { 
-                "id" : "/post/fiestas-desarrolladoras-libros/",
-                "tv" : false,
-                "title": "Libros para un desarrollador", 
-                "date": "2015-12-22 16:00:00 -0600",
-                "featured_tag": "Meta",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
-                "summary": "En este post no habrá nada de código... al menos escrito por mi. Aprovechando la época, mi intención es presentar algunos de los regalos que harán de un desarrollador alguien más feliz, más cómodo o más completo profesionalmente."
-            },
-            { 
-                "id" : "/post/ser-xamarin-student-partner/",
-                "tv" : false,
-                "title": "Ser un Xamarin Student Partner", 
-                "date": "2015-12-16 12:31:38 -0600",
-                "featured_tag": "Meta",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
-                "summary": "Que yo les hable tanto de Xamarin en este blog no es obra de la casualidad, y es que formo parte de los primeros Xamarin Student Partners, un grupo formado a principios de 2015 formado por estudiantes interesadoes en difundir el desarrollo móvil."
             }	
         ]
 }

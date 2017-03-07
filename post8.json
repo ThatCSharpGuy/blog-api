@@ -4,6 +4,24 @@
     "items" : 
         [   
             { 
+                "id" : "/post/arreglos-en-c-sharp-parte-2/",
+                "tv" : false,
+                "title": "Arreglos en C# (multidimensionales escalonados)", 
+                "date": "2015-10-22 16:00:00 -0500",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
+                "summary": "Los arreglos escalonados (o jagged arrays) son los tipos de arreglos multidimensionales más conocidos, y es que también son compunes en otros lenguajes de programación. Un arreglo escalonado no es más que un arreglo de arreglos."
+            },
+            { 
+                "id" : "/post/arreglos-en-c-sharp-parte-1/",
+                "tv" : false,
+                "title": "Arreglos en C# (unidimensionales)", 
+                "date": "2015-10-22 16:00:00 -0500",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
+                "summary": "En C# llamamos arreglo a una colección de objetos, dicha colección tiene longitud definida y esta no puede cambiar con el flujo del programa, esto podrá sonar limitante, pero al trabajar con arreglos se obtiene un mejor desempeño que con cualquier otra colección. Usando el lenguaje podemos crear, recorrer y manipular arreglos de cualquier tipo de objeto."
+            },
+            { 
                 "id" : "/post/mobile-c-sharp-workshop-17-oct-2015/",
                 "tv" : false,
                 "title": "Mobile C# developer kick-off (17-oct-2015)", 
@@ -119,24 +137,6 @@
                 "featured_tag": "AprendeCSharp",
                 "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
                 "summary": "Una vez que conocemos lo que es un delegado, y lo que son Func y Action, es momento de llegar a un tema que se convierte en algo muy sencillo, además es de mis cosas favoritas en C#: Las expresiones lambda."
-            },
-            { 
-                "id" : "/post/func-y-action-en-c-sharp/",
-                "tv" : false,
-                "title": "Func y Action en C#", 
-                "date": "2015-07-29 13:00:00 -0500",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.jpg",
-                "summary": "Func y Action son moldes para crear delegados, podemos usarlos para evitarnos la fatiga de declarar un delegado para cada ocasión que sea necesario."
-            },
-            { 
-                "id" : "/post/from-console-to-mobile/",
-                "tv" : false,
-                "title": "From console to mobile", 
-                "date": "2015-07-26 13:00:00 -0500",
-                "featured_tag": "Xamairn",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
-                "summary": "What happens when we face real people/world problems? for sure, there are still console apps out in the wild, but nowadays all the successful applications have a mobile version, why yours shouldn't have one?"
             }	
         ]
 }

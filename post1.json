@@ -4,6 +4,24 @@
     "items" : 
         [   
             { 
+                "id" : "/post/popups-avanzados-xamarin-forms/",
+                "tv" : false,
+                "title": "Popups avanzados en Xamarin.Forms", 
+                "date": "2017-03-07 13:00:01 -0600",
+                "featured_tag": "NuGetRecomendado",
+                "featured_image": "http://thatcsharpguy.com/postimages//xamarin-forms/popups/featured.jpg",
+                "summary": "Añade popups más avanzados a tus apps hechas con Xamarin.Forms usando este NuGet, tan sencillo como crear una pagina nueva y agregarle los controles que quieres mostrar."
+            },
+            { 
+                "id" : "/post/async-await-3/",
+                "tv" : false,
+                "title": "async y await (cancelando tareas)", 
+                "date": "2017-02-28 13:00:01 -0600",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/asyncawait/featured.png",
+                "summary": "Aprende la forma &quot;correcta&quot; para proveer a tus Task de un mecanismo de cancelación, además aprende cómo reportar el progreso de una tarea al usuario mediante una interfaz definida por el Framework."
+            },
+            { 
                 "id" : "/post/async-await-2/",
                 "tv" : false,
                 "title": "async y await (tareas paralelas)", 
@@ -119,24 +137,6 @@
                 "featured_tag": "Xamarin",
                 "featured_image": "http://thatcsharpguy.com/postimages//xamarin-ios/stanford.jpg",
                 "summary": "Here is my experience learning Xamarin.iOS by taking the Stanford's CS193P course online which is given for Swift language."
-            },
-            { 
-                "id" : "/post/sobrecarga-operadores/",
-                "tv" : false,
-                "title": "Sobrecarga de operadores", 
-                "date": "2016-12-20 13:00:02 -0600",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimages/aprende-c-sharp/sobrecarga.jpg",
-                "summary": "Suma, resta, divide, multiplica, compara... todos los tipos de dato que crees para tus aplicaciones, todo gracias a la sobrecarga de operadores que ofrece C&#35;"
-            },
-            { 
-                "id" : "/post/linq-en-c-sharp-4/",
-                "tv" : false,
-                "title": "Más Linq en C#", 
-                "date": "2016-12-13 13:00:02 -0600",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimages/linq-en-c-sharp/featured.png",
-                "summary": "Conoce más de linq, métodos para unir, intersectar y filtrar conjuntos."
             }	
         ]
 }

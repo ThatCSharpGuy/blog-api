@@ -4,6 +4,24 @@
     "items" : 
         [   
             { 
+                "id" : "/post/sobrecarga-operadores/",
+                "tv" : false,
+                "title": "Sobrecarga de operadores", 
+                "date": "2016-12-20 13:00:02 -0600",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages/aprende-c-sharp/sobrecarga.jpg",
+                "summary": "Suma, resta, divide, multiplica, compara... todos los tipos de dato que crees para tus aplicaciones, todo gracias a la sobrecarga de operadores que ofrece C&#35;"
+            },
+            { 
+                "id" : "/post/linq-en-c-sharp-4/",
+                "tv" : false,
+                "title": "Más Linq en C#", 
+                "date": "2016-12-13 13:00:02 -0600",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages/linq-en-c-sharp/featured.png",
+                "summary": "Conoce más de linq, métodos para unir, intersectar y filtrar conjuntos."
+            },
+            { 
                 "id" : "/post/dynamic-expandoobject/",
                 "tv" : false,
                 "title": "Dynamic y ExpandoObject", 
@@ -119,24 +137,6 @@
                 "featured_tag": "AprendeCSharp",
                 "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/resx/featured.jpg",
                 "summary": "Como desarrolladores, tendemos a pensar en nuestras aplicaciones como funcionales para una región o lenguaje específicos, sin preocuparnos sobre traducir e internacionalizarlas, preparándolas así para ser accesibles aun número mayor de usuarios."
-            },
-            { 
-                "id" : "/tv/martillo-dorado/",
-                "tv" : true,
-                "title": "El martillo dorado", 
-                "date": "2016-09-26 13:00:00 -0500",
-                "featured_tag": "Tv",
-                "featured_image": "http://thatcsharpguy.com/postimages//tv/golden-hammer/featured.jpg",
-                "summary": "La falacia del martillo de oro es una de las falacias en las cuales los desarrolladores caemos con mayor facilidad, esta implica el propner una única solución para distintos tipos de problemas. Estas \"soluciones\" pueden ser un IDE, un patrón de diseño o hasta un lenguaje de programación."
-            },
-            { 
-                "id" : "/post/null-coalescing/",
-                "tv" : false,
-                "title": "Operador null coalescing en C#", 
-                "date": "2016-09-19 14:00:01 -0500",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/null-c.png",
-                "summary": "Este operador te ayudará a escribir con mayor claridad el código, al tiempo que te ahorras escribir algunos cuantos ifs en tu código."
             }	
         ]
 }
