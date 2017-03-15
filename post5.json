@@ -4,6 +4,24 @@
     "items" : 
         [   
             { 
+                "id" : "/post/jirapi/",
+                "tv" : false,
+                "title": "Jirapi", 
+                "date": "2016-05-26 14:00:01 -0500",
+                "featured_tag": "NuGetRecomendado",
+                "featured_image": "http://thatcsharpguy.com/postimages//jirapi/featured.png",
+                "summary": "Cree un cliente para la Pokéapi... por... razones. Espero te sea útil so realizas presentaciones, demos o cursos."
+            },
+            { 
+                "id" : "/post/tuples-c-sharp/",
+                "tv" : false,
+                "title": "Tuples en C#", 
+                "date": "2016-05-16 14:00:01 -0500",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/tuples.png",
+                "summary": "Seguramente te ha pasado, alguna vez has pensado &quot;Ojalá pudiera devolver dos cosas desde este método&quot; y si bien recuerdas que los métodos en C# únicamente pueden tener un solo tipo de retorno, es posible devolver más de dos valores haciendo uso de la clase genérica Tuple."
+            },
+            { 
                 "id" : "/tv/xamarin/",
                 "tv" : true,
                 "title": "Xamarin", 
@@ -119,24 +137,6 @@
                 "featured_tag": "NuGetRecomendado",
                 "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
                 "summary": "AutoMapper es un mapeador objeto-objeto que &quot;convierte&quot; un objeto de un tipo a otro, sin embargo lo que hace realmente útil a esta herramienta es que facilita la tarea mediante el uso de convenciones de código."
-            },
-            { 
-                "id" : "/post/multiselect-listview-mvvm/",
-                "tv" : false,
-                "title": "Multi-select ListView y MVVM", 
-                "date": "2016-03-23 02:00:00 -0600",
-                "featured_tag": "XamarinForms",
-                "featured_image": "http://thatcsharpguy.com/postimages//xamarin-forms/multiselect-featured.png",
-                "summary": "Aprende cómo permitir al usuario selecionar más de un item en una lista y a hacerlo todo desde MVVM con Xamarin.Forms."
-            },
-            { 
-                "id" : "/post/multiselect-listview-mvvm-en/",
-                "tv" : false,
-                "title": "Multi-select ListView and MVVM", 
-                "date": "2016-03-23 02:00:00 -0600",
-                "featured_tag": "XamarinForms",
-                "featured_image": "http://thatcsharpguy.com/postimages//xamarin-forms/multiselect-featured.png",
-                "summary": "Learn how to allow the user to select more than one item in a ListView, everything from MVVM with Xamarin.Forms."
             }	
         ]
 }

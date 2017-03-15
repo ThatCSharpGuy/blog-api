@@ -4,6 +4,24 @@
     "items" : 
         [   
             { 
+                "id" : "/post/reflexion-c-sharp-es/",
+                "tv" : false,
+                "title": "Reflexión en C#", 
+                "date": "2016-10-10 14:00:01 -0500",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/reflexion.jpg",
+                "summary": "La reflexión nos permite acceder a la información de un tipo en tiempo de ejecución. Cuando estamos escribiendo el código, somos nosotros quienes tenemos una idea general del sistema&#58; sabemos los tipos de dato de las variables, los métodos que contienen las clases, los atributos de los miembros de estas y un sin fin de cosas más."
+            },
+            { 
+                "id" : "/post/localisation-resx/",
+                "tv" : false,
+                "title": "Archivos de recursos y apps multilenguaje en C#", 
+                "date": "2016-10-03 14:00:01 -0500",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/resx/featured.jpg",
+                "summary": "Como desarrolladores, tendemos a pensar en nuestras aplicaciones como funcionales para una región o lenguaje específicos, sin preocuparnos sobre traducir e internacionalizarlas, preparándolas así para ser accesibles aun número mayor de usuarios."
+            },
+            { 
                 "id" : "/tv/martillo-dorado/",
                 "tv" : true,
                 "title": "El martillo dorado", 
@@ -119,24 +137,6 @@
                 "featured_tag": "AprendeFSharp",
                 "featured_image": "http://thatcsharpguy.com/postimages//map-reduce-filter/featured.png",
                 "summary": "F# es un gran lenguaje, y unas de las cosas que me gusta de él es que está orientado completamente a la programación funcional. Comparte varias características con lenguajes como Elixir y otras pocas con lenguajes como Swift."
-            },
-            { 
-                "id" : "/post/map-filter-reduce-c-sharp/",
-                "tv" : false,
-                "title": "Map, reduce y filter en C#", 
-                "date": "2016-07-25 14:00:00 -0500",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimages//map-reduce-filter/featured.png",
-                "summary": "C# es un gran lenguaje, y unas de las cosas que me gusta de él, es que puedes programar funcionalmente aún si el lenguaje no es 100% funcional. Comparte algunas de sus características con lenguajes como Swift y F#."
-            },
-            { 
-                "id" : "/tv/first-class-citizens/",
-                "tv" : true,
-                "title": "Ciudadanos de primera clase", 
-                "date": "2016-07-20 13:00:00 -0500",
-                "featured_tag": "Tv",
-                "featured_image": "http://thatcsharpguy.com/postimages//tv/first-class-citizens/fcc.jpg",
-                "summary": "En programación, cuando se habla de ciudadanos de primera clase es para hacer referencia a un elemento del lenguaje que posee la mayor cantidad de privilegios."
             }	
         ]
 }

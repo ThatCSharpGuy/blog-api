@@ -4,6 +4,24 @@
     "items" : 
         [   
             { 
+                "id" : "/tv/pruebas-unitarias-vs/",
+                "tv" : true,
+                "title": "Pruebas unitarias en Visual Studio", 
+                "date": "2017-03-14 13:00:00 -0600",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//tv/unit-test/featured.jpg",
+                "summary": "Aprende a crear pruebas unitarias usando C#"
+            },
+            { 
+                "id" : "/tv/pruebas-unitarias/",
+                "tv" : true,
+                "title": "Las pruebas unitarias", 
+                "date": "2017-03-14 12:00:00 -0600",
+                "featured_tag": "Tv",
+                "featured_image": "http://thatcsharpguy.com/postimages//tv/unit-test/featured-yt.jpg",
+                "summary": "Estas pruebas son un en donde componentes individuales del software se someten a pruebas. El propósito de estas es asegurar que cada unidad de trabajo funciona individualmente como debería. Es decir, funciona cuando se supone que debe funcionar, responde con lo que se supone que tiene que responder, falla como y cuando se supone que debe fallar."
+            },
+            { 
                 "id" : "/post/popups-avanzados-xamarin-forms/",
                 "tv" : false,
                 "title": "Popups avanzados en Xamarin.Forms", 
@@ -119,24 +137,6 @@
                 "featured_tag": "Meta",
                 "featured_image": "http://thatcsharpguy.com/postimages//meta/2017.png",
                 "summary": "Nuevo año, nuevas metas para That C&#35; guy, conócleas."
-            },
-            { 
-                "id" : "/post/indizadores-c-sharp/",
-                "tv" : false,
-                "title": "Sobrecarga de indizadores en C#", 
-                "date": "2016-12-27 13:00:02 -0600",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimages/aprende-c-sharp/indexers.jpg",
-                "summary": "Los indizadores en C# permiten dotar a tus tipos de dato de una forma más simple y expresiva para acceder a sus propiedades, además de ser una sintaxis con la que muchos desarrolladores ya están acostumbrados."
-            },
-            { 
-                "id" : "/post/learning-xamarin-ios-stanford-cs193p/",
-                "tv" : false,
-                "title": "Learning Xamarin.iOS at Stanford", 
-                "date": "2016-12-27 02:00:00 -0600",
-                "featured_tag": "Xamarin",
-                "featured_image": "http://thatcsharpguy.com/postimages//xamarin-ios/stanford.jpg",
-                "summary": "Here is my experience learning Xamarin.iOS by taking the Stanford's CS193P course online which is given for Swift language."
             }	
         ]
 }

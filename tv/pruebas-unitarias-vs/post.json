@@ -1,0 +1,11 @@
+{	
+	"id" : "/tv/pruebas-unitarias-vs/",
+	"tv" : true,
+	"youtube": "W-p8wia0HzA",
+	"date": "2017-03-14 13:00:00 -0600",
+	"title" : "Pruebas unitarias en Visual Studio",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimages//tv/unit-test/featured.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//tv/unit-test/",
+	"tags" : ["AprendeCSharp","VisualStudio","Tv"]
+}

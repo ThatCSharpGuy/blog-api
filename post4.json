@@ -4,6 +4,24 @@
     "items" : 
         [   
             { 
+                "id" : "/post/map-filter-reduce-c-sharp/",
+                "tv" : false,
+                "title": "Map, reduce y filter en C#", 
+                "date": "2016-07-25 14:00:00 -0500",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//map-reduce-filter/featured.png",
+                "summary": "C# es un gran lenguaje, y unas de las cosas que me gusta de él, es que puedes programar funcionalmente aún si el lenguaje no es 100% funcional. Comparte algunas de sus características con lenguajes como Swift y F#."
+            },
+            { 
+                "id" : "/tv/first-class-citizens/",
+                "tv" : true,
+                "title": "Ciudadanos de primera clase", 
+                "date": "2016-07-20 13:00:00 -0500",
+                "featured_tag": "Tv",
+                "featured_image": "http://thatcsharpguy.com/postimages//tv/first-class-citizens/fcc.jpg",
+                "summary": "En programación, cuando se habla de ciudadanos de primera clase es para hacer referencia a un elemento del lenguaje que posee la mayor cantidad de privilegios."
+            },
+            { 
                 "id" : "/post/usos-using-2/",
                 "tv" : false,
                 "title": "Uso de using", 
@@ -119,24 +137,6 @@
                 "featured_tag": "Xamarin",
                 "featured_image": "http://thatcsharpguy.com/postimages//tv/xamarinforms/featured.jpg",
                 "summary": "Con Xamarin.Forms munca había sido tan fácil crear aplicaciones multiplataforma compartiendo la mayoría del código entre ellas, incluyendo la interfaz gráfica. En este video te explico de qué se trata."
-            },
-            { 
-                "id" : "/post/jirapi/",
-                "tv" : false,
-                "title": "Jirapi", 
-                "date": "2016-05-26 14:00:01 -0500",
-                "featured_tag": "NuGetRecomendado",
-                "featured_image": "http://thatcsharpguy.com/postimages//jirapi/featured.png",
-                "summary": "Cree un cliente para la Pokéapi... por... razones. Espero te sea útil so realizas presentaciones, demos o cursos."
-            },
-            { 
-                "id" : "/post/tuples-c-sharp/",
-                "tv" : false,
-                "title": "Tuples en C#", 
-                "date": "2016-05-16 14:00:01 -0500",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/tuples.png",
-                "summary": "Seguramente te ha pasado, alguna vez has pensado &quot;Ojalá pudiera devolver dos cosas desde este método&quot; y si bien recuerdas que los métodos en C# únicamente pueden tener un solo tipo de retorno, es posible devolver más de dos valores haciendo uso de la clase genérica Tuple."
             }	
         ]
 }
