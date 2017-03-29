@@ -4,6 +4,42 @@
     "items" : 
         [   
             { 
+                "id" : "/post/akavache/",
+                "tv" : false,
+                "title": "Persistencia de datos con Akavache", 
+                "date": "2016-08-08 14:00:01 -0500",
+                "featured_tag": "NuGetRecomendado",
+                "featured_image": "http://thatcsharpguy.com/postimages//akavache/featured.jpg",
+                "summary": "Dale memoria a tus aplicaciones con este paquete de NuGet, con Akavache almacena información en el dispositivo del usuario para dar una impresión de fluidez y rapidez en tu app."
+            },
+            { 
+                "id" : "/post/c-sharp-enums/",
+                "tv" : false,
+                "title": "Enums en C#", 
+                "date": "2016-08-01 14:00:01 -0500",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/enums.png",
+                "summary": "Los enum son un tipo de dato que nos permite expresar valores constantes, con la particularidad de poderlos agrupar lógicamente de acuerdo a la relación que tienen unos con otros."
+            },
+            { 
+                "id" : "/post/formatted-number-entry/",
+                "tv" : false,
+                "title": "Formatted number entry", 
+                "date": "2016-08-01 03:00:00 -0500",
+                "featured_tag": "XamarinForms",
+                "featured_image": "http://thatcsharpguy.com/postimages//xamarin-forms/formattednumberentry/featured.png",
+                "summary": "I faced with the necessity of having a &quot;formatted textbox&quot; where the user could enter a given integer number and have it formatted instantly to a comma separated number."
+            },
+            { 
+                "id" : "/post/map-filter-reduce-f-sharp/",
+                "tv" : false,
+                "title": "Map, reduce y filter en F#", 
+                "date": "2016-07-25 14:00:00 -0500",
+                "featured_tag": "AprendeFSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//map-reduce-filter/featured.png",
+                "summary": "F# es un gran lenguaje, y unas de las cosas que me gusta de él es que está orientado completamente a la programación funcional. Comparte varias características con lenguajes como Elixir y otras pocas con lenguajes como Swift."
+            },
+            { 
                 "id" : "/post/map-filter-reduce-c-sharp/",
                 "tv" : false,
                 "title": "Map, reduce y filter en C#", 
@@ -101,42 +137,6 @@
                 "featured_tag": "AprendeCSharp",
                 "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/partial-featured.png",
                 "summary": "Tal vez alguna vez te hayas encontrado con que en la declaración de una clase, la palabra partial está antepuesta a la palabra class. Pero, ¿qué significa esto?"
-            },
-            { 
-                "id" : "/post/meetup-1-junio-2016/",
-                "tv" : false,
-                "title": "Primer Meetup Xamarin Students México", 
-                "date": "2016-06-03 17:00:00 -0500",
-                "featured_tag": "Xamarin",
-                "featured_image": "http://thatcsharpguy.com/postimages/events/1-jun-2016.jpg",
-                "summary": "Parte de las presentaciones que hubo en el Meetup Xamarin Students México del 1 de junio de 2016 en Urban Station. Una demo de Custom Renderers."
-            },
-            { 
-                "id" : "/post/mobile-c-sharp-workshop-17-oct-2016/",
-                "tv" : false,
-                "title": "Primer Meetup Xamarin Students México", 
-                "date": "2016-06-02 17:00:00 -0500",
-                "featured_tag": "Xamarin",
-                "featured_image": "http://thatcsharpguy.com/postimages/commons/event.png",
-                "summary": "Este es un post de recapitulación del evento Meetup Xamarin Students México del 1 de junio de 2016 en Urban Station"
-            },
-            { 
-                "id" : "/post/tips-xamarin-forms/",
-                "tv" : false,
-                "title": "Tips de desempeño en Xamarin Forms", 
-                "date": "2016-05-30 03:00:00 -0500",
-                "featured_tag": "XamarinForms",
-                "featured_image": "http://thatcsharpguy.com/postimages//xamarin-forms/tips.png",
-                "summary": "Jason Smith, ingeniero a cargo de Xamarin Forms, hizo una fantástica presentación en la conferencia Evolve de este año. En ella, él repasó una larga lista de tips de desempeño, así como una sesión de preguntas y respuestas sobre Xamarin Forms."
-            },
-            { 
-                "id" : "/tv/xamarin-forms/",
-                "tv" : true,
-                "title": "Xamarin.Forms", 
-                "date": "2016-05-26 17:00:00 -0500",
-                "featured_tag": "Xamarin",
-                "featured_image": "http://thatcsharpguy.com/postimages//tv/xamarinforms/featured.jpg",
-                "summary": "Con Xamarin.Forms munca había sido tan fácil crear aplicaciones multiplataforma compartiendo la mayoría del código entre ellas, incluyendo la interfaz gráfica. En este video te explico de qué se trata."
             }	
         ]
 }

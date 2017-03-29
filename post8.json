@@ -4,6 +4,42 @@
     "items" : 
         [   
             { 
+                "id" : "/post/code-organization-visual-studio/",
+                "tv" : false,
+                "title": "How is my code organized in Visual Studio?", 
+                "date": "2015-11-16 15:00:00 -0600",
+                "featured_tag": "VisualStudio",
+                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.jpg",
+                "summary": "If you have ever used an IDE to develop any application you might have wondered how do these kind of programs know where are the components for each one of the things that make your app compile or run. In this post I'll try to explain how Xamarin Studio and Visual Studio keeps that control."
+            },
+            { 
+                "id" : "/post/linq-en-c-sharp/",
+                "tv" : false,
+                "title": "Linq en C#", 
+                "date": "2015-11-11 14:00:00 -0600",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
+                "summary": "Linq nos otorga la posibilidad de usar un lenguaje bastante similar al SQL dentro de nuestro código C# para consultar un origen de datos."
+            },
+            { 
+                "id" : "/post/xamarin-forms-mvvm-21-nov-2015/",
+                "tv" : false,
+                "title": "Xamarin.Forms y MVVM en la ESCOM (21 de noviembre de 2015)", 
+                "date": "2015-11-02 16:00:00 -0600",
+                "featured_tag": "Xamarin",
+                "featured_image": "http://thatcsharpguy.com/postimages/commons/event.png",
+                "summary": "En el evento haremos juntos una app utilizando estas tecnologías mientras platicamos un poco acerca de MVVM y cómo implementarlo junto con Xamarin.Forms."
+            },
+            { 
+                "id" : "/post/que-son-portable-class-library/",
+                "tv" : false,
+                "title": "¿Qué es una Portable Class Library?", 
+                "date": "2015-11-02 04:00:00 -0600",
+                "featured_tag": "VisualStudio",
+                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
+                "summary": "Las bibliotecas de clases portables nos permiten compartir código entre distintas plataformas de .NET"
+            },
+            { 
                 "id" : "/post/var-en-c-sharp/",
                 "tv" : false,
                 "title": "¿Qué es var en C#?", 
@@ -101,42 +137,6 @@
                 "featured_tag": "XamarinForms",
                 "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
                 "summary": "Con CharpHat toma una foto y muéstrale al mundo que te gusta C#, CharpHat te permite colocarte un birrete con mucho estilo."
-            },
-            { 
-                "id" : "/post/pushing-from-netduino-to-mobile/",
-                "tv" : false,
-                "title": "Pushing with Parse from Netduino to Xamarin.Forms", 
-                "date": "2015-08-31 16:00:00 -0500",
-                "featured_tag": "Xamarin",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.jpg",
-                "summary": "It's been a while since I took my Netduino out of its box and I did something with it, back then I promised to do a slightly more complex system using a push notification service."
-            },
-            { 
-                "id" : "/post/string-vs-system-string-es/",
-                "tv" : false,
-                "title": "Un post sobre alias, ¿string vs. System.String?", 
-                "date": "2015-08-21 08:00:00 -0500",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.jpg",
-                "summary": "He de aceptarlo, una de las cosas que más dudas me causaba cuando inicié a programar usando C# era sobre cuál era la diferencia entre usar string o System.String, la idea que yo tenía al respecto que estaba totalmente equivocada."
-            },
-            { 
-                "id" : "/post/importancia-de-programar-con-estilo/",
-                "tv" : false,
-                "title": "La importancia de programar con estilo", 
-                "date": "2015-08-15 12:00:00 -0500",
-                "featured_tag": "Meta",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.jpg",
-                "summary": "Y al decir \"programar con estilo\" no me refiero a que estén todo el tiempo con los meñiques levantados, o sólo hacerlo las tardes a las 5 p.m. No."
-            },
-            { 
-                "id" : "/post/importance-of-coding-with-style/",
-                "tv" : false,
-                "title": "The importance of coding with style", 
-                "date": "2015-08-15 12:00:00 -0500",
-                "featured_tag": "Meta",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.jpg",
-                "summary": "And with \"coding with style\" I don't mean to keep your pinkies up while doing it or just write code every evening at 5:00 pm. No."
             }	
         ]
 }

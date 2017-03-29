@@ -1,0 +1,11 @@
+{	
+	"id" : "/post/fluent-assertions/",
+	"tv" : false,
+	"github": "https://github.com/ThatCSharpGuy/UnitTesting",
+	"date": "2017-03-21 13:00:01 -0600",
+	"title" : "Mejores pruebas unitarias con FluentAssertions",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimages//nugets/fluentassertions/featured.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//nugets/fluentassertions/",
+	"tags" : ["NuGetRecomendado","AprendeCSharp"]
+}

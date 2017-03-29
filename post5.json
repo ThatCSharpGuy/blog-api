@@ -4,6 +4,42 @@
     "items" : 
         [   
             { 
+                "id" : "/post/meetup-1-junio-2016/",
+                "tv" : false,
+                "title": "Primer Meetup Xamarin Students México", 
+                "date": "2016-06-03 17:00:00 -0500",
+                "featured_tag": "Xamarin",
+                "featured_image": "http://thatcsharpguy.com/postimages/events/1-jun-2016.jpg",
+                "summary": "Parte de las presentaciones que hubo en el Meetup Xamarin Students México del 1 de junio de 2016 en Urban Station. Una demo de Custom Renderers."
+            },
+            { 
+                "id" : "/post/mobile-c-sharp-workshop-17-oct-2016/",
+                "tv" : false,
+                "title": "Primer Meetup Xamarin Students México", 
+                "date": "2016-06-02 17:00:00 -0500",
+                "featured_tag": "Xamarin",
+                "featured_image": "http://thatcsharpguy.com/postimages/commons/event.png",
+                "summary": "Este es un post de recapitulación del evento Meetup Xamarin Students México del 1 de junio de 2016 en Urban Station"
+            },
+            { 
+                "id" : "/post/tips-xamarin-forms/",
+                "tv" : false,
+                "title": "Tips de desempeño en Xamarin Forms", 
+                "date": "2016-05-30 03:00:00 -0500",
+                "featured_tag": "XamarinForms",
+                "featured_image": "http://thatcsharpguy.com/postimages//xamarin-forms/tips.png",
+                "summary": "Jason Smith, ingeniero a cargo de Xamarin Forms, hizo una fantástica presentación en la conferencia Evolve de este año. En ella, él repasó una larga lista de tips de desempeño, así como una sesión de preguntas y respuestas sobre Xamarin Forms."
+            },
+            { 
+                "id" : "/tv/xamarin-forms/",
+                "tv" : true,
+                "title": "Xamarin.Forms", 
+                "date": "2016-05-26 17:00:00 -0500",
+                "featured_tag": "Xamarin",
+                "featured_image": "http://thatcsharpguy.com/postimages//tv/xamarinforms/featured.jpg",
+                "summary": "Con Xamarin.Forms munca había sido tan fácil crear aplicaciones multiplataforma compartiendo la mayoría del código entre ellas, incluyendo la interfaz gráfica. En este video te explico de qué se trata."
+            },
+            { 
                 "id" : "/post/jirapi/",
                 "tv" : false,
                 "title": "Jirapi", 
@@ -101,42 +137,6 @@
                 "featured_tag": "Tv",
                 "featured_image": "http://thatcsharpguy.com/postimages//tv/hola-mundo/featured.png",
                 "summary": "Video de presentación de este nuevo canal de YouTube en donde, a pesar del nombre, no solamente hablaré de C#, si no de varias muchas otras cosas relacionadas con la programación."
-            },
-            { 
-                "id" : "/post/out-ref-c-sharp/",
-                "tv" : false,
-                "title": "out y ref en C#", 
-                "date": "2016-04-11 14:00:01 -0500",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/ref-out.png",
-                "summary": "Seguramente si en alguna vez de tu carrera has usado código C o C++ te has encontrado con estos operadores&#58; &#42; y &amp; que, en pocas palabras, nos sirven para trabajar con punteros y también sabrás que estos nos permitían pasar como referencia una variable."
-            },
-            { 
-                "id" : "/post/metodos-c-sharp/",
-                "tv" : false,
-                "title": "Métodos en C#", 
-                "date": "2016-04-11 14:00:00 -0500",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/metodos.png",
-                "summary": "Un método no es más que un procedimiento o acción asociado con una clase y se compone de datos y un comportamiento. Esta es la manera de definir un método en C#."
-            },
-            { 
-                "id" : "/post/c-sharp-obj-c/",
-                "tv" : false,
-                "title": "Xamarin.iOS, C# y Objective-C", 
-                "date": "2016-04-04 14:00:00 -0500",
-                "featured_tag": "Xamarin",
-                "featured_image": "http://thatcsharpguy.com/postimages//xamarin-ios/featured_obj.png",
-                "summary": "Un post en el que se compara la sintaxis de Objective-C con la de C# con Xamarin.iOS."
-            },
-            { 
-                "id" : "/post/automapper/",
-                "tv" : false,
-                "title": "AutoMapper", 
-                "date": "2016-03-28 13:00:00 -0600",
-                "featured_tag": "NuGetRecomendado",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
-                "summary": "AutoMapper es un mapeador objeto-objeto que &quot;convierte&quot; un objeto de un tipo a otro, sin embargo lo que hace realmente útil a esta herramienta es que facilita la tarea mediante el uso de convenciones de código."
             }	
         ]
 }

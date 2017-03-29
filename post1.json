@@ -4,6 +4,42 @@
     "items" : 
         [   
             { 
+                "id" : "/post/httplogger-es/",
+                "tv" : false,
+                "title": "Inspeciona tus peticiones http con HttpLogger", 
+                "date": "2017-03-28 13:00:01 -0600",
+                "featured_tag": "NuGetRecomendado",
+                "featured_image": "http://thatcsharpguy.com/postimages//nugets/httplogger/featured.jpg",
+                "summary": "Inspecciona el request y response de las conexiones que tu app hace a servicios web. Haz con ellas lo que quieras, desde guardarlas en un archivo hasta ponerlas en pantalla."
+            },
+            { 
+                "id" : "/post/httplogger-en/",
+                "tv" : false,
+                "title": "Inspect your http requests with HttpLogger", 
+                "date": "2017-03-28 13:00:01 -0600",
+                "featured_tag": "NuGetRecomendado",
+                "featured_image": "http://thatcsharpguy.com/postimages//nugets/httplogger/featured.jpg",
+                "summary": "Inspect the request and response of all the connection your app makes to any webservice. Do whatever you want with them, from saving them to a file to put them on screen!"
+            },
+            { 
+                "id" : "/tv/solid/",
+                "tv" : true,
+                "title": "Los principios SOLID", 
+                "date": "2017-03-28 12:00:00 -0600",
+                "featured_tag": "Tv",
+                "featured_image": "http://thatcsharpguy.com/postimages//tv/solid/solid.jpg",
+                "summary": "El objetivo de aplicar estos cinco principios es crear un código limpio y altamente mantenible, y es que el código mantenible no solo depende de programar con estilo siguiendo una guía, o de probar el código escrito, sino de la estructura con la que lo escribimos."
+            },
+            { 
+                "id" : "/post/fluent-assertions/",
+                "tv" : false,
+                "title": "Mejores pruebas unitarias con FluentAssertions", 
+                "date": "2017-03-21 13:00:01 -0600",
+                "featured_tag": "NuGetRecomendado",
+                "featured_image": "http://thatcsharpguy.com/postimages//nugets/fluentassertions/featured.jpg",
+                "summary": "Mejora tus pruebas unitarias con mensajes más claros, al momento de escribirlos y cuando tus tests fallan."
+            },
+            { 
                 "id" : "/tv/pruebas-unitarias-vs/",
                 "tv" : true,
                 "title": "Pruebas unitarias en Visual Studio", 
@@ -19,7 +55,7 @@
                 "date": "2017-03-14 12:00:00 -0600",
                 "featured_tag": "Tv",
                 "featured_image": "http://thatcsharpguy.com/postimages//tv/unit-test/featured-yt.jpg",
-                "summary": "Estas pruebas son un en donde componentes individuales del software se someten a pruebas. El propósito de estas es asegurar que cada unidad de trabajo funciona individualmente como debería. Es decir, funciona cuando se supone que debe funcionar, responde con lo que se supone que tiene que responder, falla como y cuando se supone que debe fallar."
+                "summary": "Estas pruebas es donde componentes individuales del software se someten a pruebas. El propósito de estas es asegurar que cada unidad de trabajo funciona individualmente como debería. Es decir, funciona cuando se supone que debe funcionar, responde con lo que se supone que tiene que responder, falla como y cuando se supone que debe fallar."
             },
             { 
                 "id" : "/post/popups-avanzados-xamarin-forms/",
@@ -101,42 +137,6 @@
                 "featured_tag": "AprendeCSharp",
                 "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/namespaces.png",
                 "summary": "Los nombres de espacio son de esas cosas en el dasrrollo a los que casi no les prestamos mucha atención, pero que bien usados nos resuelven muchos problemas y nos ayudan a organizar nuestro código."
-            },
-            { 
-                "id" : "/post/xamarin-userdialogs/",
-                "tv" : false,
-                "title": "UserDialogs en Xamarin Forms", 
-                "date": "2017-01-17 13:00:01 -0600",
-                "featured_tag": "XamarinForms",
-                "featured_image": "http://thatcsharpguy.com/postimages//xamarin-forms/userdialogs/featured.jpg",
-                "summary": "Usa esta librería de NuGet para interactuar con el usuario de tu aplicación de una forma más intuitiva, con mensajes de alerta, de error y de éxito. Consigue información a través de controles nativos como calendarios y selectores de tiempo."
-            },
-            { 
-                "id" : "/post/correcto-colecciones/",
-                "tv" : false,
-                "title": "Colecciones en C#, ¿cuál elegir?", 
-                "date": "2017-01-10 13:00:02 -0600",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimages/aprende-c-sharp/colecciones/featured.jpg",
-                "summary": "La colección List&lt;T&gt; puede no siempre ser la adecuada para el trabajo que estás intentando hacer con tu aplicación, en este post te cuento sobre las otras colecciones que .NET nos ofrece."
-            },
-            { 
-                "id" : "/tv/o-grande/",
-                "tv" : true,
-                "title": "Notación O grande", 
-                "date": "2017-01-10 12:00:00 -0600",
-                "featured_tag": "Tv",
-                "featured_image": "http://thatcsharpguy.com/postimages//tv/bigo/featured.jpg",
-                "summary": "La O mayúscula es una notación matemática también conocida Bachmann–Landau notation, asymptotic notation, notación o grande. Y esta nos ayuda a describir el comportamiento de una función \"al límite\"."
-            },
-            { 
-                "id" : "/post/metas-blog-2017/",
-                "tv" : false,
-                "title": "Metas de That C# guy en 2017", 
-                "date": "2017-01-02 12:31:38 -0600",
-                "featured_tag": "Meta",
-                "featured_image": "http://thatcsharpguy.com/postimages//meta/2017.png",
-                "summary": "Nuevo año, nuevas metas para That C&#35; guy, conócleas."
             }	
         ]
 }

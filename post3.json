@@ -4,6 +4,42 @@
     "items" : 
         [   
             { 
+                "id" : "/post/full-camera-page.1/",
+                "tv" : false,
+                "title": "Full page camera in Xamarin.Forms", 
+                "date": "2016-11-08 02:00:00 -0600",
+                "featured_tag": "XamarinForms",
+                "featured_image": "http://thatcsharpguy.com/postimages//xamarin-forms/camerapage/featured.jpg",
+                "summary": "Learn how to take photos from your Xamarin.Forms app using a custom page renderer to use the camera without leaving your application, with this control, you can create your own camera user interface to match the design of your app."
+            },
+            { 
+                "id" : "/post/debugging-1/",
+                "tv" : false,
+                "title": "Debugging parte 1", 
+                "date": "2016-10-31 13:00:01 -0600",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/debugging/f.png",
+                "summary": "En este post te voy a dar algunos tips para que depures tu código en C# y tu IDE de confianza."
+            },
+            { 
+                "id" : "/post/string-format/",
+                "tv" : false,
+                "title": "String.Format", 
+                "date": "2016-10-24 14:00:01 -0500",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/format.jpg",
+                "summary": "Olvídate de concatenar una interminable cantidad de cadenas para presentar la información en tus aplicaciones. Con este método de la clase String tienes (casi) todo resuelto, únicamente necesitas una cadena con marcadores y listo."
+            },
+            { 
+                "id" : "/post/xamarin-auth-es/",
+                "tv" : false,
+                "title": "OAuth en Forms con Xamarin.Auth", 
+                "date": "2016-10-17 14:00:01 -0500",
+                "featured_tag": "XamarinForms",
+                "featured_image": "http://thatcsharpguy.com/postimages//xamarin/auth/featured.jpg",
+                "summary": "Con Xamarin.Auth, el incorporar servicios de terceros como Twitter y Facebook nunca había sido tan fácil, en este post, aprende a hacerlo desde Xamarin.Forms."
+            },
+            { 
                 "id" : "/post/reflexion-c-sharp-es/",
                 "tv" : false,
                 "title": "Reflexión en C#", 
@@ -101,42 +137,6 @@
                 "featured_tag": "Tv",
                 "featured_image": "http://thatcsharpguy.com/postimages//tv/estilo/featured.jpg",
                 "summary": "Programar con estilo es escribir nuestros programas fáciles de entender, bien documentados y siguiendo convenciones de escritura previamente adoptadas."
-            },
-            { 
-                "id" : "/post/akavache/",
-                "tv" : false,
-                "title": "Persistencia de datos con Akavache", 
-                "date": "2016-08-08 14:00:01 -0500",
-                "featured_tag": "NuGetRecomendado",
-                "featured_image": "http://thatcsharpguy.com/postimages//akavache/featured.jpg",
-                "summary": "Dale memoria a tus aplicaciones con este paquete de NuGet, con Akavache almacena información en el dispositivo del usuario para dar una impresión de fluidez y rapidez en tu app."
-            },
-            { 
-                "id" : "/post/c-sharp-enums/",
-                "tv" : false,
-                "title": "Enums en C#", 
-                "date": "2016-08-01 14:00:01 -0500",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/enums.png",
-                "summary": "Los enum son un tipo de dato que nos permite expresar valores constantes, con la particularidad de poderlos agrupar lógicamente de acuerdo a la relación que tienen unos con otros."
-            },
-            { 
-                "id" : "/post/formatted-number-entry/",
-                "tv" : false,
-                "title": "Formatted number entry", 
-                "date": "2016-08-01 03:00:00 -0500",
-                "featured_tag": "XamarinForms",
-                "featured_image": "http://thatcsharpguy.com/postimages//xamarin-forms/formattednumberentry/featured.png",
-                "summary": "I faced with the necessity of having a &quot;formatted textbox&quot; where the user could enter a given integer number and have it formatted instantly to a comma separated number."
-            },
-            { 
-                "id" : "/post/map-filter-reduce-f-sharp/",
-                "tv" : false,
-                "title": "Map, reduce y filter en F#", 
-                "date": "2016-07-25 14:00:00 -0500",
-                "featured_tag": "AprendeFSharp",
-                "featured_image": "http://thatcsharpguy.com/postimages//map-reduce-filter/featured.png",
-                "summary": "F# es un gran lenguaje, y unas de las cosas que me gusta de él es que está orientado completamente a la programación funcional. Comparte varias características con lenguajes como Elixir y otras pocas con lenguajes como Swift."
             }	
         ]
 }

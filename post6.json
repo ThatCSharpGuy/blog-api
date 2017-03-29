@@ -4,6 +4,42 @@
     "items" : 
         [   
             { 
+                "id" : "/post/out-ref-c-sharp/",
+                "tv" : false,
+                "title": "out y ref en C#", 
+                "date": "2016-04-11 14:00:01 -0500",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/ref-out.png",
+                "summary": "Seguramente si en alguna vez de tu carrera has usado código C o C++ te has encontrado con estos operadores&#58; &#42; y &amp; que, en pocas palabras, nos sirven para trabajar con punteros y también sabrás que estos nos permitían pasar como referencia una variable."
+            },
+            { 
+                "id" : "/post/metodos-c-sharp/",
+                "tv" : false,
+                "title": "Métodos en C#", 
+                "date": "2016-04-11 14:00:00 -0500",
+                "featured_tag": "AprendeCSharp",
+                "featured_image": "http://thatcsharpguy.com/postimages//aprende-c-sharp/metodos.png",
+                "summary": "Un método no es más que un procedimiento o acción asociado con una clase y se compone de datos y un comportamiento. Esta es la manera de definir un método en C#."
+            },
+            { 
+                "id" : "/post/c-sharp-obj-c/",
+                "tv" : false,
+                "title": "Xamarin.iOS, C# y Objective-C", 
+                "date": "2016-04-04 14:00:00 -0500",
+                "featured_tag": "Xamarin",
+                "featured_image": "http://thatcsharpguy.com/postimages//xamarin-ios/featured_obj.png",
+                "summary": "Un post en el que se compara la sintaxis de Objective-C con la de C# con Xamarin.iOS."
+            },
+            { 
+                "id" : "/post/automapper/",
+                "tv" : false,
+                "title": "AutoMapper", 
+                "date": "2016-03-28 13:00:00 -0600",
+                "featured_tag": "NuGetRecomendado",
+                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
+                "summary": "AutoMapper es un mapeador objeto-objeto que &quot;convierte&quot; un objeto de un tipo a otro, sin embargo lo que hace realmente útil a esta herramienta es que facilita la tarea mediante el uso de convenciones de código."
+            },
+            { 
                 "id" : "/post/multiselect-listview-mvvm/",
                 "tv" : false,
                 "title": "Multi-select ListView y MVVM", 
@@ -101,42 +137,6 @@
                 "featured_tag": "AprendeCSharp",
                 "featured_image": "http://thatcsharpguy.com/postimages/linq-en-c-sharp/featured.png",
                 "summary": "Conoce un poco más sobre el poder de Linq a través de ejemplos sencillos. Promedios, sumas, filtrados, ordenamientos y más."
-            },
-            { 
-                "id" : "/post/c-sharp-netmf-iot/",
-                "tv" : false,
-                "title": "Cosas para hacer en C#: IoT", 
-                "date": "2016-01-25 13:00:00 -0600",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.jpg",
-                "summary": "A lo largo de los años se ha avanzado en la creación de un ambiente más amigable para las personas que están interesadas en la programación de microcontroladores para construir sistemas a la medida o a veces solo jugar con ellos."
-            },
-            { 
-                "id" : "/post/humaniza-tus-apps/",
-                "tv" : false,
-                "title": "Humaniza tus apps", 
-                "date": "2016-01-18 13:00:00 -0600",
-                "featured_tag": "NuGetRecomendado",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured_es.png",
-                "summary": "Dale un toque más humano a tus aplicaciones con esta pequeña pero útil librería de clases que te ayuda a presentar en un lenguaje más fluído los datos dentro de tu app al usuario final."
-            },
-            { 
-                "id" : "/post/sentencias-expresiones-operadores/",
-                "tv" : false,
-                "title": "Sentencias, expresiones y operadores", 
-                "date": "2016-01-11 13:00:00 -0600",
-                "featured_tag": "AprendeCSharp",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
-                "summary": "Hace tiempo yo pensaba que sabía programar más o menos bien en C#, pero había ocasiones en las que leyendo documentación me encontraba con ciertas palabras que no lograba comprender, entre ellas estaba las palabras \"sentencia\" y \"expresión\"."
-            },
-            { 
-                "id" : "/post/opening-files-xamarin-forms/",
-                "tv" : false,
-                "title": "Opening files in Xamarin.Forms", 
-                "date": "2016-01-08 15:00:00 -0600",
-                "featured_tag": "XamarinForms",
-                "featured_image": "http://thatcsharpguy.com/postimagesfeatured.png",
-                "summary": "Learn how to enable your application to receive files from other apps in the same device."
             }	
         ]
 }

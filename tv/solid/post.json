@@ -1,0 +1,11 @@
+{	
+	"id" : "/tv/solid/",
+	"tv" : true,
+	"youtube": "lOg2IuQIp-s",
+	"date": "2017-03-28 12:00:00 -0600",
+	"title" : "Los principios SOLID",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimages//tv/solid/solid.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//tv/solid/",
+	"tags" : ["Meta","Tv"]
+}

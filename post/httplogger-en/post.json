@@ -1,0 +1,11 @@
+{	
+	"id" : "/post/httplogger-en/",
+	"tv" : false,
+	"github": "https://github.com/messier16/HttpLogger",
+	"date": "2017-03-28 13:00:01 -0600",
+	"title" : "Inspect your http requests with HttpLogger",
+	"author" : "Antonio Feregrino Bolaños",
+	"featured_image": "http://thatcsharpguy.com/postimages//nugets/httplogger/featured.jpg",
+	"featured_images_root": "http://thatcsharpguy.com/postimages//nugets/httplogger/",
+	"tags" : ["NuGetRecomendado","AprendeCSharp"]
+}
